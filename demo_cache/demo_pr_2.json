@@ -1,0 +1,237 @@
+{
+  "demo_id": 2,
+  "target_function": "src.vorta.views.main_window.MainWindow.profile_import_action",
+  "decision": {
+    "head_sha": "vorta_demo_pr_2",
+    "files_changed": [
+      "src/vorta/views/main_window.py"
+    ],
+    "changed_functions": [
+      "src.vorta.views.main_window.MainWindow.__init__",
+      "src.vorta.views.main_window.MainWindow.get_current_profile",
+      "src.vorta.views.main_window.MainWindow.on_close_window"
+    ],
+    "blast_radius": [],
+    "affected_tests": [],
+    "test_proof_paths": {},
+    "reviewers": [
+      {
+        "author": "Manu",
+        "commits": 14,
+        "files_covered": 1,
+        "last_ts": 1769152812,
+        "score": 0.8717
+      },
+      {
+        "author": "Divyesh",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1773486640,
+        "score": 0.6084
+      },
+      {
+        "author": "real-yfprojects",
+        "commits": 4,
+        "files_covered": 1,
+        "last_ts": 1682929691,
+        "score": 0.5873
+      },
+      {
+        "author": "Parnassius",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1725657526,
+        "score": 0.5532
+      },
+      {
+        "author": "Ted Lawson",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1698136610,
+        "score": 0.5459
+      },
+      {
+        "author": "Divyansh Singh",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1688552889,
+        "score": 0.5448
+      },
+      {
+        "author": "yfprojects",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1648455025,
+        "score": 0.5432
+      },
+      {
+        "author": "Philipp Hossner",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1628742728,
+        "score": 0.543
+      },
+      {
+        "author": "Bastien",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1633347101,
+        "score": 0.543
+      },
+      {
+        "author": "samuel-w",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1613617383,
+        "score": 0.5429
+      }
+    ],
+    "centrality": [
+      {
+        "fn": "src.vorta.views.main_window.MainWindow.get_current_profile",
+        "pagerank": 0.000327264482621104
+      },
+      {
+        "fn": "src.vorta.views.main_window.MainWindow.on_close_window",
+        "pagerank": 0.000327264482621104
+      },
+      {
+        "fn": "src.vorta.views.main_window.MainWindow.__init__",
+        "pagerank": 0.000327264482621104
+      }
+    ],
+    "recent_churn": 2,
+    "risk": {
+      "score": 0.2561,
+      "label": "low",
+      "factors": {
+        "blast_component": 0.0,
+        "pagerank_component": 0.0001,
+        "uncovered_component": 0.25,
+        "churn_component": 0.006
+      },
+      "raw_inputs": {
+        "blast_radius": 0,
+        "max_pagerank_pct": 0.000327264482621104,
+        "covered_ratio": 0.0,
+        "churn_norm": 0.04
+      },
+      "notes": [
+        "No test reaches this change"
+      ]
+    },
+    "evidence": [
+      {
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "params": {
+          "path": "src/vorta/scheduler/execution.py",
+          "hunk_start": 5,
+          "hunk_end": 25
+        },
+        "row_count": 0,
+        "duration_ms": 92.33
+      },
+      {
+        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "params": {
+          "files": [
+            "src/vorta/scheduler/execution.py"
+          ],
+          "before": 1792161533
+        },
+        "row_count": 2,
+        "duration_ms": 3.15
+      },
+      {
+        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "params": {
+          "files": [
+            "src/vorta/scheduler/execution.py"
+          ],
+          "since": 1784385533,
+          "before": 1792161533
+        },
+        "row_count": 1,
+        "duration_ms": 1.02
+      },
+      {
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "params": {
+          "path": "src/vorta/views/main_window.py",
+          "hunk_start": 100,
+          "hunk_end": 140
+        },
+        "row_count": 3,
+        "duration_ms": 0.78
+      },
+      {
+        "cypher": "MATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200",
+        "params": {
+          "changed": [
+            "src.vorta.views.main_window.MainWindow.__init__",
+            "src.vorta.views.main_window.MainWindow.get_current_profile",
+            "src.vorta.views.main_window.MainWindow.on_close_window"
+          ]
+        },
+        "row_count": 0,
+        "duration_ms": 0.84
+      },
+      {
+        "cypher": "MATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30",
+        "params": {
+          "changed": [
+            "src.vorta.views.main_window.MainWindow.__init__",
+            "src.vorta.views.main_window.MainWindow.get_current_profile",
+            "src.vorta.views.main_window.MainWindow.on_close_window"
+          ]
+        },
+        "row_count": 0,
+        "duration_ms": 0.85
+      },
+      {
+        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "params": {
+          "files": [
+            "src/vorta/views/main_window.py"
+          ],
+          "before": 1792161533
+        },
+        "row_count": 10,
+        "duration_ms": 3.4
+      },
+      {
+        "cypher": "MATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC",
+        "params": {
+          "changed": [
+            "src.vorta.views.main_window.MainWindow.__init__",
+            "src.vorta.views.main_window.MainWindow.get_current_profile",
+            "src.vorta.views.main_window.MainWindow.on_close_window"
+          ]
+        },
+        "row_count": 3,
+        "duration_ms": 0.69
+      },
+      {
+        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "params": {
+          "files": [
+            "src/vorta/views/main_window.py"
+          ],
+          "since": 1784385533,
+          "before": 1792161533
+        },
+        "row_count": 1,
+        "duration_ms": 0.92
+      }
+    ],
+    "summary": "Change modifies 3 function(s) with a blast radius of 0 caller(s). Assessed as LOW risk (score: 0.2561) with 0 reaching test(s).",
+    "section_notes": {
+      "blast": "No callers identified; change is isolated to defined scope.",
+      "tests": "No test reaches this change (finding: potential regression risk).",
+      "reviewers": "Top reviewers ranked by historical commit frequency and recency on changed files.",
+      "risk": "Score 0.2561 (LOW) driven by blast ratio, PageRank centrality, and test coverage."
+    },
+    "notable_paths": []
+  },
+  "pr_comment": "<!-- impactgraph -->\n\nChange modifies 3 function(s) with a blast radius of 0 caller(s). Assessed as LOW risk (score: 0.2561) with 0 reaching test(s).\n\n## Risk: Low (0.2561)\n\n| Factor | Contribution |\n| --- | ---: |\n| Blast radius | 0.0 |\n| PageRank | 0.0001 |\n| Uncovered tests | 0.25 |\n| Churn | 0.006 |\n\n> Score 0.2561 (LOW) driven by blast ratio, PageRank centrality, and test coverage.\n\n## Affected Callers (Blast radius)\n\n_No callers identified._\n\n> No callers identified; change is isolated to defined scope.\n\n## Tests to Run\n\n**Finding:** No test reaches this change\n\n> No test reaches this change (finding: potential regression risk).\n\n## Suggested Reviewers\n\n1. **Manu** \u2014 files covered: 1, commits: 14, score: 0.8717\n2. **Divyesh** \u2014 files covered: 1, commits: 1, score: 0.6084\n3. **real-yfprojects** \u2014 files covered: 1, commits: 4, score: 0.5873\n4. **Parnassius** \u2014 files covered: 1, commits: 2, score: 0.5532\n5. **Ted Lawson** \u2014 files covered: 1, commits: 2, score: 0.5459\n6. **Divyansh Singh** \u2014 files covered: 1, commits: 2, score: 0.5448\n7. **yfprojects** \u2014 files covered: 1, commits: 2, score: 0.5432\n8. **Philipp Hossner** \u2014 files covered: 1, commits: 2, score: 0.543\n9. **Bastien** \u2014 files covered: 1, commits: 2, score: 0.543\n10. **samuel-w** \u2014 files covered: 1, commits: 2, score: 0.5429\n\n> Top reviewers ranked by historical commit frequency and recency on changed files.\n\n## Graph Evidence\n\n<details>\n<summary>Cypher queries and runtimes</summary>\n\n**92.33 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**3.15 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**1.02 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n**0.78 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**0.84 ms**\n\n```cypher\nMATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200\n```\n\n**0.85 ms**\n\n```cypher\nMATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30\n```\n\n**3.4 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**0.69 ms**\n\n```cypher\nMATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC\n```\n\n**0.92 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n</details>\n"
+}

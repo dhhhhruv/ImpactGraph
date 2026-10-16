@@ -1,0 +1,768 @@
+{
+  "demo_id": 5,
+  "target_function": "src.vorta.views.repo_tab.RepoTab.repo_unlink_action",
+  "decision": {
+    "head_sha": "vorta_demo_pr_5",
+    "files_changed": [
+      "src/vorta/views/repo_tab.py"
+    ],
+    "changed_functions": [
+      "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+    ],
+    "blast_radius": [
+      {
+        "affected": "src.vorta.views.repo_tab.RepoTab.process_new_repo",
+        "via": "src.vorta.views.repo_tab.RepoTab.init_repo_stats",
+        "hops": 1,
+        "path": [
+          "src.vorta.views.repo_tab.RepoTab.process_new_repo",
+          "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+        ]
+      },
+      {
+        "affected": "src.vorta.views.repo_tab.RepoTab.repo_select_action",
+        "via": "src.vorta.views.repo_tab.RepoTab.init_repo_stats",
+        "hops": 1,
+        "path": [
+          "src.vorta.views.repo_tab.RepoTab.repo_select_action",
+          "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+        ]
+      },
+      {
+        "affected": "src.vorta.views.repo_tab.RepoTab.populate_from_profile",
+        "via": "src.vorta.views.repo_tab.RepoTab.init_repo_stats",
+        "hops": 1,
+        "path": [
+          "src.vorta.views.repo_tab.RepoTab.populate_from_profile",
+          "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+        ]
+      },
+      {
+        "affected": "src.vorta.views.repo_tab.RepoTab.repo_unlink_action",
+        "via": "src.vorta.views.repo_tab.RepoTab.init_repo_stats",
+        "hops": 2,
+        "path": [
+          "src.vorta.views.repo_tab.RepoTab.repo_unlink_action",
+          "src.vorta.views.repo_tab.RepoTab.populate_from_profile",
+          "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+        ]
+      },
+      {
+        "affected": "tests.unit.test_repo.test_repo_unlink_shared_repository_keeps_dropdown_entry",
+        "via": "src.vorta.views.repo_tab.RepoTab.init_repo_stats",
+        "hops": 3,
+        "path": [
+          "tests.unit.test_repo.test_repo_unlink_shared_repository_keeps_dropdown_entry",
+          "src.vorta.views.repo_tab.RepoTab.repo_unlink_action",
+          "src.vorta.views.repo_tab.RepoTab.populate_from_profile",
+          "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+        ]
+      }
+    ],
+    "affected_tests": [
+      {
+        "test": "tests.unit.test_repo.test_repo_unlink_shared_repository_keeps_dropdown_entry",
+        "file": "tests/unit/test_repo.py",
+        "hops": 3
+      }
+    ],
+    "test_proof_paths": {
+      "tests.unit.test_repo.test_repo_unlink_shared_repository_keeps_dropdown_entry": [
+        "tests.unit.test_repo.test_repo_unlink_shared_repository_keeps_dropdown_entry",
+        "src.vorta.views.repo_tab.RepoTab.repo_unlink_action",
+        "src.vorta.views.repo_tab.RepoTab.populate_from_profile",
+        "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+      ]
+    },
+    "reviewers": [
+      {
+        "author": "Manu",
+        "commits": 8,
+        "files_covered": 1,
+        "last_ts": 1786736536,
+        "score": 0.957
+      },
+      {
+        "author": "yfprojects",
+        "commits": 6,
+        "files_covered": 1,
+        "last_ts": 1665659540,
+        "score": 0.7257
+      },
+      {
+        "author": "Divyesh",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1773578164,
+        "score": 0.6624
+      },
+      {
+        "author": "real-yfprojects",
+        "commits": 4,
+        "files_covered": 1,
+        "last_ts": 1682929691,
+        "score": 0.6515
+      },
+      {
+        "author": "Divyansh Singh",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1687636666,
+        "score": 0.5769
+      },
+      {
+        "author": "Vandal",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1752387217,
+        "score": 0.5715
+      },
+      {
+        "author": "TW",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1704787608,
+        "score": 0.5416
+      },
+      {
+        "author": "i1sm3ky",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1681726621,
+        "score": 0.539
+      },
+      {
+        "author": "Joshua Goins",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1676829752,
+        "score": 0.5387
+      },
+      {
+        "author": "Philipp Hossner",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1622891738,
+        "score": 0.5376
+      }
+    ],
+    "centrality": [
+      {
+        "fn": "src.vorta.views.repo_tab.RepoTab.init_repo_stats",
+        "pagerank": 0.00060126360040158
+      }
+    ],
+    "recent_churn": 1,
+    "risk": {
+      "score": 0.0382,
+      "label": "low",
+      "factors": {
+        "blast_component": 0.035,
+        "pagerank_component": 0.0002,
+        "uncovered_component": 0.0,
+        "churn_component": 0.003
+      },
+      "raw_inputs": {
+        "blast_radius": 5,
+        "max_pagerank_pct": 0.00060126360040158,
+        "covered_ratio": 1.0,
+        "churn_norm": 0.02
+      },
+      "notes": []
+    },
+    "evidence": [
+      {
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "params": {
+          "path": "src/vorta/scheduler/execution.py",
+          "hunk_start": 5,
+          "hunk_end": 25
+        },
+        "row_count": 0,
+        "duration_ms": 92.33
+      },
+      {
+        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "params": {
+          "files": [
+            "src/vorta/scheduler/execution.py"
+          ],
+          "before": 1792161533
+        },
+        "row_count": 2,
+        "duration_ms": 3.15
+      },
+      {
+        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "params": {
+          "files": [
+            "src/vorta/scheduler/execution.py"
+          ],
+          "since": 1784385533,
+          "before": 1792161533
+        },
+        "row_count": 1,
+        "duration_ms": 1.02
+      },
+      {
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "params": {
+          "path": "src/vorta/views/main_window.py",
+          "hunk_start": 100,
+          "hunk_end": 140
+        },
+        "row_count": 3,
+        "duration_ms": 0.78
+      },
+      {
+        "cypher": "MATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200",
+        "params": {
+          "changed": [
+            "src.vorta.views.main_window.MainWindow.__init__",
+            "src.vorta.views.main_window.MainWindow.get_current_profile",
+            "src.vorta.views.main_window.MainWindow.on_close_window"
+          ]
+        },
+        "row_count": 0,
+        "duration_ms": 0.84
+      },
+      {
+        "cypher": "MATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30",
+        "params": {
+          "changed": [
+            "src.vorta.views.main_window.MainWindow.__init__",
+            "src.vorta.views.main_window.MainWindow.get_current_profile",
+            "src.vorta.views.main_window.MainWindow.on_close_window"
+          ]
+        },
+        "row_count": 0,
+        "duration_ms": 0.85
+      },
+      {
+        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "params": {
+          "files": [
+            "src/vorta/views/main_window.py"
+          ],
+          "before": 1792161533
+        },
+        "row_count": 10,
+        "duration_ms": 3.4
+      },
+      {
+        "cypher": "MATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC",
+        "params": {
+          "changed": [
+            "src.vorta.views.main_window.MainWindow.__init__",
+            "src.vorta.views.main_window.MainWindow.get_current_profile",
+            "src.vorta.views.main_window.MainWindow.on_close_window"
+          ]
+        },
+        "row_count": 3,
+        "duration_ms": 0.69
+      },
+      {
+        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "params": {
+          "files": [
+            "src/vorta/views/main_window.py"
+          ],
+          "since": 1784385533,
+          "before": 1792161533
+        },
+        "row_count": 1,
+        "duration_ms": 0.92
+      },
+      {
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "params": {
+          "path": "src/vorta/borg/borg_job.py",
+          "hunk_start": 80,
+          "hunk_end": 110
+        },
+        "row_count": 1,
+        "duration_ms": 1.06
+      },
+      {
+        "cypher": "MATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200",
+        "params": {
+          "changed": [
+            "src.vorta.borg.borg_job.BorgJob.__init__"
+          ]
+        },
+        "row_count": 0,
+        "duration_ms": 0.86
+      },
+      {
+        "cypher": "MATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30",
+        "params": {
+          "changed": [
+            "src.vorta.borg.borg_job.BorgJob.__init__"
+          ]
+        },
+        "row_count": 0,
+        "duration_ms": 0.56
+      },
+      {
+        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "params": {
+          "files": [
+            "src/vorta/borg/borg_job.py"
+          ],
+          "before": 1792161533
+        },
+        "row_count": 10,
+        "duration_ms": 2.96
+      },
+      {
+        "cypher": "MATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC",
+        "params": {
+          "changed": [
+            "src.vorta.borg.borg_job.BorgJob.__init__"
+          ]
+        },
+        "row_count": 1,
+        "duration_ms": 0.3
+      },
+      {
+        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "params": {
+          "files": [
+            "src/vorta/borg/borg_job.py"
+          ],
+          "since": 1784385533,
+          "before": 1792161533
+        },
+        "row_count": 1,
+        "duration_ms": 0.36
+      },
+      {
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "params": {
+          "path": "src/vorta/network_status/network_manager.py",
+          "hunk_start": 210,
+          "hunk_end": 214
+        },
+        "row_count": 1,
+        "duration_ms": 0.3
+      },
+      {
+        "cypher": "MATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200",
+        "params": {
+          "changed": [
+            "src.vorta.network_status.network_manager.read_dbus_property"
+          ]
+        },
+        "row_count": 140,
+        "duration_ms": 3.0
+      },
+      {
+        "cypher": "MATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30",
+        "params": {
+          "changed": [
+            "src.vorta.network_status.network_manager.read_dbus_property"
+          ]
+        },
+        "row_count": 30,
+        "duration_ms": 0.68
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_kwallet.test_init_valid",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.35
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_source_files_table_model.test_file_count_sort_key_is_negative_for_files",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.34
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archives.test_archiveitem_contextmenu",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.29
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archives.test_inline_archive_rename",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.3
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_jobs_table_model.test_sort_keys_compare_raw_values",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.28
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archive_table_model.test_mount_point_is_shown_when_present",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.28
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archive_table_model.test_data_returns_none_for_invalid_index_or_unsupported_role",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.31
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_source_files_table_model.test_sort_role_orders_sizes_numerically",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.26
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_treemodel.TestFileTreeModel.test_simplified_tree",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.27
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_jobs_table_model.test_pending_run_renders_as_a_scheduled_backup",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.26
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_source_files_table_model.test_data_returns_none_for_invalid_index_or_unsupported_role",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.27
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_schedule.test_jobs_page_merges_pending_runs_with_stored_records",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.27
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_filedialog.test_path_changed_valid",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.24
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_misc.test_enable_fixed_units",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.24
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archive_table_model.test_set_data_rejects_non_name_column_or_wrong_role",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.24
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_diff.test_diff_item_copy",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.24
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_filedialog.test_dialog_initial_state",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.29
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.integration.test_diff.test_archive_diff_lines",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.24
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_source_files_table_model.test_set_rows_populates_and_preserves_order",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.25
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_event_log_table_model.test_data_returns_none_for_invalid_index_or_unsupported_role",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.25
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archive_table_model.test_trigger_icon_cache_hits_and_rebuilds_on_theme_switch",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.24
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_jobs_table_model.test_data_exposes_record_fields",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.23
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_jobs_table_model.test_two_filters_combine_as_and",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.24
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archive_table_model.test_duration_none_renders_empty",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.23
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archives.test_archive_copy",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.28
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_treemodel.TestFileTreeModel.test_flat",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.3
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_diff.test_archive_diff_json_parser",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.3
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archive_table_model.test_only_name_column_is_editable",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.26
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_source_files_table_model.test_file_entry_has_no_file_count",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.26
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_archive_table_model.test_sort_role_returns_native_comparable_values",
+          "changed_fn": "src.vorta.network_status.network_manager.read_dbus_property"
+        },
+        "row_count": 1,
+        "duration_ms": 0.26
+      },
+      {
+        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "params": {
+          "files": [
+            "src/vorta/network_status/network_manager.py"
+          ],
+          "before": 1792161533
+        },
+        "row_count": 6,
+        "duration_ms": 1.19
+      },
+      {
+        "cypher": "MATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC",
+        "params": {
+          "changed": [
+            "src.vorta.network_status.network_manager.read_dbus_property"
+          ]
+        },
+        "row_count": 1,
+        "duration_ms": 0.2
+      },
+      {
+        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "params": {
+          "files": [
+            "src/vorta/network_status/network_manager.py"
+          ],
+          "since": 1784385533,
+          "before": 1792161533
+        },
+        "row_count": 1,
+        "duration_ms": 0.29
+      },
+      {
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "params": {
+          "path": "src/vorta/views/repo_tab.py",
+          "hunk_start": 180,
+          "hunk_end": 205
+        },
+        "row_count": 1,
+        "duration_ms": 0.24
+      },
+      {
+        "cypher": "MATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200",
+        "params": {
+          "changed": [
+            "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+          ]
+        },
+        "row_count": 5,
+        "duration_ms": 0.33
+      },
+      {
+        "cypher": "MATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30",
+        "params": {
+          "changed": [
+            "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+          ]
+        },
+        "row_count": 1,
+        "duration_ms": 0.26
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_repo.test_repo_unlink_shared_repository_keeps_dropdown_entry",
+          "changed_fn": "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+        },
+        "row_count": 1,
+        "duration_ms": 0.31
+      },
+      {
+        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "params": {
+          "files": [
+            "src/vorta/views/repo_tab.py"
+          ],
+          "before": 1792161533
+        },
+        "row_count": 10,
+        "duration_ms": 1.16
+      },
+      {
+        "cypher": "MATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC",
+        "params": {
+          "changed": [
+            "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+          ]
+        },
+        "row_count": 1,
+        "duration_ms": 0.29
+      },
+      {
+        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "params": {
+          "files": [
+            "src/vorta/views/repo_tab.py"
+          ],
+          "since": 1784385533,
+          "before": 1792161533
+        },
+        "row_count": 1,
+        "duration_ms": 0.34
+      }
+    ],
+    "summary": "Change modifies 1 function(s) with a blast radius of 5 caller(s). Assessed as LOW risk (score: 0.0382) with 1 reaching test(s).",
+    "section_notes": {
+      "blast": "5 direct and indirect caller(s) identified in call graph.",
+      "tests": "1 existing test(s) reach this change.",
+      "reviewers": "Top reviewers ranked by historical commit frequency and recency on changed files.",
+      "risk": "Score 0.0382 (LOW) driven by blast ratio, PageRank centrality, and test coverage."
+    },
+    "notable_paths": [
+      [
+        "src.vorta.views.repo_tab.RepoTab.process_new_repo",
+        "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+      ],
+      [
+        "src.vorta.views.repo_tab.RepoTab.repo_select_action",
+        "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+      ],
+      [
+        "src.vorta.views.repo_tab.RepoTab.populate_from_profile",
+        "src.vorta.views.repo_tab.RepoTab.init_repo_stats"
+      ]
+    ]
+  },
+  "pr_comment": "<!-- impactgraph -->\n\nChange modifies 1 function(s) with a blast radius of 5 caller(s). Assessed as LOW risk (score: 0.0382) with 1 reaching test(s).\n\n## Risk: Low (0.0382)\n\n| Factor | Contribution |\n| --- | ---: |\n| Blast radius | 0.035 |\n| PageRank | 0.0002 |\n| Uncovered tests | 0.0 |\n| Churn | 0.003 |\n\n> Score 0.0382 (LOW) driven by blast ratio, PageRank centrality, and test coverage.\n\n## Affected Callers (Blast radius)\n\n- `src.vorta.views.repo_tab.RepoTab.process_new_repo` (1 hop(s)): `src.vorta.views.repo_tab.RepoTab.process_new_repo \u2192 src.vorta.views.repo_tab.RepoTab.init_repo_stats`\n- `src.vorta.views.repo_tab.RepoTab.repo_select_action` (1 hop(s)): `src.vorta.views.repo_tab.RepoTab.repo_select_action \u2192 src.vorta.views.repo_tab.RepoTab.init_repo_stats`\n- `src.vorta.views.repo_tab.RepoTab.populate_from_profile` (1 hop(s)): `src.vorta.views.repo_tab.RepoTab.populate_from_profile \u2192 src.vorta.views.repo_tab.RepoTab.init_repo_stats`\n- `src.vorta.views.repo_tab.RepoTab.repo_unlink_action` (2 hop(s)): `src.vorta.views.repo_tab.RepoTab.repo_unlink_action \u2192 src.vorta.views.repo_tab.RepoTab.populate_from_profile \u2192 src.vorta.views.repo_tab.RepoTab.init_repo_stats`\n- `tests.unit.test_repo.test_repo_unlink_shared_repository_keeps_dropdown_entry` (3 hop(s)): `tests.unit.test_repo.test_repo_unlink_shared_repository_keeps_dropdown_entry \u2192 src.vorta.views.repo_tab.RepoTab.repo_unlink_action \u2192 src.vorta.views.repo_tab.RepoTab.populate_from_profile \u2192 src.vorta.views.repo_tab.RepoTab.init_repo_stats`\n\n> 5 direct and indirect caller(s) identified in call graph.\n\n## Tests to Run\n\n- `tests.unit.test_repo.test_repo_unlink_shared_repository_keeps_dropdown_entry` (`tests/unit/test_repo.py`, 3 hop(s))\n\n```bash\npytest tests/unit/test_repo.py\n```\n\n> 1 existing test(s) reach this change.\n\n## Suggested Reviewers\n\n1. **Manu** \u2014 files covered: 1, commits: 8, score: 0.957\n2. **yfprojects** \u2014 files covered: 1, commits: 6, score: 0.7257\n3. **Divyesh** \u2014 files covered: 1, commits: 2, score: 0.6624\n4. **real-yfprojects** \u2014 files covered: 1, commits: 4, score: 0.6515\n5. **Divyansh Singh** \u2014 files covered: 1, commits: 2, score: 0.5769\n6. **Vandal** \u2014 files covered: 1, commits: 1, score: 0.5715\n7. **TW** \u2014 files covered: 1, commits: 1, score: 0.5416\n8. **i1sm3ky** \u2014 files covered: 1, commits: 1, score: 0.539\n9. **Joshua Goins** \u2014 files covered: 1, commits: 1, score: 0.5387\n10. **Philipp Hossner** \u2014 files covered: 1, commits: 1, score: 0.5376\n\n> Top reviewers ranked by historical commit frequency and recency on changed files.\n\n## Graph Evidence\n\n<details>\n<summary>Cypher queries and runtimes</summary>\n\n**92.33 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**3.15 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**1.02 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n**0.78 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**0.84 ms**\n\n```cypher\nMATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200\n```\n\n**0.85 ms**\n\n```cypher\nMATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30\n```\n\n**3.4 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**0.69 ms**\n\n```cypher\nMATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC\n```\n\n**0.92 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n**1.06 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**0.86 ms**\n\n```cypher\nMATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200\n```\n\n**0.56 ms**\n\n```cypher\nMATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30\n```\n\n**2.96 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**0.3 ms**\n\n```cypher\nMATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC\n```\n\n**0.36 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n**0.3 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**3.0 ms**\n\n```cypher\nMATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200\n```\n\n**0.68 ms**\n\n```cypher\nMATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30\n```\n\n**0.35 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.34 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.29 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.3 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.28 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.28 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.31 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.26 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.27 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.26 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.27 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.27 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.24 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.24 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.24 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.24 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.29 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.24 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.25 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.25 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.24 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.23 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.24 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.23 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.28 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.3 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.3 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.26 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.26 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**0.26 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**1.19 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**0.2 ms**\n\n```cypher\nMATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC\n```\n\n**0.29 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n**0.24 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**0.33 ms**\n\n```cypher\nMATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200\n```\n\n**0.26 ms**\n\n```cypher\nMATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30\n```\n\n**0.31 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nWITH shortestPath((t)-[:CALLS*..6]->(ch)) AS p\nWHERE p IS NOT NULL\nRETURN [n IN nodes(p) | n.qname] AS path\n```\n\n**1.16 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**0.29 ms**\n\n```cypher\nMATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC\n```\n\n**0.34 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n</details>\n"
+}

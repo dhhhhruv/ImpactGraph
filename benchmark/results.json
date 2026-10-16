@@ -1,0 +1,297 @@
+{
+  "generated_at": "2026-10-16T14:42:17.404478+00:00",
+  "methods": {
+    "graph": {
+      "reviewer_hit_at_3": 0.0,
+      "reviewer_hit_at_5": 0.0,
+      "reviewer_mrr": 0.0,
+      "test_recall_at_5_with_tests": 0.0,
+      "avg_tests_suggested_with_tests": 0.0,
+      "avg_tests_suggested_without_tests": 30.0,
+      "n_prs": 2,
+      "n_with_test_changes": 1,
+      "n_without_test_changes": 1
+    },
+    "most_recent_committer": {
+      "reviewer_hit_at_3": 0.0,
+      "reviewer_hit_at_5": 0.0,
+      "reviewer_mrr": 0.0,
+      "test_recall_at_5_with_tests": 0.0,
+      "avg_tests_suggested_with_tests": 0.0,
+      "avg_tests_suggested_without_tests": 0.0,
+      "n_prs": 2,
+      "n_with_test_changes": 1,
+      "n_without_test_changes": 1
+    },
+    "flat_commit_count": {
+      "reviewer_hit_at_3": 0.0,
+      "reviewer_hit_at_5": 0.0,
+      "reviewer_mrr": 0.0,
+      "test_recall_at_5_with_tests": 0.0,
+      "avg_tests_suggested_with_tests": 0.0,
+      "avg_tests_suggested_without_tests": 0.0,
+      "n_prs": 2,
+      "n_with_test_changes": 1,
+      "n_without_test_changes": 1
+    },
+    "same_name_test": {
+      "reviewer_hit_at_3": 0.0,
+      "reviewer_hit_at_5": 0.0,
+      "reviewer_mrr": 0.0,
+      "test_recall_at_5_with_tests": 1.0,
+      "avg_tests_suggested_with_tests": 1.0,
+      "avg_tests_suggested_without_tests": 1.0,
+      "n_prs": 2,
+      "n_with_test_changes": 1,
+      "n_without_test_changes": 1
+    },
+    "grep_imports": {
+      "reviewer_hit_at_3": 0.0,
+      "reviewer_hit_at_5": 0.0,
+      "reviewer_mrr": 0.0,
+      "test_recall_at_5_with_tests": 0.0,
+      "avg_tests_suggested_with_tests": 0.0,
+      "avg_tests_suggested_without_tests": 0.0,
+      "n_prs": 2,
+      "n_with_test_changes": 1,
+      "n_without_test_changes": 1
+    },
+    "llm_only": {
+      "reviewer_hit_at_3": 0.0,
+      "reviewer_hit_at_5": 0.0,
+      "reviewer_mrr": 0.0,
+      "test_recall_at_5_with_tests": 1.0,
+      "avg_tests_suggested_with_tests": 1.0,
+      "avg_tests_suggested_without_tests": 1.0,
+      "n_prs": 2,
+      "n_with_test_changes": 1,
+      "n_without_test_changes": 1
+    }
+  },
+  "per_pr": [
+    {
+      "number": 1,
+      "title": "Fix backup path handling",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 0,
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_backup.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_backup.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2,
+      "title": "Docs tweak only",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "Manu",
+            "real-yfprojects",
+            "jetchirag",
+            "yfprojects",
+            "Ted Lawson"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_utils.py",
+            "tests/unit/test_utils.py",
+            "tests/unit/test_utils.py",
+            "tests/integration/test_init.py",
+            "tests/unit/test_utils.py",
+            "tests/unit/test_utils.py",
+            "tests/unit/test_utils.py",
+            "tests/unit/test_utils.py",
+            "tests/unit/test_utils.py",
+            "tests/integration/test_init.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "Ted Lawson"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "Manu",
+            "yfprojects",
+            "real-yfprojects",
+            "Robert Blenis",
+            "jetchirag"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_utils.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_utils.py"
+          ]
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Reviewers may be assigned for non-expertise reasons.",
+    "No test change does not imply no test was needed.",
+    "Call graph is name-based and approximate."
+  ]
+}

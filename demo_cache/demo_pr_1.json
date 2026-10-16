@@ -1,0 +1,93 @@
+{
+  "demo_id": 1,
+  "target_function": "src.vorta.scheduler.execution.worst_error",
+  "decision": {
+    "head_sha": "vorta_demo_pr_1",
+    "files_changed": [
+      "src/vorta/scheduler/execution.py"
+    ],
+    "changed_functions": [],
+    "blast_radius": [],
+    "affected_tests": [],
+    "test_proof_paths": {},
+    "reviewers": [
+      {
+        "author": "Syed Ahmer Shah",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1791191062,
+        "score": 0.9915
+      },
+      {
+        "author": "Ebuzer Celil Durmaz",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1790408396,
+        "score": 0.985
+      }
+    ],
+    "centrality": [],
+    "recent_churn": 2,
+    "risk": {
+      "score": 0.006,
+      "label": "low",
+      "factors": {
+        "blast_component": 0.0,
+        "pagerank_component": 0.0,
+        "uncovered_component": 0.0,
+        "churn_component": 0.006
+      },
+      "raw_inputs": {
+        "blast_radius": 0,
+        "max_pagerank_pct": 0.0,
+        "covered_ratio": 1.0,
+        "churn_norm": 0.04
+      },
+      "notes": []
+    },
+    "evidence": [
+      {
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "params": {
+          "path": "src/vorta/scheduler/execution.py",
+          "hunk_start": 5,
+          "hunk_end": 25
+        },
+        "row_count": 0,
+        "duration_ms": 92.33
+      },
+      {
+        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "params": {
+          "files": [
+            "src/vorta/scheduler/execution.py"
+          ],
+          "before": 1792161533
+        },
+        "row_count": 2,
+        "duration_ms": 3.15
+      },
+      {
+        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "params": {
+          "files": [
+            "src/vorta/scheduler/execution.py"
+          ],
+          "since": 1784385533,
+          "before": 1792161533
+        },
+        "row_count": 1,
+        "duration_ms": 1.02
+      }
+    ],
+    "summary": "Change modifies 0 function(s) with a blast radius of 0 caller(s). Assessed as LOW risk (score: 0.006) with 0 reaching test(s).",
+    "section_notes": {
+      "blast": "No callers identified; change is isolated to defined scope.",
+      "tests": "No test reaches this change (finding: potential regression risk).",
+      "reviewers": "Top reviewers ranked by historical commit frequency and recency on changed files.",
+      "risk": "Score 0.006 (LOW) driven by blast ratio, PageRank centrality, and test coverage."
+    },
+    "notable_paths": []
+  },
+  "pr_comment": "<!-- impactgraph -->\n\nChange modifies 0 function(s) with a blast radius of 0 caller(s). Assessed as LOW risk (score: 0.006) with 0 reaching test(s).\n\n## Risk: Low (0.006)\n\n| Factor | Contribution |\n| --- | ---: |\n| Blast radius | 0.0 |\n| PageRank | 0.0 |\n| Uncovered tests | 0.0 |\n| Churn | 0.006 |\n\n> Score 0.006 (LOW) driven by blast ratio, PageRank centrality, and test coverage.\n\n## Affected Callers (Blast radius)\n\n_No callers identified._\n\n> No callers identified; change is isolated to defined scope.\n\n## Tests to Run\n\n**Finding:** No test reaches this change\n\n> No test reaches this change (finding: potential regression risk).\n\n## Suggested Reviewers\n\n1. **Syed Ahmer Shah** \u2014 files covered: 1, commits: 1, score: 0.9915\n2. **Ebuzer Celil Durmaz** \u2014 files covered: 1, commits: 1, score: 0.985\n\n> Top reviewers ranked by historical commit frequency and recency on changed files.\n\n## Graph Evidence\n\n<details>\n<summary>Cypher queries and runtimes</summary>\n\n**92.33 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**3.15 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**1.02 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n</details>\n"
+}

@@ -1,0 +1,12 @@
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    ports: ['6379:6379', '3000:3000']
+    volumes: ['falkor_data:/var/lib/falkordb/data']
+  api:
+    build: .
+    env_file: .env
+    depends_on: [falkordb]
+    ports: ['8000:8000']
+volumes:
+  falkor_data:
