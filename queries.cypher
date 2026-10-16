@@ -50,3 +50,10 @@ RETURN count(DISTINCT c) AS recent_commits
 // PageRank (check docs.falkordb.com/algorithms; fallback = networkx in Python)
 CALL algo.pageRank('Function', 'CALLS') YIELD node, score
 SET node.pagerank = score
+
+// explain_path - shortest path between two arbitrary functions
+MATCH (a:Function {qname: $from_qname}), (b:Function {qname: $to_qname})
+WITH shortestPath((a)-[:CALLS*..6]->(b)) AS p
+WHERE p IS NOT NULL
+RETURN [n IN nodes(p) | n.qname] AS path
+

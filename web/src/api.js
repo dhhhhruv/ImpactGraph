@@ -12,6 +12,12 @@ export async function fetchRepos() {
   return r.json()
 }
 
+export async function fetchRepoPrs(repo = 'borgbase/vorta') {
+  const r = await fetch(`${BASE}/repos/${repo}/prs`)
+  if (!r.ok) return []
+  return r.json()
+}
+
 export async function analyzeChange({ repo, diffHunks, headSha, beforeTs, prAuthor }) {
   const r = await fetch(`${BASE}/analyze`, {
     method: 'POST',

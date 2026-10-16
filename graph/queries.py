@@ -177,3 +177,24 @@ def q5_recent_churn(
     if rows and "recent_commits" in rows[0]:
         return int(rows[0]["recent_commits"])
     return 0
+
+
+# explain_path shortestPath between two arbitrary functions
+Q_EXPLAIN_PATH = """
+MATCH (a:Function {qname: $from_qname}), (b:Function {qname: $to_qname})
+WITH shortestPath((a)-[:CALLS*..6]->(b)) AS p
+WHERE p IS NOT NULL
+RETURN [n IN nodes(p) | n.qname] AS path
+"""
+
+
+def explain_path(
+    client: GraphClient, from_qname: str, to_qname: str
+) -> Optional[List[str]]:
+    """Explain call path between two functions via shortest path."""
+    params = {"from_qname": from_qname, "to_qname": to_qname}
+    rows, _ = client.execute_query(Q_EXPLAIN_PATH, params)
+    if rows and "path" in rows[0]:
+        return list(rows[0]["path"])
+    return None
+
