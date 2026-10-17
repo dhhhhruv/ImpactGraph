@@ -2,8 +2,6 @@
 
 > **Graph-powered pull request impact analysis.** When a PR arrives, ImpactGraph asks a FalkorDB graph of your codebase and its git history: *what can this change break, which tests should run, who should review it, how risky is it?* Every claim in the output carries its graph path.
 
-Built for **[FalkorDB Hackathon — Track 01: Agents That Act on Connected Data](https://falkordb.com/)**.
-
 ---
 
 ## How it works
