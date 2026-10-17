@@ -50,6 +50,11 @@ export default function AskBox({ repo }) {
       {error && <div className="ask-response" style={{ color: 'var(--accent-red)' }}>Error: {error}</div>}
       {response && (
         <div className="ask-response">
+          {response.outcome && (
+            <span className="file-pill" style={{ display: 'inline-flex', marginBottom: 6 }}>
+              outcome: {response.outcome}
+            </span>
+          )}
           <div style={{ marginBottom: '6px' }}>{response.answer}</div>
           {response.evidence_rows?.length > 0 && (
             <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>

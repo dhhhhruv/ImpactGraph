@@ -43,7 +43,7 @@ def baseline_most_recent_committer(
     if not files:
         return []
     params = {"files": files, "before": int(before_ts)}
-    rows, _ = client.execute_query(Q_MOST_RECENT, params)
+    rows, _ = client.ro_query(Q_MOST_RECENT, params)
     ranked = [str(r["author"]) for r in rows if r.get("author")]
     filtered = _exclude_author(ranked, author)
     return filtered[:1]
@@ -59,7 +59,7 @@ def baseline_flat_commit_count(
     if not files:
         return []
     params = {"files": files, "before": int(before_ts)}
-    rows, _ = client.execute_query(Q_FLAT_COMMITS, params)
+    rows, _ = client.ro_query(Q_FLAT_COMMITS, params)
     ranked = [str(r["author"]) for r in rows if r.get("author")]
     return _exclude_author(ranked, author)
 

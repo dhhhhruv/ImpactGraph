@@ -12,5 +12,7 @@ TASK: build web/ with React 18 + Vite + Tailwind + TanStack Query + react-cytosc
 - Left (about 40%): risk card (gauge, label, four small bars), AI summary clearly labelled AI-written, tests list with Copy pytest command, reviewers, actions taken. Add an Ask box that calls POST /ask.
 - Right (about 60%): graph canvas (changed red, affected callers orange, tests green, reviewers purple, evidence path thick blue, everything else dimmed to 20 percent when a row is clicked). Node size follows PageRank. Cap 150 nodes with Show more. Tabs: Agent trace, Evidence (Cypher, params, rows, ms, Copy Cypher, Open in FalkorDB Browser), Benchmark.
 - Graph OFF shows the flat baseline beside the graph answer.
+- Hop depth 1/4 reruns the same analysis at that depth; the depth-4 view adds multi-hop tests with their proof-path edges visible. The featured PR uses its cached depth-specific graph results and marks outcomes as `cached`.
+- Show each section's tool outcome (answered_with_path, not_in_graph, unknown_name, cached) in the UI. Empty results mean "not modelled", not "no impact".
 - Benchmark page: bars for reviewer hit@3, test recall, average tests suggested, graph vs each baseline (including LLM-only), per-PR table, Method and limitations box.
 - Handle loading, per-tool errors, empty states. "No test reaches this change" is a finding, not an error.

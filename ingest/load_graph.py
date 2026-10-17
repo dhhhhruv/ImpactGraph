@@ -91,8 +91,8 @@ SET node.pagerank = score
 """
 
 Q_CALLS_EDGES = """
-MATCH (a:Function)-[:CALLS]->(b:Function)
-RETURN a.qname AS caller, b.qname AS callee
+MATCH (a:Function)-[r:CALLS]->(b:Function)
+RETURN a.qname AS caller, b.qname AS callee, type(r) AS rel
 """
 
 Q_SET_PAGERANK = """
@@ -182,7 +182,7 @@ def _pagerank_networkx(graph: Any) -> None:
     """Compute PageRank with networkx and write scores onto Function nodes."""
     import networkx as nx
 
-    result = graph.query(Q_CALLS_EDGES)
+    result = graph.ro_query(Q_CALLS_EDGES)
     rows = result.result_set if hasattr(result, "result_set") else []
     g = nx.DiGraph()
     for row in rows or []:
@@ -205,11 +205,11 @@ def compute_pagerank(graph: Any) -> None:
 
 def print_counts(graph: Any) -> None:
     """Print node counts per label and edge counts per type."""
-    nodes = graph.query(Q_COUNT_NODES)
+    nodes = graph.ro_query(Q_COUNT_NODES)
     print("Nodes:")
     for row in nodes.result_set or []:
         print(f"  {row[0]}: {row[1]}")
-    edges = graph.query(Q_COUNT_EDGES)
+    edges = graph.ro_query(Q_COUNT_EDGES)
     print("Edges:")
     for row in edges.result_set or []:
         print(f"  {row[0]}: {row[1]}")

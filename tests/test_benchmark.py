@@ -67,6 +67,12 @@ class _RoutingDriver:
         self.last_params: dict = {}
 
     def query(self, cypher: str, params=None):
+        return self._dispatch(cypher, params)
+
+    def ro_query(self, cypher: str, params=None):
+        return self._dispatch(cypher, params)
+
+    def _dispatch(self, cypher: str, params=None):
         self.last_query = cypher
         self.last_params = params or {}
         if "last_ts" in cypher:
@@ -94,6 +100,8 @@ def test_baseline_most_recent_and_flat_count():
     assert flat[0] == "alice"
     assert "pr_author" not in flat
     assert client.evidence_log[-1].params["before"] == before
+    assert all(event.read_only for event in client.evidence_log)
+    assert client.write_calls == 0
 
 
 def test_baseline_same_name_and_grep(tmp_path: Path):

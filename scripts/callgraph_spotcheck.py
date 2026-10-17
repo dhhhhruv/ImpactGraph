@@ -25,7 +25,7 @@ def run_spotcheck(repo: str = "borgbase/vorta", sample_size: int = 15, seed: int
 
     # 1. Fetch all non-test functions
     q_all = "MATCH (f:Function) WHERE NOT f:Test RETURN f.qname AS qname, f.file AS file, f.start AS start, f.end AS end"
-    rows, _ = client.execute_query(q_all)
+    rows, _ = client.ro_query(q_all)
     if not rows:
         print(f"Error: No functions found in graph '{graph_name}'. Run ingestion first.", file=sys.stderr)
         return []
@@ -50,7 +50,7 @@ def run_spotcheck(repo: str = "borgbase/vorta", sample_size: int = 15, seed: int
         RETURN c.qname AS caller, c.file AS file
         LIMIT 10
         """
-        caller_rows, _ = client.execute_query(q_callers, {"qname": qname})
+        caller_rows, _ = client.ro_query(q_callers, {"qname": qname})
         callers = [r.get("caller") for r in caller_rows]
 
         results.append({

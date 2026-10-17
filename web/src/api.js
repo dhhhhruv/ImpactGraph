@@ -18,7 +18,7 @@ export async function fetchRepoPrs(repo = 'borgbase/vorta') {
   return r.json()
 }
 
-export async function analyzeChange({ repo, diffHunks, headSha, beforeTs, prAuthor }) {
+export async function analyzeChange({ repo, diffHunks, headSha, beforeTs, prAuthor, maxHops = 4 }) {
   const r = await fetch(`${BASE}/analyze`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -28,14 +28,15 @@ export async function analyzeChange({ repo, diffHunks, headSha, beforeTs, prAuth
       head_sha: headSha,
       before_ts: beforeTs,
       pr_author: prAuthor,
+      max_hops: maxHops,
     }),
   })
   if (!r.ok) throw new Error(`Analysis failed: ${r.status}`)
   return r.json()
 }
 
-export async function fetchSubgraph(repo, changed) {
-  const params = new URLSearchParams({ repo })
+export async function fetchSubgraph(repo, changed, maxHops = 4) {
+  const params = new URLSearchParams({ repo, max_hops: String(maxHops) })
   if (changed?.length) params.set('changed', changed.join(','))
   const r = await fetch(`${BASE}/subgraph?${params}`)
   if (!r.ok) throw new Error('Subgraph fetch failed')
@@ -58,8 +59,11 @@ export async function fetchBenchmark() {
   return r.json()
 }
 
-export async function fetchDemo(id) {
-  const r = await fetch(`${BASE}/demo/${id}`)
+export async function fetchDemo(id, maxHops = 4) {
+  const path = Number(id) === 2560
+    ? `${BASE}/demo/featured?max_hops=${maxHops}`
+    : `${BASE}/demo/${id}`
+  const r = await fetch(path)
   if (!r.ok) throw new Error(`Demo ${id} not found`)
   return r.json()
 }

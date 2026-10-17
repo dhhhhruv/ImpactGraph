@@ -19,6 +19,14 @@ const TOOL_DESCRIPTIONS = {
   explain_path: 'Shortest execution path traversal between arbitrary functions.',
 }
 
+const OUTCOME_KEYS = {
+  map_diff_to_functions: 'map_diff',
+  get_blast_radius: 'blast',
+  get_affected_tests: 'tests',
+  find_reviewers: 'reviewers',
+  get_risk: 'risk',
+}
+
 export default function AgentTraceTab({ decision, liveTrace = [] }) {
   // Use trace from decision or synthesized from evidence
   const steps = React.useMemo(() => {
@@ -148,6 +156,11 @@ export default function AgentTraceTab({ decision, liveTrace = [] }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-muted)', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
                   <Clock size={12} />
                   <span>{st.ms} ms</span>
+                  {(st.outcome || decision?.outcomes?.[OUTCOME_KEYS[st.tool]]) && (
+                    <span className="file-pill">
+                      {st.outcome || decision.outcomes[OUTCOME_KEYS[st.tool]]}
+                    </span>
+                  )}
                 </div>
               </div>
 

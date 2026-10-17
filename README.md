@@ -7,7 +7,7 @@
 ## How it works
 
 ```
-PR diff → AST parser → FalkorDB graph → 6 graph queries → risk score + blast radius + tests + reviewers
+PR diff → AST parser → FalkorDB graph → seven MCP tools → risk score + blast radius + tests + reviewers
                                                         ↓
                                                LLM explains (never invents)
                                                         ↓
@@ -31,6 +31,8 @@ PR diff → AST parser → FalkorDB graph → 6 graph queries → risk score + b
 | **Reviewer recommendation** | Ranked by files covered × commit recency × score formula |
 | **Risk scoring** | Objective formula: blast ratio + PageRank centrality + uncovered test ratio + churn |
 | **Graph evidence** | Every Cypher query, its parameters, row count, and duration logged to the UI |
+| **Most central functions** | `get_most_central(limit <= 20)` returns compact PageRank-ranked qname/file/score rows |
+| **Bounded graph depth** | Hop depth 1 / 4 reruns the same analysis and renders graph-backed test proof paths |
 | **Benchmark** | 40 PRs, graph vs. 5 baselines (most-recent-committer, flat-count, same-name test, grep-imports, LLM-only) |
 | **Demo cache** | 5 pre-generated PR analyses; app works without a live AI key |
 | **Dark UI** | React 18 + Vite + Cytoscape.js (fcose) — click any node to dim everything else |
@@ -50,7 +52,7 @@ impactgraph/
 │   ├── queries.py          # Q0–Q5: diff→fns, blast, tests, proof path, reviewers, centrality, churn
 │   └── risk.py             # calculate_risk() — pure formula, no LLM
 ├── mcp_server/
-│   └── server.py           # MCP tools wrapping Q0–Q5 for agent use
+│   └── server.py           # Seven MCP tools wrapping Q0–Q5 and PageRank for agent use
 ├── agent/
 │   ├── loop.py             # run_impact_agent() — orchestrates all queries + risk
 │   ├── comment.py          # format_pr_comment() + validate_decision() hallucination filter
@@ -218,6 +220,7 @@ docker compose up --build
 | POST | `/ask` | Answer free-form questions from the graph |
 | GET | `/benchmark` | Latest benchmark results JSON |
 | GET | `/demo/{id}` | Pre-generated demo PR (id 1–5) |
+| GET | `/demo/featured?max_hops=1..6` | Featured real PR with cached results filtered to hop depth |
 
 ### Example: analyze a change
 
@@ -235,7 +238,16 @@ curl -X POST http://localhost:8000/analyze \
 
 ## UI walkthrough
 
-**Top bar:** repo selector · PR number input · Analyze button · Dry-run toggle · Graph on/off · Demo mode
+**Top bar:** repo selector · PR number input · Analyze button · Dry-run toggle · Graph on/off · Hop depth (1 / 4) · Demo mode
+
+### Demo video script notes (≈2:30)
+
+1. Open the featured real PR, [borgbase/vorta#2560](https://github.com/borgbase/vorta/pull/2560), and ask which tests reach `SchedulerExecution.create_backup`. The same-name baseline finds **0** files.
+2. At **Hop depth 1**, show the two direct tests and their proof paths. Switch the same question to **Hop depth 4**; two tests reached through scheduler state and timer calls appear, with each path drawn in the graph.
+3. Toggle **Graph OFF** to compare the flat same-name baseline with the graph findings.
+4. Close on outcomes (`answered_with_path` / `not_in_graph` / `unknown_name` / `cached`) — empty means not modelled, never "safe".
+
+The featured paths are precomputed from the checked-out Vorta source by ImpactGraph's AST call-graph parser. The local FalkorDB Browser was unavailable when this cache was prepared; live algorithm-query verification must be repeated when FalkorDB is running.
 
 **Left panel (40%):**
 - AI-written summary (clearly labelled)

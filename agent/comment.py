@@ -52,7 +52,10 @@ def _format_blast_section(decision: Dict[str, Any]) -> List[str]:
     lines = ["## Affected Callers (Blast radius)", ""]
     blast = decision.get("blast_radius") or []
     if not blast:
-        lines.append("_No callers identified._")
+        msg = decision.get("blast_message") or (
+            "nothing found in the graph, which may mean the call link is not modelled"
+        )
+        lines.append(f"**not_in_graph:** {msg}")
     else:
         for row in blast:
             affected = row.get("affected", "?")
@@ -142,6 +145,19 @@ def _format_evidence_section(decision: Dict[str, Any]) -> List[str]:
     return lines
 
 
+def _format_outcomes_section(decision: Dict[str, Any]) -> List[str]:
+    """Render tool outcome labels for the PR comment."""
+    outcomes = decision.get("outcomes") or {}
+    if not outcomes and decision.get("outcome"):
+        outcomes = {"overall": decision["outcome"]}
+    if not outcomes:
+        return []
+    lines = ["## Outcomes", ""]
+    for key, val in outcomes.items():
+        lines.append(f"- **{key}**: `{val}`")
+    return lines
+
+
 def format_pr_comment(decision: Dict[str, Any]) -> str:
     """Render a GitHub PR comment from a validated decision object."""
     safe = validate_decision(decision)
@@ -149,6 +165,10 @@ def format_pr_comment(decision: Dict[str, Any]) -> str:
     summary = safe.get("summary")
     if summary:
         parts.extend([str(summary), ""])
+    outcome_lines = _format_outcomes_section(safe)
+    if outcome_lines:
+        parts.extend(outcome_lines)
+        parts.append("")
     parts.extend(_format_risk_section(safe))
     parts.append("")
     parts.extend(_format_blast_section(safe))
@@ -298,4 +318,24 @@ def validate_decision(decision: Dict[str, Any]) -> Dict[str, Any]:
         out["notable_paths"] = _sanitize_notable_paths(
             out["notable_paths"], allowed
         )
+    if isinstance(out.get("answer"), str):
+        out["answer"] = validate_ask_answer(out["answer"], out.get("evidence_rows") or [])
     return out
+
+
+def _template_from_rows(rows: List[Any]) -> str:
+    """Build a safe template answer strictly from evidence rows."""
+    if not rows:
+        return (
+            "nothing found in the graph, which may mean the call link is not modelled"
+        )
+    keys = sorted({k for r in rows if isinstance(r, dict) for k in r})
+    return f"Graph returned {len(rows)} row(s) with fields: {', '.join(keys)}."
+
+
+def validate_ask_answer(answer: str, evidence_rows: List[Any]) -> str:
+    """Use a rows-only template unless the text is already exactly that template."""
+    template = _template_from_rows(evidence_rows)
+    if answer.strip() != template:
+        return template
+    return answer.strip()

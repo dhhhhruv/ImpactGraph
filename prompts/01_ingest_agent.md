@@ -12,6 +12,8 @@ TASK: implement ingest/ast_parser.py, git_history.py and load_graph.py using the
 - Resolve calls: (1) prefer same-module function with that name, (2) else one imported by that module, (3) else accept name matches only if 3 or fewer candidates. Skip builtins and very common names (get, set, append, items).
 - Read last 1500 commits with pydriller. Skip merges and bots. Store sha, author, committer date as unix ts, each modified file with added/deleted.
 - Create indexes first, bulk load with UNWIND in batches of 500, then run PageRank (fallback: networkx) and store it on Function nodes.
+- Use MERGE for CALLS edges so repeated ingestion does not create parallel duplicates. The NetworkX PageRank edge read uses ro_query; only ingestion writes and storing PageRank scores may use write queries.
+- Test `CALL algo.pageRank('Function', 'CALLS')` in FalkorDB Browser before choosing it. If unavailable, use the NetworkX fallback.
 - Mark Test label on Function nodes named test_* inside tests/.
 - Add: python -m ingest.load_graph --repo owner/repo --rebuild (deletes and reloads graph impact_owner_repo).
 - Finish with a script that prints node and edge counts per label.

@@ -25,6 +25,7 @@ import {
 } from 'lucide-react'
 
 const PR_DIFF_MAP = {
+  2560: [{ path: 'src/vorta/scheduler/execution.py', start: 49, end: 106 }],
   1: [{ path: 'src/vorta/scheduler/execution.py', start: 5, end: 25 }],
   2: [{ path: 'src/vorta/borg/borg_job.py', start: 225, end: 250 }],
   3: [{ path: 'src/vorta/network_status/network_manager.py', start: 150, end: 160 }],
@@ -35,10 +36,11 @@ const PR_DIFF_MAP = {
 export default function App() {
   // Controls
   const [repo, setRepo] = useState('borgbase/vorta')
-  const [selectedPrNumber, setSelectedPrNumber] = useState('1')
+  const [selectedPrNumber, setSelectedPrNumber] = useState('2560')
   const [graphOn, setGraphOn] = useState(true)
   const [demoMode, setDemoMode] = useState(true)
   const [dryRun, setDryRun] = useState(false)
+  const [hopDepth, setHopDepth] = useState(4)
 
   // Selection state
   const [selectedNodeId, setSelectedNodeId] = useState(null)
@@ -61,8 +63,8 @@ export default function App() {
 
   // Demo query for selected PR
   const { data: demoData, isLoading: demoLoading } = useQuery({
-    queryKey: ['demo', selectedPrNumber],
-    queryFn: () => fetchDemo(Number(selectedPrNumber) || 1),
+    queryKey: ['demo', selectedPrNumber, hopDepth],
+    queryFn: () => fetchDemo(Number(selectedPrNumber) || 1, hopDepth),
     enabled: demoMode,
   })
 
@@ -78,14 +80,32 @@ export default function App() {
   // Normal Analyze mutation (non-streaming fallback)
   const analyzeMutation = useMutation({
     mutationFn: analyzeChange,
-    onSuccess: async (data) => {
+    onSuccess: async (data, variables) => {
       setDecision(data.decision)
       if (data.decision?.changed_functions?.length) {
-        const sg = await fetchSubgraph(repo, data.decision.changed_functions)
+        const sg = await fetchSubgraph(
+          repo,
+          data.decision.changed_functions,
+          data.decision.max_hops ?? variables.maxHops ?? hopDepth,
+        )
         setSubgraphData(sg)
       }
     },
   })
+
+  // Re-run subgraph when hop depth changes (demo moment: depth 1 vs 4)
+  useEffect(() => {
+    if (!decision?.changed_functions?.length || !graphOn) return
+    if (demoMode) {
+      setSubgraphData(null)
+      return
+    }
+    let cancelled = false
+    fetchSubgraph(repo, decision.changed_functions, hopDepth).then((sg) => {
+      if (!cancelled) setSubgraphData(sg)
+    })
+    return () => { cancelled = true }
+  }, [hopDepth, repo, graphOn, demoMode]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // SSE Live streaming analysis
   const handleAnalyzeStreaming = useCallback(() => {
@@ -105,7 +125,7 @@ export default function App() {
     const path = hunk.path
     const start = hunk.start
     const end = hunk.end
-    const url = `/api/analyze/stream?repo=${encodeURIComponent(repo)}&path=${encodeURIComponent(path)}&start=${start}&end=${end}&head_sha=pr-${selectedPrNumber}`
+    const url = `/api/analyze/stream?repo=${encodeURIComponent(repo)}&path=${encodeURIComponent(path)}&start=${start}&end=${end}&head_sha=pr-${selectedPrNumber}&max_hops=${hopDepth}`
     const eventSource = new EventSource(url)
 
     eventSource.addEventListener('tool_start', (e) => {
@@ -143,6 +163,7 @@ export default function App() {
               ms: data.ms,
               summary: sum,
               status: 'done',
+              outcome: data.outcome,
             }
           }
           return updated
@@ -160,7 +181,7 @@ export default function App() {
         eventSource.close()
 
         if (payload.decision?.changed_functions?.length) {
-          const sg = await fetchSubgraph(repo, payload.decision.changed_functions)
+          const sg = await fetchSubgraph(repo, payload.decision.changed_functions, hopDepth)
           setSubgraphData(sg)
         }
       } catch (err) {
@@ -174,19 +195,33 @@ export default function App() {
       console.warn('SSE stream closed or error, falling back to standard analyze', err)
       setIsStreaming(false)
       eventSource.close()
+      const prNum = Number(selectedPrNumber) || 1
       analyzeMutation.mutate({
         repo,
-        diffHunks: DEMO_HUNKS,
+        diffHunks: PR_DIFF_MAP[prNum] || PR_DIFF_MAP[1],
         headSha: `pr-${selectedPrNumber}`,
+        maxHops: hopDepth,
       })
     }
-  }, [repo, selectedPrNumber, dryRun, analyzeMutation])
+  }, [repo, selectedPrNumber, dryRun, analyzeMutation, hopDepth])
 
   const handleNodeClick = useCallback((id) => {
     setSelectedNodeId(id)
   }, [])
 
   const currentDecision = decision
+  const handleHopDepthChange = useCallback((depth) => {
+    setHopDepth(depth)
+    if (!demoMode && decision) {
+      const prNum = Number(selectedPrNumber) || 1
+      analyzeMutation.mutate({
+        repo,
+        diffHunks: PR_DIFF_MAP[prNum] || PR_DIFF_MAP[1],
+        headSha: `pr-${selectedPrNumber}`,
+        maxHops: depth,
+      })
+    }
+  }, [demoMode, decision, selectedPrNumber, repo, analyzeMutation])
   const isLoading = (demoMode && demoLoading) || analyzeMutation.isPending || isStreaming
   const hasData = !!currentDecision
 
@@ -198,6 +233,7 @@ export default function App() {
 
     const nodes = []
     const edges = []
+    const seenEdges = new Set()
     const seen = new Set()
 
     const addNode = (id, label, type) => {
@@ -209,17 +245,36 @@ export default function App() {
     for (const fn of currentDecision.changed_functions || []) {
       addNode(fn, fn.split('.').slice(-1)[0], 'changed')
     }
-    for (const row of currentDecision.blast_radius || []) {
-      addNode(row.affected, row.affected?.split('.').slice(-1)[0], 'caller')
-      const path = row.path || []
+    const addPath = (path, isEvidence = false) => {
       for (let i = 0; i < path.length - 1; i++) {
         addNode(path[i], path[i]?.split('.').slice(-1)[0], 'caller')
         addNode(path[i + 1], path[i + 1]?.split('.').slice(-1)[0], 'caller')
-        edges.push({ data: { id: `${path[i]}->${path[i + 1]}`, source: path[i], target: path[i + 1] } })
+        const edgeId = `${path[i]}->${path[i + 1]}`
+        if (!seenEdges.has(edgeId)) {
+          seenEdges.add(edgeId)
+          edges.push({
+            data: {
+              id: edgeId,
+              source: path[i],
+              target: path[i + 1],
+              ...(isEvidence ? { type: 'evidence' } : {}),
+            },
+          })
+        } else if (isEvidence) {
+          const existingEdge = edges.find((edge) => edge.data.id === edgeId)
+          if (existingEdge) existingEdge.data.type = 'evidence'
+        }
       }
+    }
+    for (const row of currentDecision.blast_radius || []) {
+      addNode(row.affected, row.affected?.split('.').slice(-1)[0], 'caller')
+      addPath(row.path || [])
     }
     for (const t of currentDecision.affected_tests || []) {
       addNode(t.test, t.test?.split('.').slice(-1)[0], 'test')
+    }
+    for (const path of Object.values(currentDecision.test_proof_paths || {})) {
+      addPath(path, true)
     }
     for (const r of currentDecision.reviewers || []) {
       addNode(r.author, r.author, 'reviewer')
@@ -271,6 +326,7 @@ export default function App() {
               style={{ minWidth: 160 }}
             >
               {(repoPrs || [
+                { number: 2560, title: 'extract Execution and close the job lifecycle' },
                 { number: 1, title: 'Fix backup path handling in scheduler' },
                 { number: 2, title: 'Refactor BorgJob execution & cancel' },
                 { number: 3, title: 'Update DBus network monitor integration' },
@@ -332,6 +388,28 @@ export default function App() {
             />
             <span>Graph {graphOn ? 'ON' : 'OFF'}</span>
           </label>
+
+          {/* Hop depth — demo moment: same question at depth 1 then 4 */}
+          <div className="toggle-wrap" title="Call-graph hop depth for blast / tests">
+            <span style={{ marginRight: 6 }}>Hop depth</span>
+            <button
+              type="button"
+              className={`btn btn-sm ${hopDepth === 1 ? 'btn-primary' : 'btn-ghost'}`}
+              onClick={() => handleHopDepthChange(1)}
+              id="hop-depth-1"
+            >
+              1
+            </button>
+            <button
+              type="button"
+              className={`btn btn-sm ${hopDepth === 4 ? 'btn-primary' : 'btn-ghost'}`}
+              onClick={() => handleHopDepthChange(4)}
+              id="hop-depth-4"
+              style={{ marginLeft: 4 }}
+            >
+              4
+            </button>
+          </div>
         </div>
 
         {/* Demo Mode Badge and Status */}
@@ -398,6 +476,15 @@ export default function App() {
                   <p className="ai-summary-text">
                     {currentDecision.summary}
                   </p>
+                  {(currentDecision.outcome || currentDecision.outcomes) && (
+                    <div style={{ marginTop: 8, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                      <span className="file-pill">outcome: {currentDecision.outcome || '—'}</span>
+                      {currentDecision.outcomes && Object.entries(currentDecision.outcomes).map(([k, v]) => (
+                        <span key={k} className="file-pill">{k}: {v}</span>
+                      ))}
+                      <span className="file-pill">hops: {hopDepth}</span>
+                    </div>
+                  )}
                   {currentDecision.files_changed?.length > 0 && (
                     <div style={{ marginTop: 12, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                       {currentDecision.files_changed.map((f) => (

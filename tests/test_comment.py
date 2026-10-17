@@ -1,6 +1,11 @@
 """Unit tests for agent.comment."""
 
-from agent.comment import MARKER, format_pr_comment, validate_decision
+from agent.comment import (
+    MARKER,
+    format_pr_comment,
+    validate_ask_answer,
+    validate_decision,
+)
 
 
 def _base_decision(**overrides):
@@ -121,6 +126,50 @@ def test_comment_no_tests_is_finding():
     assert "**Finding:** No test reaches this change" in comment
     assert "error" not in comment.lower()
     assert "```bash" not in comment
+
+
+def test_empty_blast_is_not_safe_wording():
+    """Empty blast must never claim the change is safe."""
+    decision = _base_decision(blast_radius=[], blast_message=(
+        "nothing found in the graph, which may mean the call link is not modelled"
+    ))
+    comment = format_pr_comment(decision)
+    assert "not modelled" in comment
+    assert "nothing breaks" not in comment.lower()
+    assert "is safe" not in comment.lower()
+
+
+def test_comment_shows_tool_outcomes():
+    comment = format_pr_comment(
+        _base_decision(
+            outcome="cached",
+            outcomes={"map_diff": "cached", "tests": "not_in_graph"},
+        )
+    )
+    assert "- **map_diff**: `cached`" in comment
+    assert "- **tests**: `not_in_graph`" in comment
+
+
+def test_validate_ask_answer_drops_hallucinations():
+    """POST /ask answers mentioning unknown functions fall back to template."""
+    rows = [{"caller": "mod.real", "callee": "mod.target"}]
+    bad = "Clearly mod.fake.invented is affected."
+    cleaned = validate_ask_answer(bad, rows)
+    assert "mod.fake.invented" not in cleaned
+    assert cleaned == "Graph returned 1 row(s) with fields: callee, caller."
+
+
+def test_validate_decision_replaces_whole_ask_answer_with_row_template():
+    """Any unsupported function or person drops the entire POST /ask answer."""
+    rows = [{"caller": "mod.real", "author": "alice"}]
+    decision = {
+        "answer": "mod.real is affected, and Bob says mod.fake also breaks.",
+        "evidence_rows": rows,
+    }
+    safe = validate_decision(decision)
+    assert safe["answer"] == "Graph returned 1 row(s) with fields: author, caller."
+    assert "Bob" not in safe["answer"]
+    assert "mod.fake" not in safe["answer"]
 
 
 def test_validate_decision_removes_hallucinated_functions():
