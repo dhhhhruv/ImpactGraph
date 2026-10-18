@@ -21,7 +21,7 @@ Deadline: 2026-10-18 23:59 IST (Target Submission: 18:00 IST)
 | **Backend API (`api/main.py`)** | **DONE** | `/ask` answers are evidence-validated and endpoints return outcome labels. Hop depth is propagated through analysis and featured-cache views. |
 | **Frontend UI (`web/`)** | **DONE** | Interactive hop depth 1/4, outcome labels (including Ask), Graph ON/OFF, and highlighted proof paths. Production build passes (1,642 modules). |
 | **Benchmark Harness** | **DONE** | Real run: 40 PRs from `borgbase/vorta`, 6 methods (`benchmark/results.md`). Graph: Hit@3 0.80, Hit@5 0.88, MRR 0.73, test recall@5 0.51. Strongest unified method; essentially equal to flat_commit_count on reviewers (Hit@3 0.83, Hit@5 0.88, MRR 0.72) and narrowly behind grep_imports on test recall@5 (0.57). Fixed author-identity mismatch via `benchmark/map_authors.py` (90/95 emails resolved to GitHub logins). |
-| **Demo Cache (`demo_cache/`)** | **DONE** | Featured PR #2560 demonstrates the empty same-name baseline against depth-1 and depth-4 test paths; cache outcomes are labeled. Paths were derived from the checked-out source call graph, not verified against the unavailable live FalkorDB instance. |
+| **Demo Cache (`demo_cache/`)** | **DONE** | Featured PR #2560 demonstrates the empty same-name baseline against depth-1 and depth-4 test paths; cache outcomes are labeled. Paths were derived from the checked-out source call graph, then a blast-radius fix and a 15-function spot check were applied. demo_pr_4 and demo_pr_5 were not hand-verified. |
 | **Documentation & README** | **DONE** | README video script includes depth 1 → depth 4 and Graph OFF. `AGENTS.md` and `queries.cypher` document matching query/tool choices and known Browser-verification limitations. |
 | **CI / CD Workflow** | **DONE** | `.github/workflows/ci.yml` runs pytest with a FalkorDB service container. |
 
@@ -29,7 +29,7 @@ Deadline: 2026-10-18 23:59 IST (Target Submission: 18:00 IST)
 
 ```bash
 ./.venv/bin/pytest -q
-============================== 90 passed in 0.67s ==============================
+============================== 92 passed in 0.67s ==============================
 ```
 
 Frontend production build: `npm run build` — passed (1,642 modules).
