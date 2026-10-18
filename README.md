@@ -243,11 +243,11 @@ curl -X POST http://localhost:8000/analyze \
 ### Demo video script notes (≈2:30)
 
 1. Open the featured real PR, [borgbase/vorta#2560](https://github.com/borgbase/vorta/pull/2560), and ask which tests reach `SchedulerExecution.create_backup`. The same-name baseline finds **0** files.
-2. At **Hop depth 1**, show the two direct tests and their proof paths. Switch the same question to **Hop depth 4**; two tests reached through scheduler state and timer calls appear, with each path drawn in the graph.
+2. At **Hop depth 1**, show the 14 tests that call `create_backup` directly, each with its proof path. Switch the same question to **Hop depth 4**; the blast radius grows from 1 caller to 13 and the test list from 14 to 30 (the query caps at 30), reached through scheduler state and timer calls, with each path drawn in the graph.
 3. Toggle **Graph OFF** to compare the flat same-name baseline with the graph findings.
 4. Close on outcomes (`answered_with_path` / `not_in_graph` / `unknown_name` / `cached`) — empty means not modelled, never "safe".
 
-The featured paths are precomputed from the checked-out Vorta source by ImpactGraph's AST call-graph parser. The local FalkorDB Browser was unavailable when this cache was prepared; live algorithm-query verification must be repeated when FalkorDB is running.
+The featured analysis was regenerated on 2026-10-18 from the live FalkorDB graph (`impact_borgbase_vorta`) and cached in `demo_cache/featured.json`. Test lists are capped at 30 rows per query, so counts at 30 are lower bounds.
 
 **Left panel (40%):**
 - AI-written summary (clearly labelled)

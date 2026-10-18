@@ -16,13 +16,15 @@
   },
   "baseline_same_name_tests": [],
   "graph_path_source": {
-    "method": "ImpactGraph AST call-graph parser",
-    "repository_commit": "9810f2965d5e830bdaa75c992f54174a3ccf4e81"
+    "method": "ImpactGraph live FalkorDB query (impact_borgbase_vorta)",
+    "generated": "2026-10-18"
   },
   "notes": "The same-name baseline finds no test_execution.py. The graph finds two direct tests at depth 1 and two more tests at depth 4; every displayed test has its full proof path. Paths are derived from the checked-out Vorta source using ImpactGraph's AST call resolver.",
   "decision": {
-    "head_sha": "borgbase-vorta-pr-2560",
-    "files_changed": ["src/vorta/scheduler/execution.py"],
+    "head_sha": "borgbase-vorta-pr-2560-live:h6",
+    "files_changed": [
+      "src/vorta/scheduler/execution.py"
+    ],
     "changed_functions": [
       "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
     ],
@@ -34,12 +36,233 @@
         "path": [
           "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
           "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
-        ]
+        ],
+        "rel_count": 1
+      },
+      {
+        "affected": "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 2,
+        "path": [
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 2
+      },
+      {
+        "affected": "src.vorta.scheduler.execution.SchedulerExecution.notify",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 3,
+        "path": [
+          "src.vorta.scheduler.execution.SchedulerExecution.notify",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 3
+      },
+      {
+        "affected": "src.vorta.scheduler.scheduling.SchedulerTimers.reload_all_timers",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 3,
+        "path": [
+          "src.vorta.scheduler.scheduling.SchedulerTimers.reload_all_timers",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 3
+      },
+      {
+        "affected": "src.vorta.scheduler.state.SchedulerState._set_pause",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 3,
+        "path": [
+          "src.vorta.scheduler.state.SchedulerState._set_pause",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 3
+      },
+      {
+        "affected": "src.vorta.scheduler.state.SchedulerState.unpause",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 3,
+        "path": [
+          "src.vorta.scheduler.state.SchedulerState.unpause",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 3
+      },
+      {
+        "affected": "src.vorta.views.schedule_page.SchedulePage.on_scheduler_change",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 3,
+        "path": [
+          "src.vorta.views.schedule_page.SchedulePage.on_scheduler_change",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 3
+      },
+      {
+        "affected": "src.vorta.scheduler.VortaScheduler.__init__",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 3,
+        "path": [
+          "src.vorta.scheduler.VortaScheduler.__init__",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 3
+      },
+      {
+        "affected": "src.vorta.scheduler.state.SchedulerState._handle_resume",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 4,
+        "path": [
+          "src.vorta.scheduler.state.SchedulerState._handle_resume",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.reload_all_timers",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 4
+      },
+      {
+        "affected": "src.vorta.application.VortaApp.set_borg_details_result",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 4,
+        "path": [
+          "src.vorta.application.VortaApp.set_borg_details_result",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.reload_all_timers",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 4
+      },
+      {
+        "affected": "src.vorta.scheduler.state.SchedulerState.pause",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 4,
+        "path": [
+          "src.vorta.scheduler.state.SchedulerState.pause",
+          "src.vorta.scheduler.state.SchedulerState._set_pause",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 4
+      },
+      {
+        "affected": "src.vorta.scheduler.scheduling.SchedulerTimers.networkStatusChanged",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 4,
+        "path": [
+          "src.vorta.scheduler.scheduling.SchedulerTimers.networkStatusChanged",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.reload_all_timers",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 4
+      },
+      {
+        "affected": "src.vorta.scheduler.state.SchedulerState.restore_pauses",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 4,
+        "path": [
+          "src.vorta.scheduler.state.SchedulerState.restore_pauses",
+          "src.vorta.scheduler.state.SchedulerState._set_pause",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 4
+      },
+      {
+        "affected": "src.vorta.scheduler.state.SchedulerState.checkForResume",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 5,
+        "path": [
+          "src.vorta.scheduler.state.SchedulerState.checkForResume",
+          "src.vorta.scheduler.state.SchedulerState._handle_resume",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.reload_all_timers",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 5
+      },
+      {
+        "affected": "src.vorta.scheduler.state.SchedulerState.loginSuspendNotify",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 5,
+        "path": [
+          "src.vorta.scheduler.state.SchedulerState.loginSuspendNotify",
+          "src.vorta.scheduler.state.SchedulerState._handle_resume",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.reload_all_timers",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 5
+      },
+      {
+        "affected": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "via": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "hops": 5,
+        "path": [
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+          "src.vorta.scheduler.state.SchedulerState.pause",
+          "src.vorta.scheduler.state.SchedulerState._set_pause",
+          "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+          "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+          "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        ],
+        "rel_count": 5
       }
     ],
     "affected_tests": [
       {
-        "test": "tests.unit.test_scheduler.test_create_backup_records_a_running_job",
+        "test": "tests.unit.test_scheduler.test_recording_a_skip_emits_jobs_changed",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_scheduler_create_backup",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_create_backup_keeps_the_catchup_trigger",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_create_backup_records_skip_when_repo_busy",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_create_backup_ignores_a_reentrant_run_for_the_same_profile",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_create_backup_records_failure_not_skip",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_create_backup_does_not_hold_the_lock_while_preparing",
         "file": "tests/unit/test_scheduler.py",
         "hops": 1
       },
@@ -49,23 +272,261 @@
         "hops": 1
       },
       {
-        "test": "tests.unit.test_scheduler.test_missed_startup",
+        "test": "tests.unit.test_scheduler.test_create_backup_records_a_running_job",
         "file": "tests/unit/test_scheduler.py",
-        "hops": 4
+        "hops": 1
       },
       {
-        "test": "tests.unit.test_scheduler.test_pause_survives_restart",
+        "test": "tests.unit.test_scheduler.test_a_submitted_run_stops_being_pending",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_create_backup_no_error_notification_on_info_level",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_schedule.test_jobs_page_merges_pending_runs_with_stored_records",
+        "file": "tests/unit/test_schedule.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_create_backup_records_skip_reason",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_recording_a_run_emits_jobs_changed",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 1
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_paused_manual_profile_reports_unscheduled",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_pending_jobs_ignores_profiles_without_a_scheduled_run",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_schedule.test_schedule_tab",
+        "file": "tests/unit/test_schedule.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_catchup_is_submitted_after_the_lock_is_released",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_set_timer_for_missing_profile",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_interval",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_schedule_past_the_qtimer_range",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_pending_jobs_includes_a_run_beyond_a_single_timer_chunk",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_manual_mode",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_fixed",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_pending_jobs_reports_the_scheduled_run",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_pause_cleared_when_it_runs_out",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_set_timer_records_skip_when_network_down_for_catchup",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_pending_jobs_drops_a_profile_deleted_under_its_timer",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_simple_schedule",
+        "file": "tests/unit/test_scheduler.py",
+        "hops": 3
+      },
+      {
+        "test": "tests.unit.test_scheduler.test_missed_startup",
         "file": "tests/unit/test_scheduler.py",
         "hops": 4
       }
     ],
     "test_proof_paths": {
-      "tests.unit.test_scheduler.test_create_backup_records_a_running_job": [
-        "tests.unit.test_scheduler.test_create_backup_records_a_running_job",
+      "tests.unit.test_scheduler.test_recording_a_skip_emits_jobs_changed": [
+        "tests.unit.test_scheduler.test_recording_a_skip_emits_jobs_changed",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_scheduler_create_backup": [
+        "tests.unit.test_scheduler.test_scheduler_create_backup",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_create_backup_keeps_the_catchup_trigger": [
+        "tests.unit.test_scheduler.test_create_backup_keeps_the_catchup_trigger",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_create_backup_records_skip_when_repo_busy": [
+        "tests.unit.test_scheduler.test_create_backup_records_skip_when_repo_busy",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_create_backup_ignores_a_reentrant_run_for_the_same_profile": [
+        "tests.unit.test_scheduler.test_create_backup_ignores_a_reentrant_run_for_the_same_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_create_backup_records_failure_not_skip": [
+        "tests.unit.test_scheduler.test_create_backup_records_failure_not_skip",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_create_backup_does_not_hold_the_lock_while_preparing": [
+        "tests.unit.test_scheduler.test_create_backup_does_not_hold_the_lock_while_preparing",
         "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
       ],
       "tests.unit.test_scheduler.test_a_failed_run_is_recorded_as_failed": [
         "tests.unit.test_scheduler.test_a_failed_run_is_recorded_as_failed",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_create_backup_records_a_running_job": [
+        "tests.unit.test_scheduler.test_create_backup_records_a_running_job",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_a_submitted_run_stops_being_pending": [
+        "tests.unit.test_scheduler.test_a_submitted_run_stops_being_pending",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_create_backup_no_error_notification_on_info_level": [
+        "tests.unit.test_scheduler.test_create_backup_no_error_notification_on_info_level",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_schedule.test_jobs_page_merges_pending_runs_with_stored_records": [
+        "tests.unit.test_schedule.test_jobs_page_merges_pending_runs_with_stored_records",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_create_backup_records_skip_reason": [
+        "tests.unit.test_scheduler.test_create_backup_records_skip_reason",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_recording_a_run_emits_jobs_changed": [
+        "tests.unit.test_scheduler.test_recording_a_run_emits_jobs_changed",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_paused_manual_profile_reports_unscheduled": [
+        "tests.unit.test_scheduler.test_paused_manual_profile_reports_unscheduled",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_pending_jobs_ignores_profiles_without_a_scheduled_run": [
+        "tests.unit.test_scheduler.test_pending_jobs_ignores_profiles_without_a_scheduled_run",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_schedule.test_schedule_tab": [
+        "tests.unit.test_schedule.test_schedule_tab",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_catchup_is_submitted_after_the_lock_is_released": [
+        "tests.unit.test_scheduler.test_catchup_is_submitted_after_the_lock_is_released",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_set_timer_for_missing_profile": [
+        "tests.unit.test_scheduler.test_set_timer_for_missing_profile",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_interval": [
+        "tests.unit.test_scheduler.test_interval",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_schedule_past_the_qtimer_range": [
+        "tests.unit.test_scheduler.test_schedule_past_the_qtimer_range",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_pending_jobs_includes_a_run_beyond_a_single_timer_chunk": [
+        "tests.unit.test_scheduler.test_pending_jobs_includes_a_run_beyond_a_single_timer_chunk",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_manual_mode": [
+        "tests.unit.test_scheduler.test_manual_mode",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_fixed": [
+        "tests.unit.test_scheduler.test_fixed",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_pending_jobs_reports_the_scheduled_run": [
+        "tests.unit.test_scheduler.test_pending_jobs_reports_the_scheduled_run",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_pause_cleared_when_it_runs_out": [
+        "tests.unit.test_scheduler.test_pause_cleared_when_it_runs_out",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_set_timer_records_skip_when_network_down_for_catchup": [
+        "tests.unit.test_scheduler.test_set_timer_records_skip_when_network_down_for_catchup",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_pending_jobs_drops_a_profile_deleted_under_its_timer": [
+        "tests.unit.test_scheduler.test_pending_jobs_drops_a_profile_deleted_under_its_timer",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      "tests.unit.test_scheduler.test_simple_schedule": [
+        "tests.unit.test_scheduler.test_simple_schedule",
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
         "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
       ],
       "tests.unit.test_scheduler.test_missed_startup": [
@@ -74,55 +535,468 @@
         "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
         "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
         "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
-      ],
-      "tests.unit.test_scheduler.test_pause_survives_restart": [
-        "tests.unit.test_scheduler.test_pause_survives_restart",
-        "src.vorta.scheduler.state.SchedulerState.unpause",
-        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
-        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
-        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
       ]
     },
-    "reviewers": [],
-    "centrality": [],
-    "recent_churn": 0,
+    "reviewers": [
+      {
+        "author": "Syed Ahmer Shah",
+        "email": "syedahmershahofficial@gmail.com",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1791191062,
+        "touch_rels": 1,
+        "authored_rels": 1,
+        "score": 0.9904
+      },
+      {
+        "author": "Ebuzer Celil Durmaz",
+        "email": "durmazs540@gmail.com",
+        "commits": 1,
+        "files_covered": 1,
+        "last_ts": 1790408396,
+        "touch_rels": 1,
+        "authored_rels": 1,
+        "score": 0.9839
+      }
+    ],
+    "centrality": [
+      {
+        "fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup",
+        "pagerank": 0.00166051869746298
+      }
+    ],
+    "recent_churn": 2,
     "risk": {
-      "score": 0.0,
+      "score": 0.1184,
       "label": "low",
       "factors": {
-        "blast_component": 0.0,
-        "pagerank_component": 0.0,
+        "blast_component": 0.112,
+        "pagerank_component": 0.0004,
         "uncovered_component": 0.0,
-        "churn_component": 0.0
+        "churn_component": 0.006
+      },
+      "raw_inputs": {
+        "blast_radius": 16,
+        "max_pagerank_pct": 0.00166051869746298,
+        "covered_ratio": 1.0,
+        "churn_norm": 0.04
       },
       "notes": []
     },
-    "max_hops": 4,
+    "max_hops": 6,
     "outcomes": {
       "map_diff": "answered_with_path",
       "blast": "answered_with_path",
       "tests": "answered_with_path",
-      "reviewers": "not_in_graph",
-      "centrality": "not_in_graph",
+      "reviewers": "answered_with_path",
+      "centrality": "answered_with_path",
+      "churn": "answered_with_path",
       "risk": "answered_with_path"
     },
     "outcome": "answered_with_path",
-    "summary": "Same-name baseline: 0 tests. The call graph finds 2 tests at depth 1 and 4 tests at depth 4, each with a proof path.",
+    "evidence": [
+      {
+        "cypher": "MATCH (f:File {path: $path})\nRETURN f.path AS path LIMIT 1",
+        "params": {
+          "path": "src/vorta/scheduler/execution.py"
+        },
+        "row_count": 1,
+        "duration_ms": 8.34,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "params": {
+          "path": "src/vorta/scheduler/execution.py",
+          "hunk_start": 49,
+          "hunk_end": 106
+        },
+        "row_count": 1,
+        "duration_ms": 0.46,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH p = (c:Function)-[r:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed AND NOT c:Test AND NOT c.file STARTS WITH 'tests/'\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path, length(p) AS rel_count\nORDER BY hops LIMIT 200",
+        "params": {
+          "changed": [
+            "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+          ]
+        },
+        "row_count": 19,
+        "duration_ms": 5.44,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH p = (t:Test)-[r:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30",
+        "params": {
+          "changed": [
+            "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+          ]
+        },
+        "row_count": 30,
+        "duration_ms": 1.03,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_recording_a_skip_emits_jobs_changed",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.94,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_scheduler_create_backup",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.44,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_create_backup_keeps_the_catchup_trigger",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.46,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_create_backup_records_skip_when_repo_busy",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.65,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_create_backup_ignores_a_reentrant_run_for_the_same_profile",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.59,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_create_backup_records_failure_not_skip",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.75,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_create_backup_does_not_hold_the_lock_while_preparing",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.47,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_a_failed_run_is_recorded_as_failed",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.46,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_create_backup_records_a_running_job",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.27,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_a_submitted_run_stops_being_pending",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.26,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_create_backup_no_error_notification_on_info_level",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.21,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_schedule.test_jobs_page_merges_pending_runs_with_stored_records",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.21,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_create_backup_records_skip_reason",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.28,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_recording_a_run_emits_jobs_changed",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.27,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_paused_manual_profile_reports_unscheduled",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.27,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_pending_jobs_ignores_profiles_without_a_scheduled_run",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.32,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_schedule.test_schedule_tab",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.26,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_catchup_is_submitted_after_the_lock_is_released",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.24,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_set_timer_for_missing_profile",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.19,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_interval",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.2,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_schedule_past_the_qtimer_range",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.3,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_pending_jobs_includes_a_run_beyond_a_single_timer_chunk",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.33,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_manual_mode",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.34,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_fixed",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.31,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_pending_jobs_reports_the_scheduled_run",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.31,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_pause_cleared_when_it_runs_out",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.25,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_set_timer_records_skip_when_network_down_for_catchup",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.22,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_pending_jobs_drops_a_profile_deleted_under_its_timer",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.35,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_simple_schedule",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.29,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_scheduler.test_missed_startup",
+          "changed_fn": "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+        },
+        "row_count": 1,
+        "duration_ms": 0.29,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (a:Author)-[au:AUTHORED]->(c:Commit)-[t:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, a.email AS email, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts,\n       count(t) AS touch_rels, count(DISTINCT au) AS authored_rels\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "params": {
+          "files": [
+            "src/vorta/scheduler/execution.py"
+          ],
+          "before": 1792296770
+        },
+        "row_count": 2,
+        "duration_ms": 1.84,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC",
+        "params": {
+          "changed": [
+            "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+          ]
+        },
+        "row_count": 1,
+        "duration_ms": 0.21,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (c:Commit)-[t:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits, count(t) AS touch_rels",
+        "params": {
+          "files": [
+            "src/vorta/scheduler/execution.py"
+          ],
+          "since": 1784520770,
+          "before": 1792296770
+        },
+        "row_count": 1,
+        "duration_ms": 0.36,
+        "read_only": true
+      }
+    ],
+    "summary": "Change modifies 1 function(s) with a blast radius of 16 caller(s). Assessed as LOW risk (score: 0.1184) with 30 reaching test(s).",
     "section_notes": {
-      "blast": "The scheduler timer arms the extracted create_backup function.",
-      "tests": "The two depth-4 tests reach the changed function through scheduler state and timer calls.",
-      "reviewers": "No reviewer evidence is included in this cached scene.",
-      "risk": "Risk is recalculated from the filtered cached graph results."
+      "blast": "16 direct and indirect caller(s) identified in call graph.",
+      "tests": "30 existing test(s) reach this change.",
+      "reviewers": "Top reviewers ranked by historical commit frequency and recency on changed files.",
+      "risk": "Score 0.1184 (LOW) driven by blast ratio, PageRank centrality, and test coverage."
     },
     "notable_paths": [
       [
-        "tests.unit.test_scheduler.test_missed_startup",
-        "src.vorta.scheduler.scheduling.SchedulerTimers.reload_all_timers",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      [
+        "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
+        "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
+        "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
+      ],
+      [
+        "src.vorta.scheduler.execution.SchedulerExecution.notify",
         "src.vorta.scheduler.VortaScheduler.set_timer_for_profile",
         "src.vorta.scheduler.scheduling.SchedulerTimers.arm_profile",
         "src.vorta.scheduler.execution.SchedulerExecution.create_backup"
       ]
-    ],
-    "evidence": []
+    ]
   }
 }
