@@ -283,8 +283,9 @@ export default function App() {
     return { nodes, edges }
   }, [currentDecision, subgraphData, graphOn])
 
-  // Calculate missed tests for baseline delta comparison
-  const missedCount = (currentDecision?.affected_tests?.length || 0)
+  // Affected-test count; the query is capped at 30, so 30 means "30 or more"
+  const testTotal = (currentDecision?.affected_tests?.length || 0)
+  const testCountLabel = testTotal >= 30 ? '30 or more' : String(testTotal)
 
   return (
     <div className="app">
@@ -585,7 +586,7 @@ export default function App() {
                       Graph OFF — Ablation Baseline Comparison
                     </h3>
                     <p style={{ fontSize: 12.5, color: 'var(--text-secondary)', marginTop: 2 }}>
-                      Demonstrating why connected graph traversals are essential over naive heuristics.
+                      Comparing graph traversal against flat heuristics on this PR.
                     </p>
                   </div>
                 </div>
@@ -595,8 +596,8 @@ export default function App() {
                     <div className="baseline-delta-callout">
                       <Sparkles size={16} style={{ color: 'var(--accent-blue)', flexShrink: 0 }} />
                       <div>
-                        <strong>Graph Advantage:</strong> Found <strong>{missedCount} test(s)</strong> that same-name regex baselines missed.
-                        Reviewer ranking incorporates multi-file commit recency decay instead of raw commit frequency.
+                        <strong>Graph Advantage:</strong> Found <strong>{testCountLabel} affected test(s)</strong> by walking CALLS edges back from the changed code; a same-name heuristic only looks for test_*.py by file name.
+                        On reviewers, a plain commit-count ranking performed about the same as the graph in the 40-PR benchmark.
                       </div>
                     </div>
 
@@ -608,7 +609,7 @@ export default function App() {
                         </div>
                         <ul className="baseline-list">
                           <li><strong>Blast Radius:</strong> {currentDecision?.blast_radius?.length || 0} callers reached via CALLS edges</li>
-                          <li><strong>Tests to Run:</strong> {missedCount} discovered by backward search from Test nodes</li>
+                          <li><strong>Tests to Run:</strong> {testCountLabel} discovered by backward search from Test nodes</li>
                           <li><strong>Risk Score:</strong> Objective formula: {currentDecision?.risk?.score} ({currentDecision?.risk?.label?.toUpperCase()})</li>
                           <li><strong>Reviewer:</strong> {currentDecision?.reviewers?.[0]?.author || '—'} (weighted by files covered & recency)</li>
                         </ul>
@@ -623,7 +624,7 @@ export default function App() {
                           <li><strong>Blast Radius:</strong> Unknown (cannot traverse multi-hop callers)</li>
                           <li><strong>Tests to Run:</strong> Same-name heuristic only (test_*.py)</li>
                           <li><strong>Risk Score:</strong> None (no PageRank centrality or blast ratio)</li>
-                          <li><strong>Reviewer:</strong> Most recent committer on single file</li>
+                          <li><strong>Reviewer:</strong> Most recent committer, or raw commit count (about equal to the graph in the benchmark)</li>
                         </ul>
                       </div>
                     </div>
