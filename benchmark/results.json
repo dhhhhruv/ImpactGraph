@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-18T04:50:30.450845+00:00",
+  "generated_at": "2026-10-18T05:49:08.887952+00:00",
   "methods": {
     "graph": {
       "reviewer_hit_at_3": 0.8,
       "reviewer_hit_at_5": 0.875,
-      "reviewer_mrr": 0.7473,
+      "reviewer_mrr": 0.7348,
       "test_recall_at_5_with_tests": 0.5139,
       "avg_tests_suggested_with_tests": 17.7667,
       "avg_tests_suggested_without_tests": 13.6,
@@ -13,9 +13,9 @@
       "n_without_test_changes": 10
     },
     "most_recent_committer": {
-      "reviewer_hit_at_3": 0.225,
-      "reviewer_hit_at_5": 0.225,
-      "reviewer_mrr": 0.225,
+      "reviewer_hit_at_3": 0.2,
+      "reviewer_hit_at_5": 0.2,
+      "reviewer_mrr": 0.2,
       "test_recall_at_5_with_tests": 0.0,
       "avg_tests_suggested_with_tests": 0.0,
       "avg_tests_suggested_without_tests": 0.0,
@@ -24,9 +24,9 @@
       "n_without_test_changes": 10
     },
     "flat_commit_count": {
-      "reviewer_hit_at_3": 0.8,
+      "reviewer_hit_at_3": 0.825,
       "reviewer_hit_at_5": 0.875,
-      "reviewer_mrr": 0.7419,
+      "reviewer_mrr": 0.7232,
       "test_recall_at_5_with_tests": 0.0,
       "avg_tests_suggested_with_tests": 0.0,
       "avg_tests_suggested_without_tests": 0.0,
@@ -114,7 +114,7 @@
           "reviewers": {
             "hit_at_3": 1.0,
             "hit_at_5": 1.0,
-            "mrr": 1.0
+            "mrr": 0.5
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -122,10 +122,10 @@
             "has_test_changes": 1.0
           },
           "predicted_reviewers": [
-            "m3nu",
             "false200",
-            "0b0d3",
-            "shivansh02"
+            "m3nu",
+            "shivansh02",
+            "0b0d3"
           ],
           "predicted_tests": []
         },
@@ -595,7 +595,7 @@
             "has_test_changes": 1.0
           },
           "predicted_reviewers": [
-            "kreativmonkey"
+            "ThomasWaldmann"
           ],
           "predicted_tests": []
         },
@@ -926,7 +926,7 @@
           "reviewers": {
             "hit_at_3": 1.0,
             "hit_at_5": 1.0,
-            "mrr": 1.0
+            "mrr": 0.5
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -935,8 +935,8 @@
           },
           "blast_size": 38,
           "predicted_reviewers": [
-            "m3nu",
             "ebuzerdrmz44",
+            "m3nu",
             "real-yfprojects",
             "diivi",
             "false200"
@@ -956,9 +956,9 @@
         },
         "most_recent_committer": {
           "reviewers": {
-            "hit_at_3": 1.0,
-            "hit_at_5": 1.0,
-            "mrr": 1.0
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -966,7 +966,7 @@
             "has_test_changes": 0.0
           },
           "predicted_reviewers": [
-            "m3nu"
+            "ebuzerdrmz44"
           ],
           "predicted_tests": []
         },
@@ -1228,10 +1228,10 @@
             "has_test_changes": 1.0
           },
           "predicted_reviewers": [
-            "SAMAD101",
             "aniketgit-hub101",
-            "jetchirag",
             "SAY-5",
+            "jetchirag",
+            "SAMAD101",
             "cincodenada"
           ],
           "predicted_tests": []
@@ -1309,8 +1309,8 @@
             "m3nu",
             "shivansh02",
             "false200",
-            "real-yfprojects",
-            "cincodenada"
+            "cincodenada",
+            "real-yfprojects"
           ],
           "predicted_tests": [
             "tests/unit/test_log.py",
@@ -1478,7 +1478,7 @@
           "reviewers": {
             "hit_at_3": 1.0,
             "hit_at_5": 1.0,
-            "mrr": 1.0
+            "mrr": 0.5
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -1486,8 +1486,8 @@
             "has_test_changes": 1.0
           },
           "predicted_reviewers": [
-            "m3nu",
             "real-yfprojects",
+            "m3nu",
             "diivi",
             "mr-raj12",
             "shivansh02"
@@ -1863,8 +1863,8 @@
           },
           "predicted_reviewers": [
             "aniketgit-hub101",
-            "jetchirag",
             "SAMAD101",
+            "jetchirag",
             "cincodenada"
           ],
           "predicted_tests": []
@@ -2316,7 +2316,7 @@
             "false200",
             "shivansh02",
             "m3nu",
-            "SAMAD101"
+            "mr-raj12"
           ],
           "predicted_tests": [
             "tests/unit/test_event_log_table_model.py",
@@ -2830,8 +2830,8 @@
             "mr-raj12",
             "m3nu",
             "SAMAD101",
-            "real-yfprojects",
-            "i1sm3ky"
+            "rzeigler",
+            "real-yfprojects"
           ],
           "predicted_tests": []
         },
@@ -3033,7 +3033,7 @@
             "bigtedde",
             "diivi",
             "real-yfprojects",
-            "false200"
+            "SAMAD101"
           ],
           "predicted_tests": [
             "tests/integration/test_archives.py",
@@ -3060,7 +3060,7 @@
             "has_test_changes": 1.0
           },
           "predicted_reviewers": [
-            "defnvary"
+            "false200"
           ],
           "predicted_tests": []
         },
@@ -4555,9 +4555,9 @@
         },
         "flat_commit_count": {
           "reviewers": {
-            "hit_at_3": 0.0,
+            "hit_at_3": 1.0,
             "hit_at_5": 1.0,
-            "mrr": 0.25
+            "mrr": 0.3333333333333333
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -4566,9 +4566,9 @@
           },
           "predicted_reviewers": [
             "SAMAD101",
-            "jramnani",
             "real-yfprojects",
-            "m3nu"
+            "m3nu",
+            "jramnani"
           ],
           "predicted_tests": []
         },
@@ -4804,7 +4804,7 @@
           "reviewers": {
             "hit_at_3": 1.0,
             "hit_at_5": 1.0,
-            "mrr": 0.3333333333333333
+            "mrr": 0.5
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -4813,8 +4813,8 @@
           },
           "predicted_reviewers": [
             "real-yfprojects",
-            "diivi",
             "m3nu",
+            "diivi",
             "rblenis",
             "bigtedde"
           ],
@@ -4930,8 +4930,8 @@
             "m3nu",
             "diivi",
             "real-yfprojects",
-            "ratchek",
-            "aadityasinha-dotcom"
+            "aadityasinha-dotcom",
+            "ratchek"
           ],
           "predicted_tests": []
         },

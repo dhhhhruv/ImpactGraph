@@ -190,7 +190,7 @@ pytest tests/ -v
 # Download PR data (one-time, saves to benchmark/prs.json)
 python -m benchmark.collect_prs --repo borgbase/vorta --count 40
 
-# Run benchmark (graph queries only, no LLM, no future leakage)
+# Run benchmark (graph queries only, no LLM)
 python -m benchmark.run --repo borgbase/vorta
 
 # Results → benchmark/results.md and benchmark/results.json
@@ -311,7 +311,7 @@ When the graph finds nothing, the report says so instead of claiming the change 
 - A PR that doesn't edit tests doesn't mean no test was needed.
 - Call graph links are name-based and approximate.
 
-All benchmark queries use history strictly before each PR's base commit timestamp, so there is no future leakage.
+Reviewer history is cut at each PR's base commit time. Test and blast-radius queries run on a single final snapshot of the repo (they take no timestamp), so absolute test recall may be optimistic for every method. The benchmark makes no claim of zero leakage.
 
 ---
 

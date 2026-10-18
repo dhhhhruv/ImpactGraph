@@ -74,7 +74,7 @@ query is referenced in the result/filter to avoid FalkorDB miscounting.
 - Benchmark runs graph queries directly in Python, no LLM.
 - Baselines: reviewers = last committer, flat commit count. Tests = same-name file, grep imports.
 - Add an "LLM only, no graph" baseline to prove the graph matters.
-- Use only history before each PR's base time (c.ts < $before). No future leakage.
+- Reviewer history uses commits with c.ts before each PR's base commit time (c.ts < $before). Test and blast-radius queries use a single final snapshot, so test recall may be optimistic. Do not claim "no future leakage".
 - Author identity: the graph's Author nodes use git display names (e.g. "Manu"), while GitHub ground
   truth uses logins (e.g. "m3nu"). Without mapping, reviewer metrics are 0.0 for every method.
   Reviewer queries return a.email; benchmark/map_authors.py resolves each email to a GitHub login

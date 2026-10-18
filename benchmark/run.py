@@ -69,6 +69,23 @@ def parse_before_ts(merged_at: str) -> int:
     return int(dt.timestamp())
 
 
+def cutoff_ts(pr: Dict[str, Any], repo_path: Optional[Path]) -> int:
+    """Reviewer-history cutoff: base commit time (git %ct); falls back to merged_at."""
+    import subprocess
+
+    if repo_path is not None and pr.get("base_sha"):
+        try:
+            out = subprocess.run(
+                ["git", "-C", str(repo_path), "show", "-s", "--format=%ct", str(pr["base_sha"])],
+                capture_output=True, text=True, timeout=30,
+            ).stdout.strip()
+            if out.isdigit():
+                return int(out)
+        except Exception:
+            pass
+    return parse_before_ts(str(pr["merged_at"]))
+
+
 def load_prs(path: Path | None = None) -> List[Dict[str, Any]]:
     """Load prs.json, or sample PRs when the file is missing/empty."""
     prs_path = path or DEFAULT_PRS
@@ -127,11 +144,11 @@ def changed_functions_for_pr(
 
 
 def graph_predictions(
-    client: GraphClient, pr: Dict[str, Any]
+    client: GraphClient, pr: Dict[str, Any], repo_path: Optional[Path] = None
 ) -> Dict[str, Any]:
-    """Run Q0/Q1/Q2/Q3 for one PR using only history before merged_at."""
+    """Run Q0/Q1/Q2/Q3 for one PR; reviewer history cut at the PR base commit time."""
     files = list(pr.get("changed_py_files") or [])
-    before = parse_before_ts(str(pr["merged_at"]))
+    before = cutoff_ts(pr, repo_path)
     changed = changed_functions_for_pr(client, files)
     blast: List[Dict[str, Any]] = []
     tests: List[Dict[str, Any]] = []
@@ -161,7 +178,7 @@ def baseline_predictions(
 ) -> Dict[str, Dict[str, List[str]]]:
     """Run all four baselines for one PR."""
     files = list(pr.get("changed_py_files") or [])
-    before = parse_before_ts(str(pr["merged_at"]))
+    before = cutoff_ts(pr, repo_path)
     author = pr.get("author")
     llm = baseline_llm_only(str(pr.get("title") or ""), files)
     same = baseline_same_name_test(files, repo_path=repo_path)
@@ -232,7 +249,7 @@ def evaluate_pr(
     truth_rev = list(pr.get("ground_truth_reviewers") or [])
     truth_tests = list(pr.get("ground_truth_tests") or [])
     has_tests = bool(pr.get("has_test_changes"))
-    graph = graph_predictions(client, pr)
+    graph = graph_predictions(client, pr, repo_path)
     bases = baseline_predictions(client, pr, repo_path)
     methods = {
         "graph": {
@@ -321,7 +338,7 @@ def render_results_md(summary: Dict[str, Any]) -> str:
         "# ImpactGraph Benchmark Results",
         "",
         "Graph queries run directly in Python (no LLM). "
-        "All authorship uses `c.ts < merged_at` (no future leakage).",
+        "Reviewer history uses commits before the PR's base commit time. Test and blast-radius queries run on one final snapshot of the repo, so absolute test recall may be optimistic for every method.",
         "",
         "## Summary",
         "",

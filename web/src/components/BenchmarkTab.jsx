@@ -161,7 +161,7 @@ export default function BenchmarkTab() {
         <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
           <p style={{ marginBottom: 8 }}>
             PRs were selected before looking at results, using the rule in <code style={{ fontFamily: 'var(--font-mono)', fontSize: 12 }}>benchmark/SELECTION_RULE.md</code>.
-            Reviewer history uses only commits strictly before each PR's merge time.
+            Reviewer history uses commits before each PR's base commit time. Test and blast-radius queries run on one final snapshot of the repo, so absolute test recall may be optimistic for every method.
           </p>
           <p style={{ marginBottom: 8 }}>
             <strong>Baselines:</strong> most recent committer and flat commit count (reviewers); same-name test file and grep imports (tests);
