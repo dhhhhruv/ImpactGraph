@@ -472,10 +472,13 @@ export default function App() {
                 <div className="section ai-summary-card">
                   <div className="ai-label">
                     <Sparkles size={13} />
-                    <span>AI-Written Decision Summary (Bounded by Evidence)</span>
+                    <span>Evidence-Bound Summary</span>
                   </div>
                   <p className="ai-summary-text">
                     {currentDecision.summary}
+                  </p>
+                  <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 6 }}>
+                    Built from the query results by a fixed template. No language model is called.
                   </p>
                   {(currentDecision.outcome || currentDecision.outcomes) && (
                     <div style={{ marginTop: 8, display: 'flex', flexWrap: 'wrap', gap: 6 }}>

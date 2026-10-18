@@ -240,15 +240,6 @@ select:focus, input:focus { border-color: var(--accent-blue); }
 .copy-btn:hover { color: var(--text-primary); border-color: var(--accent-blue); }
 .copy-btn.copied { color: var(--accent-green); border-color: var(--accent-green); }
 
-/* AI label */
-.ai-label {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--accent-purple);
-  background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2);
-  padding: 2px 7px; border-radius: 4px; margin-bottom: 6px;
-}
-
 /* Ask box */
 .ask-box { display: flex; gap: 6px; }
 .ask-box input { flex: 1; }
@@ -438,6 +429,7 @@ select:focus, input:focus { border-color: var(--accent-blue); }
   margin-bottom: 16px;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 .ai-summary-card::before {
   content: '';
@@ -455,6 +447,8 @@ select:focus, input:focus { border-color: var(--accent-blue); }
   letter-spacing: 0.05em;
   color: var(--accent-blue);
   margin-bottom: 6px;
+  flex-wrap: wrap;
+  white-space: normal;
 }
 .ai-summary-text {
   font-size: 13px;
