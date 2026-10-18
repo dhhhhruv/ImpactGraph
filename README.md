@@ -271,14 +271,14 @@ The featured analysis was regenerated on 2026-10-18 from the live FalkorDB graph
 
 | Method | Reviewer Hit@3 | Hit@5 | MRR | Test recall@5 |
 | --- | ---: | ---: | ---: | ---: |
-| **ImpactGraph** | 0.80 | 0.88 | 0.75 | 0.51 |
-| flat_commit_count | 0.80 | 0.88 | 0.74 | n/a |
-| most_recent_committer | 0.23 | 0.23 | 0.23 | n/a |
+| **ImpactGraph** | 0.80 | 0.88 | 0.73 | 0.51 |
+| flat_commit_count | 0.83 | 0.88 | 0.72 | n/a |
+| most_recent_committer | 0.20 | 0.20 | 0.20 | n/a |
 | grep_imports | n/a | n/a | n/a | 0.57 |
 | same_name_test | n/a | n/a | n/a | 0.46 |
 | llm_only | 0.00 | 0.00 | 0.00 | 0.00 |
 
-**What this shows, honestly:** the graph is not the best at every single metric. A plain commit-count ranking is essentially equal to it on reviewers in this sample (same Hit@3 and Hit@5, MRR within 0.01), and a grep-imports heuristic beats it slightly on test recall. What the graph does is deliver both answers from one structure, reviewers and affected tests together, with a traceable path for each claim. No single baseline does both. The title/@mention heuristic baseline (a stand-in for an LLM with no graph evidence; no model is actually called) scores zero on both metrics. The benchmark maps each changed file to all of its functions (whole file), not to the changed hunks the demo uses, so its per-PR blast sizes are not comparable to the demo's numbers.
+**What this shows, honestly:** the graph is not the best at every single metric. A plain commit-count ranking is essentially equal to it on reviewers in this sample (Hit@3 0.83 vs 0.80, the same Hit@5, MRR 0.72 vs 0.73; one PR is worth 0.025, so I treat it as a tie), and a grep-imports heuristic beats it slightly on test recall. What the graph does is deliver both answers from one structure, reviewers and affected tests together, with a traceable path for each claim. No single baseline does both. The title/@mention heuristic baseline (a stand-in for an LLM with no graph evidence; no model is actually called) scores zero on both metrics. The benchmark maps each changed file to all of its functions (whole file), not to the changed hunks the demo uses, so its per-PR blast sizes are not comparable to the demo's numbers.
 
 Baselines compared:
 - **most_recent_committer**: last author to touch each changed file

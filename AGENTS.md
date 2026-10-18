@@ -81,7 +81,7 @@ query is referenced in the result/filter to avoid FalkorDB miscounting.
   (90 of 95 resolved, saved in benchmark/author_map.json); run.py and baselines.py map email -> login
   and fall back to the raw name when unresolved.
 - Real run: 40 vorta PRs, 6 methods. Graph is the strongest unified method: essentially equal to
-  flat_commit_count on reviewers (Hit@3 0.80, Hit@5 0.88) and narrowly behind grep_imports on test
+  flat_commit_count on reviewers (Hit@3 0.83, Hit@5 0.88) and narrowly behind grep_imports on test
   recall@5 (0.57 vs 0.51). The benchmark maps each changed file to all of its functions (whole file),
   not to changed hunks. Report this honestly; see benchmark/results.md.
 
