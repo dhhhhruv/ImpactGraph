@@ -19,7 +19,7 @@ RETURN f.qname AS qname
 # Q1 - Blast radius template (hops validated as integer)
 Q_BLAST_TEMPLATE = """
 MATCH p = (c:Function)-[r:CALLS*1..{hops}]->(ch:Function)
-WHERE ch.qname IN $changed
+WHERE ch.qname IN $changed AND NOT c:Test
 RETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,
        [n IN nodes(p) | n.qname] AS path, length(p) AS rel_count
 ORDER BY hops LIMIT 200
@@ -166,7 +166,16 @@ def q1_blast_radius(
     safe_hops = validate_hop_limit(max_hops, min_val=1, max_val=6)
     cypher = Q_BLAST_TEMPLATE.format(hops=safe_hops)
     rows, ev = client.ro_query(cypher, {"changed": changed_qnames})
-    return rows, ev
+    # One row per affected function (rows arrive ordered by hops, so the first is the shortest path).
+    seen = set()
+    unique_rows = []
+    for row in rows:
+        key = row.get("affected")
+        if key in seen:
+            continue
+        seen.add(key)
+        unique_rows.append(row)
+    return unique_rows, ev
 
 
 def q2a_affected_tests(

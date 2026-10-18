@@ -290,3 +290,23 @@ def test_agent_and_query_docs_match_runtime_query_contract():
     assert "CALL algo.pageRank('Function', 'CALLS')" in cypher
     assert "LIMIT {limit}" in cypher
     assert 'Empty results mean "not modelled"' in agents
+
+
+def test_q1_excludes_tests_and_dedupes():
+    """Blast radius must exclude Test nodes and count each affected function once."""
+    mock_driver = MockGraphDriver({
+        "CALLS": MockResult(
+            ["affected", "via", "hops", "path"],
+            [
+                ["vorta.a", "vorta.fn", 1, ["vorta.a", "vorta.fn"]],
+                ["vorta.a", "vorta.fn", 2, ["vorta.a", "vorta.x", "vorta.fn"]],
+                ["vorta.b", "vorta.fn", 1, ["vorta.b", "vorta.fn"]],
+            ],
+        )
+    })
+    client = GraphClient(driver=mock_driver)
+    rows, _ = q1_blast_radius(client, ["vorta.fn"], max_hops=4)
+
+    assert [r["affected"] for r in rows] == ["vorta.a", "vorta.b"]
+    assert rows[0]["hops"] == 1
+    assert "NOT c:Test" in mock_driver.last_query
