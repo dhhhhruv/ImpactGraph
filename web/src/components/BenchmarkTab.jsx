@@ -15,7 +15,7 @@ const REVIEWER_METHODS = ['graph', 'flat_commit_count', 'most_recent_committer',
 const TEST_METHODS = ['graph', 'grep_imports', 'same_name_test', 'llm_only']
 
 const pct = v => (v == null ? '—' : Math.round(v * 100) + '%')
-const dec = v => (v == null ? '—' : Number(v).toFixed(2))
+const dec = v => (v == null ? '—' : (Math.round((Number(v) + Number.EPSILON) * 100) / 100).toFixed(2))
 const tick = v => (v == null ? '—' : v > 0 ? '✓' : '✗')
 
 function BarGroup({ title, methods, field, keys }) {
