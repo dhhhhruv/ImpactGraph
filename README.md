@@ -33,7 +33,7 @@ PR diff → AST parser → FalkorDB graph → seven MCP tools → risk score + b
 | **Graph evidence** | Every Cypher query, its parameters, row count, and duration logged to the UI |
 | **Most central functions** | `get_most_central(limit <= 20)` returns compact PageRank-ranked qname/file/score rows |
 | **Bounded graph depth** | Hop depth 1 / 4 reruns the same analysis and renders graph-backed test proof paths |
-| **Benchmark** | 40 PRs, graph vs. 5 baselines (most-recent-committer, flat-count, same-name test, grep-imports, LLM-only) |
+| **Benchmark** | 40 PRs, graph vs. 5 baselines (most-recent-committer, flat-count, same-name test, grep-imports, title/@mention heuristic) |
 | **Demo cache** | 5 pre-generated PR analyses; app works without a live AI key |
 | **Dark UI** | React 18 + Vite + Cytoscape.js (fcose) — click any node to dim everything else |
 
@@ -62,7 +62,7 @@ impactgraph/
 ├── benchmark/
 │   ├── collect_prs.py      # Download PR data once, save as JSON
 │   ├── run.py              # Benchmark runner (graph queries only, no LLM)
-│   ├── baselines.py        # 5 baselines + LLM-only
+│   ├── baselines.py        # 5 baselines (incl. title/@mention heuristic)
 │   └── results.md          # Results table
 ├── web/                    # React 18 + Vite frontend
 │   └── src/
@@ -261,7 +261,7 @@ The featured analysis was regenerated on 2026-10-18 from the live FalkorDB graph
 - **Graph tab** — Cytoscape.js canvas (fcose layout); changed=red, callers=orange, tests=green, reviewers=purple; click any node to highlight its neighborhood (everything else dims to 20%); node size follows PageRank; capped at 150 nodes
 - **Graph OFF** — flat baseline view beside the graph answer
 - **Evidence tab** — every Cypher query with params, row count, duration, and a Copy button
-- **Benchmark tab** — metric bars (ImpactGraph vs baselines vs LLM-only), per-PR table, method & limitations
+- **Benchmark tab** — metric bars (ImpactGraph vs baselines vs title/@mention heuristic), per-PR table, method & limitations
 
 ---
 
@@ -271,21 +271,21 @@ The featured analysis was regenerated on 2026-10-18 from the live FalkorDB graph
 
 | Method | Reviewer Hit@3 | Hit@5 | MRR | Test recall@5 |
 | --- | ---: | ---: | ---: | ---: |
-| **ImpactGraph** | 0.80 | 0.85 | 0.74 | 0.51 |
-| flat_commit_count | 0.78 | 0.88 | 0.73 | n/a |
+| **ImpactGraph** | 0.80 | 0.88 | 0.75 | 0.51 |
+| flat_commit_count | 0.80 | 0.88 | 0.74 | n/a |
 | most_recent_committer | 0.23 | 0.23 | 0.23 | n/a |
 | grep_imports | n/a | n/a | n/a | 0.57 |
 | same_name_test | n/a | n/a | n/a | 0.46 |
 | llm_only | 0.00 | 0.00 | 0.00 | 0.00 |
 
-**What this shows, honestly:** the graph is not the best at every single metric. A plain commit-count ranking is essentially equal to it on reviewers in this sample (higher Hit@5, near-identical MRR), and a grep-imports heuristic beats it slightly on test recall. What the graph does is deliver both answers from one structure, reviewers and affected tests together, with a traceable path for each claim. No single baseline does both. The LLM-only baseline, which has no graph evidence, scores near zero.
+**What this shows, honestly:** the graph is not the best at every single metric. A plain commit-count ranking is essentially equal to it on reviewers in this sample (same Hit@3 and Hit@5, MRR within 0.01), and a grep-imports heuristic beats it slightly on test recall. What the graph does is deliver both answers from one structure, reviewers and affected tests together, with a traceable path for each claim. No single baseline does both. The title/@mention heuristic baseline (a stand-in for an LLM with no graph evidence; no model is actually called) scores zero on both metrics. The benchmark maps each changed file to all of its functions (whole file), not to the changed hunks the demo uses, so its per-PR blast sizes are not comparable to the demo's numbers.
 
 Baselines compared:
 - **most_recent_committer**: last author to touch each changed file
 - **flat_commit_count**: authors ranked by raw commit count
 - **same_name_test**: `tests/test_<stem>.py` naming heuristic
 - **grep_imports**: test files importing changed modules
-- **LLM-only**: title + @mention heuristic, zero graph evidence
+- **Title/@mention heuristic** (code name `llm_only`; no model is called): title + @mention heuristic, zero graph evidence
 
 Test recall is measured over the PRs that actually edited tests.
 

@@ -80,8 +80,10 @@ query is referenced in the result/filter to avoid FalkorDB miscounting.
   Reviewer queries return a.email; benchmark/map_authors.py resolves each email to a GitHub login
   (90 of 95 resolved, saved in benchmark/author_map.json); run.py and baselines.py map email -> login
   and fall back to the raw name when unresolved.
-- Real run: 40 vorta PRs, 6 methods. Graph is the strongest unified method, but narrowly loses to
-  flat_commit_count (Hit@5) and grep_imports (test recall@5). Report this honestly; see benchmark/results.md.
+- Real run: 40 vorta PRs, 6 methods. Graph is the strongest unified method: essentially equal to
+  flat_commit_count on reviewers (Hit@3 0.80, Hit@5 0.88) and narrowly behind grep_imports on test
+  recall@5 (0.57 vs 0.51). The benchmark maps each changed file to all of its functions (whole file),
+  not to changed hunks. Report this honestly; see benchmark/results.md.
 
 ## Coding rules (paste at top of every agent prompt)
 Project: ImpactGraph (Python 3.11, FastAPI, FalkorDB, React).

@@ -20,7 +20,7 @@ Deadline: 2026-10-18 23:59 IST (Target Submission: 18:00 IST)
 | **GitHub Actions & Webhook** | **DONE** | Implemented `agent/github_actions.py` and `/webhook/github` endpoint with background execution. |
 | **Backend API (`api/main.py`)** | **DONE** | `/ask` answers are evidence-validated and endpoints return outcome labels. Hop depth is propagated through analysis and featured-cache views. |
 | **Frontend UI (`web/`)** | **DONE** | Interactive hop depth 1/4, outcome labels (including Ask), Graph ON/OFF, and highlighted proof paths. Production build passes (1,642 modules). |
-| **Benchmark Harness** | **DONE** | Real run: 40 PRs from `borgbase/vorta`, 6 methods (`benchmark/results.md`). Graph: Hit@3 0.80, Hit@5 0.85, MRR 0.74, test recall@5 0.51. Strongest unified method, but narrowly loses to specialist baselines on single metrics (flat_commit_count Hit@5 0.88; grep_imports test recall@5 0.57). Fixed author-identity mismatch via `benchmark/map_authors.py` (90/95 emails resolved to GitHub logins). |
+| **Benchmark Harness** | **DONE** | Real run: 40 PRs from `borgbase/vorta`, 6 methods (`benchmark/results.md`). Graph: Hit@3 0.80, Hit@5 0.88, MRR 0.75, test recall@5 0.51. Strongest unified method; essentially equal to flat_commit_count on reviewers (Hit@3 0.80, Hit@5 0.88, MRR 0.74) and narrowly behind grep_imports on test recall@5 (0.57). Fixed author-identity mismatch via `benchmark/map_authors.py` (90/95 emails resolved to GitHub logins). |
 | **Demo Cache (`demo_cache/`)** | **DONE** | Featured PR #2560 demonstrates the empty same-name baseline against depth-1 and depth-4 test paths; cache outcomes are labeled. Paths were derived from the checked-out source call graph, not verified against the unavailable live FalkorDB instance. |
 | **Documentation & README** | **DONE** | README video script includes depth 1 → depth 4 and Graph OFF. `AGENTS.md` and `queries.cypher` document matching query/tool choices and known Browser-verification limitations. |
 | **CI / CD Workflow** | **DONE** | `.github/workflows/ci.yml` runs pytest with a FalkorDB service container. |
@@ -60,5 +60,5 @@ web/
       AskBox.jsx          — POST /ask integration with outcome label and evidence rows
       GraphCanvas.jsx     — Cytoscape.js canvas, fcose layout, dimming on click, legend, 150-node cap
       EvidenceTab.jsx     — Cypher + params + rows + duration + Copy button
-      BenchmarkTab.jsx    — MetricBar charts (graph vs baseline vs LLM-only), per-PR table, limitations
+      BenchmarkTab.jsx    — MetricBar charts (graph vs baseline vs title/@mention heuristic), per-PR table, limitations
 ```

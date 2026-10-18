@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-17T21:15:30.380280+00:00",
+  "generated_at": "2026-10-18T04:50:30.450845+00:00",
   "methods": {
     "graph": {
       "reviewer_hit_at_3": 0.8,
-      "reviewer_hit_at_5": 0.85,
-      "reviewer_mrr": 0.7411,
+      "reviewer_hit_at_5": 0.875,
+      "reviewer_mrr": 0.7473,
       "test_recall_at_5_with_tests": 0.5139,
       "avg_tests_suggested_with_tests": 17.7667,
       "avg_tests_suggested_without_tests": 13.6,
@@ -24,9 +24,9 @@
       "n_without_test_changes": 10
     },
     "flat_commit_count": {
-      "reviewer_hit_at_3": 0.775,
+      "reviewer_hit_at_3": 0.8,
       "reviewer_hit_at_5": 0.875,
-      "reviewer_mrr": 0.7349,
+      "reviewer_mrr": 0.7419,
       "test_recall_at_5_with_tests": 0.0,
       "avg_tests_suggested_with_tests": 0.0,
       "avg_tests_suggested_without_tests": 0.0,
@@ -90,7 +90,6 @@
             "false200",
             "m3nu",
             "0b0d3",
-            "shivansh02",
             "shivansh02"
           ],
           "predicted_tests": []
@@ -126,7 +125,6 @@
             "m3nu",
             "false200",
             "0b0d3",
-            "shivansh02",
             "shivansh02"
           ],
           "predicted_tests": []
@@ -197,7 +195,7 @@
             "num_suggested": 2.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 11,
+          "blast_size": 5,
           "predicted_reviewers": [
             "ThomasWaldmann",
             "m3nu",
@@ -240,9 +238,9 @@
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
             "goebbe",
-            "ebuzerdrmz44"
+            "ebuzerdrmz44",
+            "ThomasWaldmann"
           ],
           "predicted_tests": []
         },
@@ -314,7 +312,7 @@
             "num_suggested": 17.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 72,
+          "blast_size": 12,
           "predicted_reviewers": [
             "m3nu",
             "ebuzerdrmz44",
@@ -443,7 +441,7 @@
             "num_suggested": 12.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 63,
+          "blast_size": 7,
           "predicted_reviewers": [
             "false200",
             "m3nu",
@@ -564,7 +562,7 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 157,
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
@@ -616,8 +614,8 @@
             "m3nu",
             "real-yfprojects",
             "diivi",
-            "real-yfprojects",
-            "mr-raj12"
+            "mr-raj12",
+            "ThomasWaldmann"
           ],
           "predicted_tests": []
         },
@@ -694,7 +692,7 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 150,
           "predicted_reviewers": [
             "SAY-5",
             "aniketgit-hub101",
@@ -819,7 +817,7 @@
             "num_suggested": 1.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 3,
+          "blast_size": 2,
           "predicted_reviewers": [
             "m3nu",
             "cincodenada",
@@ -863,7 +861,7 @@
             "false200",
             "shivansh02",
             "SAY-5",
-            "shivansh02"
+            "aniketgit-hub101"
           ],
           "predicted_tests": []
         },
@@ -935,13 +933,13 @@
             "num_suggested": 16.0,
             "has_test_changes": 0.0
           },
-          "blast_size": 200,
+          "blast_size": 38,
           "predicted_reviewers": [
             "m3nu",
             "ebuzerdrmz44",
             "real-yfprojects",
-            "m3nu",
-            "real-yfprojects"
+            "diivi",
+            "false200"
           ],
           "predicted_tests": [
             "tests/unit/test_archives.py",
@@ -986,9 +984,9 @@
           "predicted_reviewers": [
             "real-yfprojects",
             "m3nu",
-            "real-yfprojects",
             "diivi",
-            "ebuzerdrmz44"
+            "ebuzerdrmz44",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -1059,13 +1057,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 193,
+          "blast_size": 55,
           "predicted_reviewers": [
             "m3nu",
             "false200",
             "shivansh02",
             "real-yfprojects",
-            "real-yfprojects"
+            "SAMAD101"
           ],
           "predicted_tests": [
             "tests/unit/test_schedule.py",
@@ -1112,7 +1110,7 @@
             "real-yfprojects",
             "shivansh02",
             "false200",
-            "real-yfprojects"
+            "diivi"
           ],
           "predicted_tests": []
         },
@@ -1306,13 +1304,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 162,
+          "blast_size": 62,
           "predicted_reviewers": [
             "m3nu",
             "shivansh02",
             "false200",
-            "m3nu",
-            "real-yfprojects"
+            "real-yfprojects",
+            "cincodenada"
           ],
           "predicted_tests": [
             "tests/unit/test_log.py",
@@ -1358,8 +1356,8 @@
             "m3nu",
             "real-yfprojects",
             "diivi",
-            "real-yfprojects",
-            "shivansh02"
+            "shivansh02",
+            "bigtedde"
           ],
           "predicted_tests": []
         },
@@ -1439,7 +1437,7 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 65,
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
@@ -1491,8 +1489,8 @@
             "m3nu",
             "real-yfprojects",
             "diivi",
-            "real-yfprojects",
-            "mr-raj12"
+            "mr-raj12",
+            "shivansh02"
           ],
           "predicted_tests": []
         },
@@ -1571,13 +1569,13 @@
             "num_suggested": 22.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 48,
           "predicted_reviewers": [
-            "m3nu",
             "m3nu",
             "diivi",
             "bigtedde",
-            "SaurabhCodesAI"
+            "SaurabhCodesAI",
+            "real-yfprojects"
           ],
           "predicted_tests": [
             "tests/unit/test_archives.py",
@@ -1623,8 +1621,8 @@
             "m3nu",
             "diivi",
             "real-yfprojects",
-            "real-yfprojects",
-            "m3nu"
+            "bigtedde",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -1703,13 +1701,13 @@
             "num_suggested": 17.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 39,
           "predicted_reviewers": [
             "m3nu",
             "bigtedde",
-            "m3nu",
             "SaurabhCodesAI",
-            "diivi"
+            "diivi",
+            "real-yfprojects"
           ],
           "predicted_tests": [
             "tests/unit/test_archives.py",
@@ -1754,9 +1752,9 @@
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
             "bigtedde",
-            "diivi"
+            "diivi",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -1941,13 +1939,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 94,
           "predicted_reviewers": [
             "m3nu",
-            "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
-            "VandalByte"
+            "VandalByte",
+            "bigtedde",
+            "false200"
           ],
           "predicted_tests": [
             "tests/unit/test_source_files_table_model.py",
@@ -1992,9 +1990,9 @@
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
             "bigtedde",
-            "diivi"
+            "diivi",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -2072,13 +2070,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 78,
           "predicted_reviewers": [
-            "m3nu",
             "m3nu",
             "bigtedde",
             "SaurabhCodesAI",
-            "real-yfprojects"
+            "real-yfprojects",
+            "SAMAD101"
           ],
           "predicted_tests": [
             "tests/unit/test_utils.py",
@@ -2124,8 +2122,8 @@
             "m3nu",
             "real-yfprojects",
             "bigtedde",
-            "real-yfprojects",
-            "m3nu"
+            "diivi",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -2201,7 +2199,7 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 78,
           "predicted_reviewers": [],
           "predicted_tests": [
             "tests/unit/test_archive_table_model.py",
@@ -2312,7 +2310,7 @@
             "num_suggested": 3.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 4,
+          "blast_size": 1,
           "predicted_reviewers": [
             "bigtedde",
             "false200",
@@ -2428,13 +2426,13 @@
             "num_suggested": 7.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 30,
+          "blast_size": 10,
           "predicted_reviewers": [
             "m3nu",
             "bigtedde",
             "real-yfprojects",
-            "m3nu",
-            "real-yfprojects"
+            "false200",
+            "phihos"
           ],
           "predicted_tests": [
             "tests/unit/test_settings_store.py",
@@ -2478,7 +2476,7 @@
             "bigtedde",
             "real-yfprojects",
             "phihos",
-            "m3nu"
+            "ratchek"
           ],
           "predicted_tests": []
         },
@@ -2648,7 +2646,7 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 96,
           "predicted_reviewers": [
             "bigtedde",
             "jetchirag",
@@ -2701,7 +2699,7 @@
             "real-yfprojects",
             "jetchirag",
             "bigtedde",
-            "real-yfprojects"
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -2780,7 +2778,7 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 101,
           "predicted_reviewers": [
             "real-yfprojects",
             "m3nu",
@@ -2905,7 +2903,7 @@
             "num_suggested": 16.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 39,
           "predicted_reviewers": [
             "m3nu",
             "bigtedde",
@@ -2956,9 +2954,9 @@
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
             "diivi",
-            "bigtedde"
+            "bigtedde",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -3029,7 +3027,7 @@
             "num_suggested": 16.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 39,
           "predicted_reviewers": [
             "m3nu",
             "bigtedde",
@@ -3080,9 +3078,9 @@
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
             "diivi",
-            "bigtedde"
+            "bigtedde",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -3155,7 +3153,7 @@
             "num_suggested": 7.0,
             "has_test_changes": 0.0
           },
-          "blast_size": 39,
+          "blast_size": 8,
           "predicted_reviewers": [
             "m3nu",
             "false200",
@@ -3205,7 +3203,7 @@
             "shivansh02",
             "false200",
             "real-yfprojects",
-            "real-yfprojects"
+            "freder"
           ],
           "predicted_tests": []
         },
@@ -3275,9 +3273,9 @@
           "predicted_reviewers": [
             "m3nu",
             "mr-raj12",
-            "m3nu",
             "diivi",
-            "jetchirag"
+            "jetchirag",
+            "VandalByte"
           ],
           "predicted_tests": []
         },
@@ -3311,9 +3309,9 @@
           "predicted_reviewers": [
             "m3nu",
             "diivi",
-            "m3nu",
             "real-yfprojects",
-            "real-yfprojects"
+            "mr-raj12",
+            "ThomasWaldmann"
           ],
           "predicted_tests": []
         },
@@ -3387,7 +3385,7 @@
             "num_suggested": 7.0,
             "has_test_changes": 0.0
           },
-          "blast_size": 39,
+          "blast_size": 8,
           "predicted_reviewers": [
             "m3nu",
             "false200",
@@ -3435,9 +3433,9 @@
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
             "false200",
-            "shivansh02"
+            "shivansh02",
+            "defnvary"
           ],
           "predicted_tests": []
         },
@@ -3505,13 +3503,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 117,
           "predicted_reviewers": [
             "m3nu",
-            "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
-            "bigtedde"
+            "bigtedde",
+            "VandalByte",
+            "diivi"
           ],
           "predicted_tests": [
             "tests/unit/test_archive_table_model.py",
@@ -3556,9 +3554,9 @@
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
             "bigtedde",
-            "diivi"
+            "diivi",
+            "VandalByte"
           ],
           "predicted_tests": []
         },
@@ -3638,13 +3636,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 118,
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
             "mr-raj12",
-            "m3nu",
-            "real-yfprojects"
+            "shivansh02",
+            "diivi"
           ],
           "predicted_tests": [
             "tests/unit/test_schedule.py",
@@ -3689,9 +3687,9 @@
           "predicted_reviewers": [
             "real-yfprojects",
             "m3nu",
-            "real-yfprojects",
             "diivi",
-            "bigtedde"
+            "bigtedde",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -3771,13 +3769,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 200,
+          "blast_size": 118,
           "predicted_reviewers": [
-            "m3nu",
             "m3nu",
             "real-yfprojects",
             "shivansh02",
-            "real-yfprojects"
+            "bigtedde",
+            "VandalByte"
           ],
           "predicted_tests": [
             "tests/unit/test_create.py",
@@ -3822,9 +3820,9 @@
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
             "bigtedde",
-            "diivi"
+            "diivi",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -3905,13 +3903,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 0.0
           },
-          "blast_size": 200,
+          "blast_size": 113,
           "predicted_reviewers": [
             "m3nu",
-            "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
-            "rzeigler"
+            "rzeigler",
+            "diivi",
+            "false200"
           ],
           "predicted_tests": [
             "tests/unit/test_create.py",
@@ -4039,13 +4037,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 0.0
           },
-          "blast_size": 200,
+          "blast_size": 84,
           "predicted_reviewers": [
             "m3nu",
-            "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
-            "false200"
+            "false200",
+            "diivi",
+            "bigtedde"
           ],
           "predicted_tests": [
             "tests/unit/test_borg.py",
@@ -4090,9 +4088,9 @@
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "real-yfprojects",
             "diivi",
-            "m3nu"
+            "bigtedde",
+            "rblenis"
           ],
           "predicted_tests": []
         },
@@ -4164,8 +4162,8 @@
         "graph": {
           "reviewers": {
             "hit_at_3": 0.0,
-            "hit_at_5": 0.0,
-            "mrr": 0.16666666666666666
+            "hit_at_5": 1.0,
+            "mrr": 0.25
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -4175,10 +4173,10 @@
           "blast_size": 2,
           "predicted_reviewers": [
             "m3nu",
-            "m3nu",
             "diivi",
             "real-yfprojects",
-            "real-yfprojects"
+            "ThomasWaldmann",
+            "bastiencyr"
           ],
           "predicted_tests": []
         },
@@ -4202,7 +4200,7 @@
           "reviewers": {
             "hit_at_3": 0.0,
             "hit_at_5": 0.0,
-            "mrr": 0.1111111111111111
+            "mrr": 0.14285714285714285
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -4212,9 +4210,9 @@
           "predicted_reviewers": [
             "m3nu",
             "diivi",
-            "m3nu",
             "real-yfprojects",
-            "real-yfprojects"
+            "ratchek",
+            "VandalByte"
           ],
           "predicted_tests": []
         },
@@ -4286,13 +4284,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 0.0
           },
-          "blast_size": 200,
+          "blast_size": 113,
           "predicted_reviewers": [
             "m3nu",
             "real-yfprojects",
-            "m3nu",
-            "real-yfprojects",
-            "diivi"
+            "diivi",
+            "ThomasWaldmann",
+            "rblenis"
           ],
           "predicted_tests": [
             "tests/unit/test_archive_table_model.py",
@@ -4327,7 +4325,7 @@
           "reviewers": {
             "hit_at_3": 1.0,
             "hit_at_5": 1.0,
-            "mrr": 0.3333333333333333
+            "mrr": 0.5
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -4336,10 +4334,10 @@
           },
           "predicted_reviewers": [
             "real-yfprojects",
-            "real-yfprojects",
             "m3nu",
             "diivi",
-            "rblenis"
+            "rblenis",
+            "bigtedde"
           ],
           "predicted_tests": []
         },
@@ -4418,12 +4416,11 @@
             "num_suggested": 0.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 7,
+          "blast_size": 4,
           "predicted_reviewers": [
             "m3nu",
             "VandalByte",
             "SAMAD101",
-            "m3nu",
             "real-yfprojects"
           ],
           "predicted_tests": []
@@ -4456,7 +4453,6 @@
             "has_test_changes": 1.0
           },
           "predicted_reviewers": [
-            "m3nu",
             "m3nu",
             "VandalByte",
             "real-yfprojects",
@@ -4537,8 +4533,7 @@
             "SAMAD101",
             "m3nu",
             "real-yfprojects",
-            "jramnani",
-            "real-yfprojects"
+            "jramnani"
           ],
           "predicted_tests": []
         },
@@ -4573,8 +4568,7 @@
             "SAMAD101",
             "jramnani",
             "real-yfprojects",
-            "m3nu",
-            "real-yfprojects"
+            "m3nu"
           ],
           "predicted_tests": []
         },
@@ -4638,13 +4632,13 @@
             "num_suggested": 30.0,
             "has_test_changes": 1.0
           },
-          "blast_size": 105,
+          "blast_size": 20,
           "predicted_reviewers": [
             "m3nu",
             "bigtedde",
             "shivansh02",
             "SAMAD101",
-            "shivansh02"
+            "jetchirag"
           ],
           "predicted_tests": [
             "tests/unit/test_networks_page.py",
@@ -4691,7 +4685,7 @@
             "real-yfprojects",
             "bigtedde",
             "bastiencyr",
-            "real-yfprojects"
+            "diivi"
           ],
           "predicted_tests": []
         },
@@ -4762,20 +4756,20 @@
           "reviewers": {
             "hit_at_3": 1.0,
             "hit_at_5": 1.0,
-            "mrr": 0.3333333333333333
+            "mrr": 0.5
           },
           "tests": {
             "recall_at_5": 0.0,
             "num_suggested": 16.0,
             "has_test_changes": 0.0
           },
-          "blast_size": 200,
+          "blast_size": 38,
           "predicted_reviewers": [
-            "real-yfprojects",
             "real-yfprojects",
             "m3nu",
             "diivi",
-            "rblenis"
+            "rblenis",
+            "bigtedde"
           ],
           "predicted_tests": [
             "tests/unit/test_archives.py",
@@ -4808,9 +4802,9 @@
         },
         "flat_commit_count": {
           "reviewers": {
-            "hit_at_3": 0.0,
+            "hit_at_3": 1.0,
             "hit_at_5": 1.0,
-            "mrr": 0.25
+            "mrr": 0.3333333333333333
           },
           "tests": {
             "recall_at_5": 0.0,
@@ -4819,10 +4813,10 @@
           },
           "predicted_reviewers": [
             "real-yfprojects",
-            "real-yfprojects",
             "diivi",
             "m3nu",
-            "rblenis"
+            "rblenis",
+            "bigtedde"
           ],
           "predicted_tests": []
         },
@@ -4898,10 +4892,10 @@
           "blast_size": 2,
           "predicted_reviewers": [
             "m3nu",
-            "m3nu",
             "ahmedhosssam",
             "diivi",
-            "goebbe"
+            "goebbe",
+            "real-yfprojects"
           ],
           "predicted_tests": []
         },
@@ -4935,9 +4929,9 @@
           "predicted_reviewers": [
             "m3nu",
             "diivi",
-            "m3nu",
             "real-yfprojects",
-            "real-yfprojects"
+            "ratchek",
+            "aadityasinha-dotcom"
           ],
           "predicted_tests": []
         },
