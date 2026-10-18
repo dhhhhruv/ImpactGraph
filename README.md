@@ -194,7 +194,7 @@ Open `http://localhost:5173`. Click **Demo** to explore pre-computed results, or
 
 ```bash
 pytest tests/ -v
-# Expected: all tests pass (92 at the time of writing)
+# Expected: all tests pass (109 at the time of writing)
 ```
 
 ---
