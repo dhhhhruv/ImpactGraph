@@ -2,6 +2,8 @@
 
 > **Graph-powered pull request impact analysis.** When a PR arrives, ImpactGraph asks a FalkorDB graph of your codebase and its git history: *what can this change break, which tests should run, who should review it, how risky is it?* Every claim in the output carries its graph path.
 
+**Hackathon:** Graph Hacks (WeMakeDevs x FalkorDB), **Track 01**.
+
 ---
 
 ## How it works
@@ -131,7 +133,6 @@ Copy the example env file and fill in your tokens:
 cp .env.example .env
 # Edit .env:
 #   GITHUB_TOKEN=ghp_...
-#   OPENAI_API_KEY=sk-...   (optional — app works without it via demo cache)
 #   FALKOR_HOST=localhost
 #   FALKOR_PORT=6379
 ```
@@ -173,13 +174,13 @@ npm run dev
 # → http://localhost:5173
 ```
 
-Open `http://localhost:5173`. Click **Demo** to explore pre-computed results without needing a live AI key, or enter a PR number and click **⚡ Analyze**.
+Open `http://localhost:5173`. Click **Demo** to explore pre-computed results, or enter a PR number and click **⚡ Analyze**.
 
 ### 6 — Run tests
 
 ```bash
 pytest tests/ -v
-# Expected: 35+ tests across ast_parser, queries, risk, comment, api, benchmark
+# Expected: all tests pass (92 at the time of writing)
 ```
 
 ---
@@ -203,10 +204,15 @@ TARGET_REPO=borgbase/vorta ./.venv/bin/python -m benchmark.collect_prs
 ## Docker (full stack)
 
 ```bash
-docker compose up --build
+# Needs a .env file first (see above), because the api service reads it.
+docker compose up -d --build
 # API  → http://localhost:8000
-# UI   → serve web/dist/ with any static host (e.g. npx serve web/dist)
-# FalkorDB → http://localhost:3000
+# FalkorDB browser → http://localhost:3000
+# Docker starts FalkorDB and the API only. Run the UI with the Vite dev server,
+# which proxies /api to localhost:8000 (a plain static host would not):
+npm --prefix web install
+npm --prefix web run dev
+# UI   → http://localhost:5173
 ```
 
 ---
@@ -326,5 +332,3 @@ AI coding assistants (Google Antigravity, Cursor) were used in this project to a
 ## License
 
 MIT
-=======
-# ImpactGraph
