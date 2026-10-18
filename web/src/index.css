@@ -582,3 +582,9 @@ select:focus, input:focus { border-color: var(--accent-blue); }
   .baseline-grid { grid-template-columns: 1fr; }
 }
 
+/* tab-btn-gap */
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}

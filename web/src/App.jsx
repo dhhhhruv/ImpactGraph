@@ -534,11 +534,11 @@ export default function App() {
         <section className="panel-right" aria-label="Graph and evidence">
           <nav className="tabs" aria-label="Right panel tabs">
             {[
-              { id: 'graph', label: '⬡ Graph Canvas', icon: Activity },
-              { id: 'trace', label: '⚡ Agent Trace', icon: Terminal },
-              { id: 'evidence', label: '🔍 Evidence (Cypher)', icon: Search },
-              { id: 'action', label: '🚀 PR Action (dry run)', icon: Rocket },
-              { id: 'benchmark', label: '📊 Benchmark', icon: BarChart3 },
+              { id: 'graph', label: 'Graph Canvas', icon: Activity },
+              { id: 'trace', label: 'Agent Trace', icon: Terminal },
+              { id: 'evidence', label: 'Evidence (Cypher)', icon: Search },
+              { id: 'action', label: 'PR Action (dry run)', icon: Rocket },
+              { id: 'benchmark', label: 'Benchmark', icon: BarChart3 },
             ].map((t) => {
               const TabIcon = t.icon
               return (
