@@ -482,6 +482,14 @@ def _cached_demo_payload(
             path for path in decision.get("notable_paths", [])
             if isinstance(path, list) and len(path) - 1 <= max_hops
         ]
+    # Tests are reported separately; count each production caller once (shortest path).
+    best = {}
+    for row in sorted(decision.get("blast_radius", []), key=lambda r: int(r.get("hops", 99))):
+        name = str(row.get("affected", ""))
+        if name.startswith("tests.") or name in best:
+            continue
+        best[name] = row
+    decision["blast_radius"] = list(best.values())
     decision["risk"] = compute_agent_risk(
         decision.get("blast_radius", []),
         decision.get("centrality", []),
