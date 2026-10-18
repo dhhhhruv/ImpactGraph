@@ -11,14 +11,14 @@
 ```
 PR diff → AST parser → FalkorDB graph → seven MCP tools → risk score + blast radius + tests + reviewers
                                                         ↓
-                                               LLM explains (never invents)
+                                               Evidence-Bound Summary (fixed template, no model)
                                                         ↓
                                                GitHub PR comment + React UI
 ```
 
-- **Graph (~60%)** finds facts: affected functions, reachable tests, reviewer candidates, risk score, call paths.
-- **LLM (~40%)** explains and decides: picks what to investigate next, writes the "why this matters" text.
-- The LLM **never invents** a name, test, file, or person — only values returned by graph tools are used.
+- **Graph** finds facts: affected functions, reachable tests, reviewer candidates, risk score, call paths.
+- **Summary** is built from the query results by a fixed template. No language model is called at runtime; `agent/prompts.py` has an optional hook for one, not wired in.
+- Nothing is invented: every name, test, file, and person shown comes from graph query results — only values returned by graph tools are used.
 
 **Target repo:** [`borgbase/vorta`](https://github.com/borgbase/vorta) (open-source backup client).
 

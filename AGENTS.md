@@ -8,7 +8,8 @@ It posts one PR comment where every claim carries its graph path.
 Track: Track 01 - Agents That Act on Connected Data.
 Target repo: borgbase/vorta (backup: two other Python repos, decided on Day 1). Demo on OUR FORK.
 
-## The split (graph about 60%, LLM about 40%)
+## The split (design intent: graph about 60%, LLM about 40%)
+Current status: no language model is called at runtime. The summary is a fixed template over query results, and /ask uses fixed Cypher queries. The LLM role below is the design target, not what runs today.
 - GRAPH finds facts: affected functions, tests, reviewers, risk score, paths.
 - LLM decides and explains: picks what to check next, digs deeper when something looks odd,
   chooses between close reviewer candidates, writes the "why this matters" text,
