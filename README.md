@@ -126,6 +126,8 @@ Edges:  (File)   -[:DEFINES]->  (Function)
 - Docker + Docker Compose
 - A GitHub personal access token (for ingestion only)
 
+**Platform note:** the commands below are written for macOS and Linux. On Windows, use WSL2 with Docker Desktop and run every command inside WSL2. Native Windows is not tested; the Python path differs there (.venv\Scripts\python instead of ./.venv/bin/python).
+
 ### 1 — Clone & environment
 
 ```bash
