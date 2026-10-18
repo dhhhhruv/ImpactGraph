@@ -22,6 +22,10 @@ PR diff → AST parser → FalkorDB graph → seven graph tools (ToolBox, also s
 - **PR action (dry run)**: the PR Action tab shows the comment, risk label, reviewer requests and pytest command built from the decision (POST /action/preview). It posts nothing and makes no model or GitHub call.
 - Every name, test, file and person in the facts comes from graph query results. The graph tools, not the model, produce the numbers, and the risk score comes from a formula.
 
+**MCP and the model.** The agent calls the seven graph tools in-process (ToolBox). The same tools are also served over MCP, by a stateless server (mcp_server/server.py) and a stateful one (agent/mcp_server.py), so any MCP client can drive them. The agent itself does not go through MCP.
+
+**Design split.** The intent is roughly 60% graph, 40% model: the graph supplies facts and the model chooses and sequences tools and writes notes. That split is the design, not a measurement.
+
 **Target repo:** [`borgbase/vorta`](https://github.com/borgbase/vorta) (open-source backup client).
 
 ---
