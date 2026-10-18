@@ -194,7 +194,7 @@ def q2b_test_proof_path(
     """Q2b: Get shortest execution path from test to changed function."""
     params = {"test": test_qname, "changed_fn": changed_fn}
     rows, _ = client.ro_query(Q_TEST_PATH, params)
-    if rows and "path" in rows[0]:
+    if rows and rows[0].get("path"):
         return list(rows[0]["path"])
     return None
 
@@ -271,7 +271,7 @@ def explain_path(
     """Shortest CALLS path via Cypher shortestPath (Browser check pending)."""
     params = {"from_qname": from_qname, "to_qname": to_qname}
     rows, _ = client.ro_query(Q_EXPLAIN_PATH, params)
-    if rows and "path" in rows[0]:
+    if rows and rows[0].get("path"):
         return list(rows[0]["path"])
     return None
 
