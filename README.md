@@ -119,8 +119,8 @@ Edges:  (File)   -[:DEFINES]->  (Function)
 ### 1 — Clone & environment
 
 ```bash
-git clone https://github.com/<you>/impactgraph.git
-cd impactgraph
+git clone https://github.com/dhhhhruv/ImpactGraph.git
+cd ImpactGraph
 
 python3.11 -m venv .venv
 source .venv/bin/activate
@@ -152,7 +152,7 @@ docker compose ps
 # Clone the target repo
 mkdir -p repos && git clone https://github.com/borgbase/vorta repos/vorta
 
-# Build the graph (takes ~2–3 min on first run)
+# Build the graph (takes ~2–3 min on first run; time varies by machine)
 ./.venv/bin/python -m ingest.load_graph --repo borgbase/vorta --src repos/vorta --rebuild
 ```
 
@@ -168,9 +168,8 @@ uvicorn api.main:app --reload --port 8000
 ### 5 — Start the frontend
 
 ```bash
-cd web
-npm install
-npm run dev
+npm --prefix web install
+npm --prefix web run dev
 # → http://localhost:5173
 ```
 
@@ -325,7 +324,7 @@ Reviewer history is cut at each PR's base commit time. Test and blast-radius que
 
 ## Disclosure
 
-AI coding assistants (Google Antigravity, Cursor) were used in this project to accelerate development. All graph schema, query logic, risk formulas, and benchmark methodology were designed and reviewed by the team.
+AI coding assistants (Google Antigravity, Cursor) were used in this project to accelerate development. All graph schema, query logic, risk formulas, and benchmark methodology were designed and reviewed by the team. The summary card is built by a fixed template; no language model is called at runtime.
 
 ---
 
