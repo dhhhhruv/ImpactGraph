@@ -53,8 +53,27 @@ def _call_with_retry(contents, key, model):
     raise last
 
 
+FENCE = "\x60" * 3
+
+
+def _extract_notes(text: str):
+    """Pull the JSON object the model was told to finish with; None if absent or invalid."""
+    m = re.search(FENCE + r"json\s*(\{.*\})\s*" + FENCE, text, re.S)
+    raw = m.group(1) if m else None
+    if raw is None:
+        s, e = text.find("{"), text.rfind("}")
+        raw = text[s:e + 1] if s != -1 and e > s else None
+    if not raw:
+        return None
+    try:
+        d = json.loads(raw)
+    except ValueError:
+        return None
+    return d if isinstance(d, dict) and isinstance(d.get("summary"), str) else None
+
+
 def _grounded(text: str, evidence: str) -> bool:
-    names = re.findall(r"\b(?:src|tests)\.[A-Za-z0-9_.]+", text)
+    names = [n.rstrip(".") for n in re.findall(r"\b(?:src|tests)\.[A-Za-z0-9_.]+", text)]
     return all(n in evidence for n in names)
 
 
@@ -126,6 +145,9 @@ def run_agent(client, diff_hunks, head_sha="HEAD", before_ts=None, pr_author=Non
         "agent_mode": "model", "agent_model": model, "agent_trace": tb.log,
     }
     decision.update(generate_template_summary(decision))
-    if final_text and _grounded(final_text, evidence_text):
-        decision["agent_notes"] = final_text
+    notes = _extract_notes(final_text) if final_text else None
+    if notes and _grounded(json.dumps(notes), evidence_text):
+        decision["agent_notes"] = notes["summary"]
+        if isinstance(notes.get("section_notes"), dict):
+            decision["agent_section_notes"] = notes["section_notes"]
     return decision

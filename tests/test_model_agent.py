@@ -97,13 +97,13 @@ def test_requested_hops_override_model(monkeypatch):
 
 
 def test_grounded_note_is_kept(monkeypatch):
-    script(monkeypatch, FULL + [txt("Changes src.a.f; caller src.a.g is affected.")])
+    script(monkeypatch, FULL + [txt('{"summary": "Changes src.a.f; caller src.a.g is affected."}')])
     d = run()
     assert d["agent_notes"].startswith("Changes src.a.f")
 
 
 def test_ungrounded_note_is_dropped(monkeypatch):
-    script(monkeypatch, FULL + [txt("Also breaks src.zzz.ghost.")])
+    script(monkeypatch, FULL + [txt('{"summary": "Also breaks src.zzz.ghost."}')])
     d = run()
     assert d["agent_mode"] == "model"
     assert "agent_notes" not in d
