@@ -148,8 +148,9 @@ def test_featured_demo_endpoint():
 def test_featured_demo_changes_findings_at_hop_depth():
     depth_one = client.get("/demo/featured?max_hops=1").json()["decision"]
     depth_four = client.get("/demo/featured?max_hops=4").json()["decision"]
-    assert len(depth_one["affected_tests"]) == 2
-    assert len(depth_four["affected_tests"]) == 4
+    assert len(depth_one["affected_tests"]) == 14
+    # 30 is the test query's LIMIT 30 cap, so the live count is "30 or more".
+    assert len(depth_four["affected_tests"]) == 30
     assert all(row["hops"] <= 1 for row in depth_one["affected_tests"])
     assert max(row["hops"] for row in depth_four["affected_tests"]) == 4
     assert set(depth_four["test_proof_paths"]) == {

@@ -86,6 +86,7 @@ def baseline_flat_commit_count(
         for r in rows
         if r.get("author")
     ]
+    ranked = list(dict.fromkeys(ranked))
     return _exclude_author(ranked, author)
 
 

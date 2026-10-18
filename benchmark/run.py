@@ -144,7 +144,7 @@ def graph_predictions(
     mapped = []
     for r in reviewers:
         login = author_map.get(r.get("email", ""), r.get("author"))
-        if login and login != pr_author:
+        if login and login != pr_author and login not in mapped:
             mapped.append(login)
     return {
         "reviewers": mapped,
