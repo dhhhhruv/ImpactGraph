@@ -86,7 +86,10 @@ def run_agent(client, diff_hunks, head_sha="HEAD", before_ts=None, pr_author=Non
                 break
             parts = []
             for c in calls:
-                result = tb.call(c["name"], c.get("args") or {})
+                args = dict(c.get("args") or {})
+                if c["name"] in ("get_blast_radius", "get_affected_tests"):
+                    args["max_hops"] = max_hops
+                result = tb.call(c["name"], args)
                 evidence_text += json.dumps(result, default=str)
                 parts.append({"functionResponse": {"name": c["name"], "response": {"result": result}}})
             contents.append({"role": "user", "parts": parts})
