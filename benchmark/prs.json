@@ -1,0 +1,916 @@
+[
+  {
+    "number": 2573,
+    "title": "Fix the metered networks checkbox so it saves and survives a restart",
+    "author": "theluckystrike",
+    "base_sha": "4bc9021b3df8c6ff5c3e10320a466b0647f69670",
+    "head_sha": "6429b333960d96186b9474406926cfbf16c7f543",
+    "merged_at": "2026-10-10T17:13:42Z",
+    "changed_py_files": [
+      "src/vorta/views/networks_page.py",
+      "tests/unit/test_networks_page.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_networks_page.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2572,
+    "title": "Show the actual Borg error in the status bar instead of the full traceback",
+    "author": "ahmershahdev",
+    "base_sha": "c14a801d675f9c5fa8162cf798b6ac1438b2d6da",
+    "head_sha": "cca1095a711b9cb4343324c4af854f84b5bbf841",
+    "merged_at": "2026-10-10T17:02:37Z",
+    "changed_py_files": [
+      "src/vorta/borg/borg_job.py",
+      "tests/unit/test_borg.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_borg.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2570,
+    "title": "Add setting to disable file logging",
+    "author": "ahmershahdev",
+    "base_sha": "f16cf37d4f726feb7cc82c664ae84b4811668fa2",
+    "head_sha": "b8aff57eaa9556c31561d03d850a92d589eb20ae",
+    "merged_at": "2026-10-10T17:08:11Z",
+    "changed_py_files": [
+      "src/vorta/__main__.py",
+      "src/vorta/log.py",
+      "src/vorta/store/connection.py",
+      "src/vorta/store/settings.py",
+      "tests/unit/test_log.py",
+      "tests/unit/test_misc.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_log.py",
+      "tests/unit/test_misc.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2565,
+    "title": "Add filters to the Jobs page by profile, repository and status.",
+    "author": "ebuzerdrmz44",
+    "base_sha": "7a42b0e585de5be3083e95d29dc82626629f7b99",
+    "head_sha": "a6d08e37686d07b51db8468548a88b7b1d17352d",
+    "merged_at": "2026-09-26T08:01:43Z",
+    "changed_py_files": [
+      "src/vorta/views/jobs_page.py",
+      "src/vorta/views/partials/jobs_filter_proxy.py",
+      "tests/unit/test_jobs_table_model.py",
+      "tests/unit/test_schedule.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_jobs_table_model.py",
+      "tests/unit/test_schedule.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2560,
+    "title": "extract Execution and close the job lifecycle (#2360, goal 2)",
+    "author": "ebuzerdrmz44",
+    "base_sha": "96b3e8d9747d84bcf3cdb77c9b8596ce4cf66003",
+    "head_sha": "5878cb76595e2039f9ff862454cecfbef27c0ffa",
+    "merged_at": "2026-09-26T07:39:57Z",
+    "changed_py_files": [
+      "src/vorta/borg/borg_job.py",
+      "src/vorta/scheduler/__init__.py",
+      "src/vorta/scheduler/execution.py",
+      "src/vorta/scheduler/state.py",
+      "src/vorta/store/connection.py",
+      "tests/unit/conftest.py",
+      "tests/unit/test_schedule.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/conftest.py",
+      "tests/unit/test_schedule.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2558,
+    "title": "split VortaScheduler into state and scheduling components (#2360, goal 2)",
+    "author": "ebuzerdrmz44",
+    "base_sha": "e6b15593de3d77c7d4e04feda7b6df7fbe94b342",
+    "head_sha": "6fad94afb64cb6a738cbc1353493c4a5be2da839",
+    "merged_at": "2026-09-14T17:10:16Z",
+    "changed_py_files": [
+      "src/vorta/scheduler.py",
+      "src/vorta/scheduler/__init__.py",
+      "src/vorta/scheduler/scheduling.py",
+      "src/vorta/scheduler/state.py",
+      "tests/unit/test_schedule.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_schedule.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2547,
+    "title": "schedule runs beyond QTimer's 24.8 day ceiling (#2360, phase C)",
+    "author": "ebuzerdrmz44",
+    "base_sha": "86eecfaa9bb4a3c4f7085fff3a5df91bc187b946",
+    "head_sha": "117bc693a0c53a8af273ebd7ee3da27d42ad7d42",
+    "merged_at": "2026-08-25T08:48:05Z",
+    "changed_py_files": [
+      "src/vorta/scheduler.py",
+      "src/vorta/views/schedule_page.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2542,
+    "title": "Update macFUSE wording",
+    "author": "NickWick13",
+    "base_sha": "40e7ca1284a349c6ca42504a1f0a4c9fb6d4416c",
+    "head_sha": "99a9d610211f5192cb8df4a160381e5238d4ed26",
+    "merged_at": "2026-08-16T09:04:27Z",
+    "changed_py_files": [
+      "src/vorta/views/archive_tab.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  },
+  {
+    "number": 2538,
+    "title": "add a Jobs view: pending runs and recorded jobs in one table (#2360, phase 4)",
+    "author": "ebuzerdrmz44",
+    "base_sha": "f96cff414b8e2b83edcedeca5ec6989522eba399",
+    "head_sha": "8f8d2a2bb7b112d5e6f2416e37dbbc0d03377e19",
+    "merged_at": "2026-09-14T17:04:55Z",
+    "changed_py_files": [
+      "src/vorta/scheduler.py",
+      "src/vorta/store/models.py",
+      "src/vorta/views/jobs_page.py",
+      "src/vorta/views/partials/jobs_table_model.py",
+      "src/vorta/views/schedule_tab.py",
+      "tests/unit/test_jobs_table_model.py",
+      "tests/unit/test_schedule.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_jobs_table_model.py",
+      "tests/unit/test_schedule.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2537,
+    "title": "detect resume from sleep without logind (#2360, phase 3)",
+    "author": "ebuzerdrmz44",
+    "base_sha": "591dd8b09c0e36f62468009e4dcc67bba7af8c5f",
+    "head_sha": "282493782e7852a5245abce6b4ec29ec0bb52be3",
+    "merged_at": "2026-08-11T18:06:58Z",
+    "changed_py_files": [
+      "src/vorta/scheduler.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2532,
+    "title": "add SchedulerPauseModel: persist pauses across restarts (#2360, phase A)",
+    "author": "ebuzerdrmz44",
+    "base_sha": "7f83935f25c672e24d3241cf968679b9c939ea72",
+    "head_sha": "32bf671e9fb32579264c8af3958e17932c7b4a56",
+    "merged_at": "2026-08-25T08:36:47Z",
+    "changed_py_files": [
+      "src/vorta/scheduler.py",
+      "src/vorta/store/connection.py",
+      "src/vorta/store/models.py",
+      "src/vorta/views/main_window.py",
+      "src/vorta/views/schedule_page.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2530,
+    "title": "add JobModel: persistent scheduler job store (#2360, phase 1)",
+    "author": "ebuzerdrmz44",
+    "base_sha": "ff36b727883ec0e47e54fbc7aa6de562f5d86417",
+    "head_sha": "a227d255364b8fcecac0992ea8771a2bd9ef7287",
+    "merged_at": "2026-08-11T15:40:14Z",
+    "changed_py_files": [
+      "src/vorta/borg/borg_job.py",
+      "src/vorta/scheduler.py",
+      "src/vorta/store/connection.py",
+      "src/vorta/store/models.py",
+      "tests/unit/conftest.py",
+      "tests/unit/test_job_model.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/conftest.py",
+      "tests/unit/test_job_model.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2526,
+    "title": "refactor(archive)  tab split  (phase 4 pt 3) : delete + maintenance helpers",
+    "author": "ebuzerdrmz44",
+    "base_sha": "36c92409b4857810b24d7c6bb7bbc75d56775413",
+    "head_sha": "633de652381cddf588c9a0b40869b8af57a4e171",
+    "merged_at": "2026-07-25T10:30:20Z",
+    "changed_py_files": [
+      "src/vorta/application.py",
+      "src/vorta/views/archive/archive_delete.py",
+      "src/vorta/views/archive/archive_maintenance.py",
+      "src/vorta/views/archive_tab.py",
+      "tests/integration/test_archives.py",
+      "tests/unit/test_archives.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/integration/test_archives.py",
+      "tests/unit/test_archives.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2525,
+    "title": "refactor(archive): peel diff and rename into views/archive/ helpers (Phase 4 pt 2)",
+    "author": "ebuzerdrmz44",
+    "base_sha": "022860d044d72b2c683d0fc27e098cd9e17f2179",
+    "head_sha": "270fa1829ae1ee39c603a0d33d20c53294058cc9",
+    "merged_at": "2026-07-13T18:52:44Z",
+    "changed_py_files": [
+      "src/vorta/views/archive/archive_diff.py",
+      "src/vorta/views/archive/archive_rename.py",
+      "src/vorta/views/archive_tab.py",
+      "tests/unit/test_archives.py",
+      "tests/unit/test_diff.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_archives.py",
+      "tests/unit/test_diff.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2524,
+    "title": "Fix crash in scheduler when profile no longer exists",
+    "author": "SAY-5",
+    "base_sha": "ff44037be2d46f73b96899554465ee4cc667e9dd",
+    "head_sha": "0d452f778b6e247d6bb3ce6027c94a978c539bd8",
+    "merged_at": "2026-06-27T09:39:20Z",
+    "changed_py_files": [
+      "src/vorta/scheduler.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2523,
+    "title": "refactor(source): convert source files table to QTableView + QAbstractTableModel",
+    "author": "ebuzerdrmz44",
+    "base_sha": "ca7f6aa217e8323581ca0083abede81ba603a24c",
+    "head_sha": "cb9eb8dd1ff76793432e4533fe99fe08ef67d955",
+    "merged_at": "2026-08-11T15:33:25Z",
+    "changed_py_files": [
+      "src/vorta/views/archive_tab.py",
+      "src/vorta/views/partials/archive_table_model.py",
+      "src/vorta/views/partials/sort_proxy.py",
+      "src/vorta/views/partials/source_files_table_model.py",
+      "src/vorta/views/source_tab.py",
+      "tests/unit/test_archive_table_model.py",
+      "tests/unit/test_source.py",
+      "tests/unit/test_source_files_table_model.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_archive_table_model.py",
+      "tests/unit/test_source.py",
+      "tests/unit/test_source_files_table_model.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2519,
+    "title": "Wire ArchiveTableModel into ArchiveTab (QTableView migration, Phase 4 pt 1)",
+    "author": "ebuzerdrmz44",
+    "base_sha": "08a49982855a5789557ab4fd45ef67418d03d031",
+    "head_sha": "510c89a40c63612c84c208e49499ade51195c14c",
+    "merged_at": "2026-07-06T18:17:05Z",
+    "changed_py_files": [
+      "src/vorta/borg/rename.py",
+      "src/vorta/views/archive/archive_extract.py",
+      "src/vorta/views/archive/archive_mount.py",
+      "src/vorta/views/archive_tab.py",
+      "src/vorta/views/partials/archive_table_model.py",
+      "tests/integration/conftest.py",
+      "tests/integration/test_archives.py",
+      "tests/integration/test_repo.py",
+      "tests/unit/conftest.py",
+      "tests/unit/test_archive_table_model.py",
+      "tests/unit/test_archives.py",
+      "tests/unit/test_misc.py",
+      "tests/unit/test_repo.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/integration/conftest.py",
+      "tests/integration/test_archives.py",
+      "tests/integration/test_repo.py",
+      "tests/unit/conftest.py",
+      "tests/unit/test_archive_table_model.py",
+      "tests/unit/test_archives.py",
+      "tests/unit/test_misc.py",
+      "tests/unit/test_repo.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2517,
+    "title": "add ArchiveTableModel (QAbstractTableModel) spike",
+    "author": "ebuzerdrmz44",
+    "base_sha": "450f94479cb9262efc4524db46bf5577229bf8ad",
+    "head_sha": "3d338811c18595d602b760069c565b30ce43dc2f",
+    "merged_at": "2026-06-24T13:28:20Z",
+    "changed_py_files": [
+      "src/vorta/views/partials/archive_table_model.py",
+      "tests/unit/test_archive_table_model.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_archive_table_model.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2515,
+    "title": "Refactor LogPage to use a QAbstractTableModel",
+    "author": "ebuzerdrmz44",
+    "base_sha": "45c6ef56a93ac9a499caaa1a32746bb89b8e578c",
+    "head_sha": "fa8c51ea7d5e619d7b72632bb531ac7a730ed62d",
+    "merged_at": "2026-06-24T13:11:52Z",
+    "changed_py_files": [
+      "src/vorta/views/log_page.py",
+      "src/vorta/views/partials/event_log_table_model.py",
+      "tests/integration/test_repo.py",
+      "tests/unit/test_event_log_table_model.py",
+      "tests/unit/test_repo.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/integration/test_repo.py",
+      "tests/unit/test_event_log_table_model.py",
+      "tests/unit/test_repo.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2514,
+    "title": "refactor(misc): move settings filtering into store/ helper",
+    "author": "ebuzerdrmz44",
+    "base_sha": "fc63b8702c5cb42e1d64cdbcd77759dc183a3198",
+    "head_sha": "76ce4b56a2494ab9ad17b77e61954719248b26ae",
+    "merged_at": "2026-06-08T11:42:12Z",
+    "changed_py_files": [
+      "src/vorta/store/settings.py",
+      "src/vorta/views/misc_tab.py",
+      "tests/unit/test_settings_store.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_settings_store.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2479,
+    "title": "fix: add missing errorText label in ChangeBorgPassphraseWindow (#2372)",
+    "author": "Denay2468",
+    "base_sha": "90a9154a3ff6d013e022ffda82d6e6f64555de03",
+    "head_sha": "360710a7be0a4f76bbaf26927e86a5ccfa7e2645",
+    "merged_at": "2026-04-28T14:34:49Z",
+    "changed_py_files": [
+      "src/vorta/views/dialogs/repo/repo_change_passphrase.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  },
+  {
+    "number": 2476,
+    "title": "fix: restrict folder dialog to file:// URLs (#1631)",
+    "author": "OsamaGharibElwaly",
+    "base_sha": "9174fd7bb1f032a5b03b9382ab725b852ef0d550",
+    "head_sha": "576f1fe0f64a16b3fc9b564837447f8a1efdedd1",
+    "merged_at": "2026-04-28T15:08:49Z",
+    "changed_py_files": [
+      "src/vorta/utils.py",
+      "tests/unit/test_utils.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_utils.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2466,
+    "title": "Fix WiFi detection when wired connection is primary",
+    "author": "CrazyTodd-one",
+    "base_sha": "18ad48e7651de557daa0da50dbabd0af60fea102",
+    "head_sha": "db70b9691df4f16aca0e32b1beb824466ed5ed32",
+    "merged_at": "2026-04-28T14:59:33Z",
+    "changed_py_files": [
+      "src/vorta/network_status/network_manager.py",
+      "tests/network_manager/test_network_manager.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/network_manager/test_network_manager.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2452,
+    "title": "refactor: decouple archive extraction logic from ArchiveTab",
+    "author": "SaurabhCodesAI",
+    "base_sha": "ab3690fa2bc83473e44c9d4d299a6625d5a4cf5f",
+    "head_sha": "d8eaef9ae372760f9a412449f703b23b4fe1dac9",
+    "merged_at": "2026-03-23T21:02:24Z",
+    "changed_py_files": [
+      "src/vorta/views/archive/archive_extract.py",
+      "src/vorta/views/archive_tab.py",
+      "tests/integration/test_archives.py",
+      "tests/unit/test_archives.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/integration/test_archives.py",
+      "tests/unit/test_archives.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2451,
+    "title": "Refactor: Extract archive mounting logic from ArchiveTab (phase 4)",
+    "author": "SaurabhCodesAI",
+    "base_sha": "14b58630d8fc1d67f4dc95264c70ae0a41aa9505",
+    "head_sha": "6c36d1ba76872282d5b9c50757d951bf21b9081f",
+    "merged_at": "2026-03-17T21:32:39Z",
+    "changed_py_files": [
+      "src/vorta/views/archive/__init__.py",
+      "src/vorta/views/archive/archive_mount.py",
+      "src/vorta/views/archive_tab.py",
+      "tests/integration/test_archives.py",
+      "tests/unit/test_archives.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/integration/test_archives.py",
+      "tests/unit/test_archives.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2448,
+    "title": "Feature #2439 Add total size and file count display to source tab ",
+    "author": "ebuzerdrmz44",
+    "base_sha": "16b2b3da0c890bd8a69077455f24712bbe5d42af",
+    "head_sha": "e2b4f11ddc09fd261d7505f8786e45d907970be2",
+    "merged_at": "2026-03-16T20:26:17Z",
+    "changed_py_files": [
+      "src/vorta/views/source_tab.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  },
+  {
+    "number": 2444,
+    "title": "Suppress \"Current WiFi is not allowed\" notification for scheduled backups",
+    "author": "aniketgit-hub101",
+    "base_sha": "7414e546a08f3a53f1036a2c7f281654aeb37840",
+    "head_sha": "368f2feb72ab1b356e9a83340af1848ab184b26a",
+    "merged_at": "2026-03-28T16:03:41Z",
+    "changed_py_files": [
+      "src/vorta/borg/create.py",
+      "src/vorta/scheduler.py",
+      "tests/unit/test_create.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_create.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2435,
+    "title": "Fix #1080: prevent crash when removing source during size recalculation",
+    "author": "ebuzerdrmz44",
+    "base_sha": "0c2e6e2d840087cbe16dae404cd72a4bb8619498",
+    "head_sha": "5090712eaa2ae08f0215a545720715d0a443d0d5",
+    "merged_at": "2026-03-28T15:58:05Z",
+    "changed_py_files": [
+      "src/vorta/views/source_tab.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  },
+  {
+    "number": 2428,
+    "title": "reorganize dialogs",
+    "author": "defnvary",
+    "base_sha": "9832bd6b8379d239fb69766179db943afc3d38a0",
+    "head_sha": "ed5376f37d8e65d8291a69ee6fb4eaa2897054f7",
+    "merged_at": "2026-03-17T13:16:02Z",
+    "changed_py_files": [
+      "src/vorta/__main__.py",
+      "src/vorta/borg/extract.py",
+      "src/vorta/views/archive_tab.py",
+      "src/vorta/views/dialogs/__init__.py",
+      "src/vorta/views/dialogs/archive/__init__.py",
+      "src/vorta/views/dialogs/archive/diff_result.py",
+      "src/vorta/views/dialogs/archive/exclude.py",
+      "src/vorta/views/dialogs/archive/extract.py",
+      "src/vorta/views/dialogs/exception.py",
+      "src/vorta/views/dialogs/profile/__init__.py",
+      "src/vorta/views/dialogs/profile/export_window.py",
+      "src/vorta/views/dialogs/profile/import_window.py",
+      "src/vorta/views/dialogs/profile/profile_add_edit.py",
+      "src/vorta/views/dialogs/repo/__init__.py",
+      "src/vorta/views/dialogs/repo/repo_add.py",
+      "src/vorta/views/dialogs/repo/repo_change_passphrase.py",
+      "src/vorta/views/dialogs/repo/ssh.py",
+      "src/vorta/views/main_window.py",
+      "src/vorta/views/repo_tab.py",
+      "src/vorta/views/source_tab.py",
+      "tests/integration/test_diff.py",
+      "tests/integration/test_init.py",
+      "tests/unit/test_diff.py",
+      "tests/unit/test_extract.py",
+      "tests/unit/test_import_export.py",
+      "tests/unit/test_profile.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/integration/test_diff.py",
+      "tests/integration/test_init.py",
+      "tests/unit/test_diff.py",
+      "tests/unit/test_extract.py",
+      "tests/unit/test_import_export.py",
+      "tests/unit/test_profile.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2423,
+    "title": "Refine BaseTab helpers for profile binding",
+    "author": "false200",
+    "base_sha": "16d246df229f268e0c5d677f0efd3956e3b8c5ee",
+    "head_sha": "6e29659e44bd7c78a855d1d93156b68b4a780c6d",
+    "merged_at": "2026-03-15T12:36:04Z",
+    "changed_py_files": [
+      "src/vorta/borg/borg_job.py",
+      "src/vorta/store/models.py",
+      "src/vorta/views/about_tab.py",
+      "src/vorta/views/archive_tab.py",
+      "src/vorta/views/base_tab.py",
+      "src/vorta/views/log_page.py",
+      "src/vorta/views/networks_page.py",
+      "src/vorta/views/repo_tab.py",
+      "src/vorta/views/schedule_page.py",
+      "src/vorta/views/schedule_tab.py",
+      "src/vorta/views/shell_commands_page.py",
+      "src/vorta/views/source_tab.py",
+      "tests/unit/test_base_tab.py",
+      "tests/unit/test_schedule.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_base_tab.py",
+      "tests/unit/test_schedule.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2422,
+    "title": "Refactor views with BaseTab and introduce RepoTabViewModel",
+    "author": "false200",
+    "base_sha": "bc70866bf31164a774a951f48a381c1d1b9153a5",
+    "head_sha": "e3e593eefe84897962a33ddf4e8c97c5c9464d63",
+    "merged_at": "2026-03-14T11:10:40Z",
+    "changed_py_files": [
+      "src/vorta/store/models.py",
+      "src/vorta/views/about_tab.py",
+      "src/vorta/views/archive_tab.py",
+      "src/vorta/views/base_tab.py",
+      "src/vorta/views/log_page.py",
+      "src/vorta/views/main_window.py",
+      "src/vorta/views/misc_tab.py",
+      "src/vorta/views/networks_page.py",
+      "src/vorta/views/repo_tab.py",
+      "src/vorta/views/schedule_page.py",
+      "src/vorta/views/schedule_tab.py",
+      "src/vorta/views/shell_commands_page.py",
+      "src/vorta/views/source_tab.py",
+      "tests/unit/test_base_tab.py",
+      "tests/unit/test_repo.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_base_tab.py",
+      "tests/unit/test_repo.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2402,
+    "title": "Add mypy type checking infrastructure and core module annotations (#2362)",
+    "author": "mr-raj12",
+    "base_sha": "4a6383f0287c872d3d5152ad739be4479c03df72",
+    "head_sha": "a397105291da25093e67efe322d318df8a94f12d",
+    "merged_at": "2026-03-15T19:20:00Z",
+    "changed_py_files": [
+      "src/vorta/network_status/abc.py",
+      "src/vorta/network_status/darwin.py",
+      "src/vorta/network_status/network_manager.py",
+      "src/vorta/scheduler.py",
+      "src/vorta/store/connection.py",
+      "src/vorta/store/migrations.py",
+      "src/vorta/store/models.py",
+      "src/vorta/store/settings.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  },
+  {
+    "number": 2395,
+    "title": "Migrate translations from Transifex to AI-based workflow",
+    "author": "mr-raj12",
+    "base_sha": "5f1b6f67d566dbf829cf9eb2b7ec97b22f5e2ed7",
+    "head_sha": "6608203259c0fc83afaadbc6e4aa30e65d22ce58",
+    "merged_at": "2026-03-15T07:42:25Z",
+    "changed_py_files": [
+      "src/vorta/application.py",
+      "src/vorta/borg/borg_job.py",
+      "src/vorta/borg/change_passphrase.py",
+      "src/vorta/borg/check.py",
+      "src/vorta/borg/compact.py",
+      "src/vorta/borg/create.py",
+      "src/vorta/borg/version.py",
+      "src/vorta/i18n/richtext.py",
+      "src/vorta/views/about_tab.py",
+      "src/vorta/views/archive_tab.py",
+      "src/vorta/views/exception_dialog.py",
+      "src/vorta/views/exclude_dialog.py",
+      "src/vorta/views/import_window.py",
+      "src/vorta/views/log_page.py",
+      "src/vorta/views/profile_add_edit_dialog.py",
+      "src/vorta/views/repo_tab.py",
+      "src/vorta/views/shell_commands_page.py",
+      "src/vorta/views/ssh_dialog.py"
+    ],
+    "ground_truth_reviewers": [
+      "ThomasWaldmann",
+      "m3nu"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  },
+  {
+    "number": 2391,
+    "title": "Fix timezone handling for Borg 2.x archive timestamps (#2390)",
+    "author": "mr-raj12",
+    "base_sha": "b9a92ad935e2f0ce28c456f425c6999dec69bc2e",
+    "head_sha": "9dd0f77aecdfbe0689720c635e972dd37a8ec6df",
+    "merged_at": "2026-02-09T21:08:05Z",
+    "changed_py_files": [
+      "src/vorta/borg/create.py",
+      "src/vorta/borg/list_repo.py"
+    ],
+    "ground_truth_reviewers": [
+      "ThomasWaldmann"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  },
+  {
+    "number": 2373,
+    "title": "Fix spelling errors in comments, docstrings, and UI widget names",
+    "author": "mr-raj12",
+    "base_sha": "ca7f65ab5bda0017d0c691aa515901e3090047d8",
+    "head_sha": "05eb756de9659cd9171f3dccdbfc319cb91bad40",
+    "merged_at": "2026-02-04T11:03:16Z",
+    "changed_py_files": [
+      "src/vorta/borg/info_archive.py",
+      "src/vorta/profile_export.py",
+      "src/vorta/views/archive_tab.py",
+      "src/vorta/views/partials/treemodel.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  },
+  {
+    "number": 2370,
+    "title": "Fix non-ASCII (Korean) repo backup failure",
+    "author": "GabrielDougherty",
+    "base_sha": "f579f759932a94677fdee362d65005c44fbdbf95",
+    "head_sha": "c4c7c158208d397468f76cc3e08bfe315fe7ba5b",
+    "merged_at": "2026-02-04T18:30:12Z",
+    "changed_py_files": [
+      "src/vorta/keyring/darwin.py",
+      "tests/unit/test_keyring_darwin.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/test_keyring_darwin.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2319,
+    "title": "Skip darwin tests on non-darwin platforms",
+    "author": "cincodenada",
+    "base_sha": "052165312c48e8781b72f733843652b39a42b0d8",
+    "head_sha": "1ef652d408d57ba17addd32b9fe0dac6c626c40f",
+    "merged_at": "2025-12-22T19:25:46Z",
+    "changed_py_files": [
+      "tests/network_manager/test_darwin.py",
+      "tests/network_manager/test_network_manager.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/network_manager/test_darwin.py",
+      "tests/network_manager/test_network_manager.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2317,
+    "title": "fix: Delay updating schedule until after fields have been initialized",
+    "author": "cincodenada",
+    "base_sha": "07a945fe27988ee3073641444423e10cf19f62c0",
+    "head_sha": "2298b989d21a8d00617563112f7a82bca3ddd68c",
+    "merged_at": "2026-01-01T17:54:56Z",
+    "changed_py_files": [
+      "src/vorta/scheduler.py",
+      "src/vorta/views/main_window.py",
+      "src/vorta/views/schedule_page.py",
+      "tests/unit/conftest.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [
+      "tests/unit/conftest.py",
+      "tests/unit/test_scheduler.py"
+    ],
+    "has_test_changes": true
+  },
+  {
+    "number": 2268,
+    "title": "Fix the blank entry in the Custom exclusion",
+    "author": "VandalByte",
+    "base_sha": "7b2e42e767a317efb5a1948f1e05113bb65479ea",
+    "head_sha": "3135d0cc7585bb2ca59e97e8e226f5d63ca4ac7c",
+    "merged_at": "2025-08-19T17:18:45Z",
+    "changed_py_files": [
+      "src/vorta/views/archive_tab.py",
+      "src/vorta/views/exclude_dialog.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  },
+  {
+    "number": 2252,
+    "title": "Add file dialog to exclude patterns",
+    "author": "VandalByte",
+    "base_sha": "1082a26fc817e893e13620b8858e211ed5df2d77",
+    "head_sha": "4627fa7602e8af80c20847b67b9165a9eb65d67e",
+    "merged_at": "2025-09-02T09:45:00Z",
+    "changed_py_files": [
+      "src/vorta/borg/create.py",
+      "src/vorta/views/exclude_dialog.py"
+    ],
+    "ground_truth_reviewers": [
+      "m3nu"
+    ],
+    "ground_truth_tests": [],
+    "has_test_changes": false
+  }
+]

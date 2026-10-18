@@ -19,10 +19,22 @@ from benchmark.baselines import (
 from graph.client import GraphClient
 from graph.queries import q0_diff_to_functions, q1_blast_radius, q2a_affected_tests, q3_find_reviewers
 
+def load_author_map() -> Dict[str, str]:
+    """Load email -> GitHub login map (missing/unresolved emails are skipped)."""
+    if not AUTHOR_MAP_FILE.is_file():
+        return {}
+    raw = json.loads(AUTHOR_MAP_FILE.read_text(encoding="utf-8"))
+    return {
+        email: info["github_login"]
+        for email, info in raw.items()
+        if info.get("github_login")
+    }
+
 BENCH_DIR = Path(__file__).resolve().parent
 DEFAULT_PRS = BENCH_DIR / "prs.json"
 RESULTS_MD = BENCH_DIR / "results.md"
 RESULTS_JSON = BENCH_DIR / "results.json"
+AUTHOR_MAP_FILE = BENCH_DIR / "author_map.json"
 
 SAMPLE_PRS: List[Dict[str, Any]] = [
     {
@@ -126,11 +138,16 @@ def graph_predictions(
     if changed:
         blast, _ = q1_blast_radius(client, changed)
         tests = q2a_affected_tests(client, changed)
-    reviewers = q3_find_reviewers(
-        client, files, before_ts=before, pr_author=pr.get("author")
-    )
+    author_map = load_author_map()
+    reviewers = q3_find_reviewers(client, files, before_ts=before, pr_author=None)
+    pr_author = pr.get("author")
+    mapped = []
+    for r in reviewers:
+        login = author_map.get(r.get("email", ""), r.get("author"))
+        if login and login != pr_author:
+            mapped.append(login)
     return {
-        "reviewers": [str(r["author"]) for r in reviewers],
+        "reviewers": mapped,
         "tests": [str(t["file"]) for t in tests if t.get("file")],
         "blast_size": len(blast),
         "changed_functions": changed,

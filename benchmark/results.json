@@ -1,77 +1,1184 @@
 {
-  "generated_at": "2026-10-16T14:42:17.404478+00:00",
+  "generated_at": "2026-10-17T21:15:30.380280+00:00",
   "methods": {
     "graph": {
-      "reviewer_hit_at_3": 0.0,
-      "reviewer_hit_at_5": 0.0,
-      "reviewer_mrr": 0.0,
-      "test_recall_at_5_with_tests": 0.0,
-      "avg_tests_suggested_with_tests": 0.0,
-      "avg_tests_suggested_without_tests": 30.0,
-      "n_prs": 2,
-      "n_with_test_changes": 1,
-      "n_without_test_changes": 1
+      "reviewer_hit_at_3": 0.8,
+      "reviewer_hit_at_5": 0.85,
+      "reviewer_mrr": 0.7411,
+      "test_recall_at_5_with_tests": 0.5139,
+      "avg_tests_suggested_with_tests": 17.7667,
+      "avg_tests_suggested_without_tests": 13.6,
+      "n_prs": 40,
+      "n_with_test_changes": 30,
+      "n_without_test_changes": 10
     },
     "most_recent_committer": {
-      "reviewer_hit_at_3": 0.0,
-      "reviewer_hit_at_5": 0.0,
-      "reviewer_mrr": 0.0,
+      "reviewer_hit_at_3": 0.225,
+      "reviewer_hit_at_5": 0.225,
+      "reviewer_mrr": 0.225,
       "test_recall_at_5_with_tests": 0.0,
       "avg_tests_suggested_with_tests": 0.0,
       "avg_tests_suggested_without_tests": 0.0,
-      "n_prs": 2,
-      "n_with_test_changes": 1,
-      "n_without_test_changes": 1
+      "n_prs": 40,
+      "n_with_test_changes": 30,
+      "n_without_test_changes": 10
     },
     "flat_commit_count": {
-      "reviewer_hit_at_3": 0.0,
-      "reviewer_hit_at_5": 0.0,
-      "reviewer_mrr": 0.0,
+      "reviewer_hit_at_3": 0.775,
+      "reviewer_hit_at_5": 0.875,
+      "reviewer_mrr": 0.7349,
       "test_recall_at_5_with_tests": 0.0,
       "avg_tests_suggested_with_tests": 0.0,
       "avg_tests_suggested_without_tests": 0.0,
-      "n_prs": 2,
-      "n_with_test_changes": 1,
-      "n_without_test_changes": 1
+      "n_prs": 40,
+      "n_with_test_changes": 30,
+      "n_without_test_changes": 10
     },
     "same_name_test": {
       "reviewer_hit_at_3": 0.0,
       "reviewer_hit_at_5": 0.0,
       "reviewer_mrr": 0.0,
-      "test_recall_at_5_with_tests": 1.0,
-      "avg_tests_suggested_with_tests": 1.0,
-      "avg_tests_suggested_without_tests": 1.0,
-      "n_prs": 2,
-      "n_with_test_changes": 1,
-      "n_without_test_changes": 1
+      "test_recall_at_5_with_tests": 0.4597,
+      "avg_tests_suggested_with_tests": 1.0333,
+      "avg_tests_suggested_without_tests": 0.8,
+      "n_prs": 40,
+      "n_with_test_changes": 30,
+      "n_without_test_changes": 10
     },
     "grep_imports": {
       "reviewer_hit_at_3": 0.0,
       "reviewer_hit_at_5": 0.0,
       "reviewer_mrr": 0.0,
-      "test_recall_at_5_with_tests": 0.0,
-      "avg_tests_suggested_with_tests": 0.0,
-      "avg_tests_suggested_without_tests": 0.0,
-      "n_prs": 2,
-      "n_with_test_changes": 1,
-      "n_without_test_changes": 1
+      "test_recall_at_5_with_tests": 0.5736,
+      "avg_tests_suggested_with_tests": 8.4,
+      "avg_tests_suggested_without_tests": 6.3,
+      "n_prs": 40,
+      "n_with_test_changes": 30,
+      "n_without_test_changes": 10
     },
     "llm_only": {
       "reviewer_hit_at_3": 0.0,
       "reviewer_hit_at_5": 0.0,
       "reviewer_mrr": 0.0,
-      "test_recall_at_5_with_tests": 1.0,
-      "avg_tests_suggested_with_tests": 1.0,
+      "test_recall_at_5_with_tests": 0.0,
+      "avg_tests_suggested_with_tests": 0.9667,
       "avg_tests_suggested_without_tests": 1.0,
-      "n_prs": 2,
-      "n_with_test_changes": 1,
-      "n_without_test_changes": 1
+      "n_prs": 40,
+      "n_with_test_changes": 30,
+      "n_without_test_changes": 10
     }
   },
   "per_pr": [
     {
-      "number": 1,
-      "title": "Fix backup path handling",
+      "number": 2573,
+      "title": "Fix the metered networks checkbox so it saves and survives a restart",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 2,
+          "predicted_reviewers": [
+            "false200",
+            "m3nu",
+            "0b0d3",
+            "shivansh02",
+            "shivansh02"
+          ],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "0b0d3"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "false200",
+            "0b0d3",
+            "shivansh02",
+            "shivansh02"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_networks_page.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_networks_page.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2572,
+      "title": "Show the actual Borg error in the status bar instead of the full traceback",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 2.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 11,
+          "predicted_reviewers": [
+            "ThomasWaldmann",
+            "m3nu",
+            "ebuzerdrmz44",
+            "real-yfprojects",
+            "false200"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_borg.py",
+            "tests/unit/test_borg.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "ebuzerdrmz44"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "goebbe",
+            "ebuzerdrmz44"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 5.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/conftest.py",
+            "tests/unit/test_borg.py",
+            "tests/unit/test_lock.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_umount.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_borg_job.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2570,
+      "title": "Add setting to disable file logging",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 17.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 72,
+          "predicted_reviewers": [
+            "m3nu",
+            "ebuzerdrmz44",
+            "bigtedde",
+            "real-yfprojects",
+            "diivi"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_log.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_settings_store.py",
+            "tests/unit/test_log.py",
+            "tests/unit/test_job_model.py",
+            "tests/unit/test_misc.py",
+            "tests/unit/test_log.py",
+            "tests/unit/test_settings_store.py",
+            "tests/unit/test_log.py",
+            "tests/unit/test_settings_store.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "ebuzerdrmz44"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "ebuzerdrmz44",
+            "bigtedde",
+            "real-yfprojects",
+            "diivi"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_log.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 7.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/conftest.py",
+            "tests/unit/test_filedialog.py",
+            "tests/unit/test_job_model.py",
+            "tests/unit/test_log.py",
+            "tests/unit/test_misc.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_settings_store.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test___main__.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2565,
+      "title": "Add filters to the Jobs page by profile, repository and status.",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 12.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 63,
+          "predicted_reviewers": [
+            "false200",
+            "m3nu",
+            "SAMAD101",
+            "shivansh02",
+            "jetchirag"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_jobs_table_model.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "false200"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.25
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "jetchirag",
+            "false200",
+            "SAMAD101",
+            "m3nu",
+            "shivansh02"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_jobs_table_model.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_jobs_page.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2560,
+      "title": "extract Execution and close the job lifecycle (#2360, goal 2)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.6666666666666666,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "mr-raj12",
+            "false200",
+            "SAMAD101"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_repo.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_networks_page.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "kreativmonkey"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "diivi",
+            "real-yfprojects",
+            "mr-raj12"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.3333333333333333,
+            "num_suggested": 13.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/conftest.py",
+            "tests/integration/test_init.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_borg.py",
+            "tests/unit/test_job_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_lock.py",
+            "tests/unit/test_log.py",
+            "tests/unit/test_misc.py",
+            "tests/unit/test_repo.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_borg_job.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2558,
+      "title": "split VortaScheduler into state and scheduling components (#2360, goal 2)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.14285714285714285
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "SAY-5",
+            "aniketgit-hub101",
+            "false200",
+            "SAMAD101",
+            "jetchirag"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "SAY-5"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.2
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "aniketgit-hub101",
+            "shivansh02",
+            "jetchirag",
+            "SAMAD101",
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 3.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_scheduler.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2547,
+      "title": "schedule runs beyond QTimer's 24.8 day ceiling (#2360, phase C)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 3,
+          "predicted_reviewers": [
+            "m3nu",
+            "cincodenada",
+            "false200",
+            "SAY-5",
+            "aniketgit-hub101"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_schedule.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "SAY-5"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "false200",
+            "shivansh02",
+            "SAY-5",
+            "shivansh02"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 3.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_scheduler.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2542,
+      "title": "Update macFUSE wording",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 16.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "ebuzerdrmz44",
+            "real-yfprojects",
+            "m3nu",
+            "real-yfprojects"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archives.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "real-yfprojects",
+            "m3nu",
+            "real-yfprojects",
+            "diivi",
+            "ebuzerdrmz44"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 4.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/test_archives.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_archive_tab.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2538,
+      "title": "add a Jobs view: pending runs and recorded jobs in one table (#2360, phase 4)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.6666666666666666,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 193,
+          "predicted_reviewers": [
+            "m3nu",
+            "false200",
+            "shivansh02",
+            "real-yfprojects",
+            "real-yfprojects"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_create.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_jobs_table_model.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "SAY-5"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "shivansh02",
+            "false200",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.6666666666666666,
+            "num_suggested": 2.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_jobs_table_model.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 26.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_borg.py",
+            "tests/integration/test_repo.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_base_tab.py",
+            "tests/unit/test_borg.py",
+            "tests/unit/test_create.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_scheduler.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2537,
+      "title": "detect resume from sleep without logind (#2360, phase 3)",
       "has_test_changes": true,
       "methods": {
         "graph": {
@@ -86,8 +1193,1028 @@
             "has_test_changes": 1.0
           },
           "blast_size": 0,
+          "predicted_reviewers": [
+            "SAY-5",
+            "aniketgit-hub101",
+            "cincodenada",
+            "SAMAD101",
+            "jetchirag"
+          ],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "SAY-5"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "SAMAD101",
+            "aniketgit-hub101",
+            "jetchirag",
+            "SAY-5",
+            "cincodenada"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 3.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_scheduler.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2532,
+      "title": "add SchedulerPauseModel: persist pauses across restarts (#2360, phase A)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 162,
+          "predicted_reviewers": [
+            "m3nu",
+            "shivansh02",
+            "false200",
+            "m3nu",
+            "real-yfprojects"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_log.py",
+            "tests/unit/test_import_export.py",
+            "tests/unit/test_profile.py",
+            "tests/unit/test_import_export.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_misc.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_create.py",
+            "tests/unit/test_import_export.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "SAY-5"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "diivi",
+            "real-yfprojects",
+            "shivansh02"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 2.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_main_window.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 27.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/conftest.py",
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_borg.py",
+            "tests/integration/test_repo.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_base_tab.py",
+            "tests/unit/test_borg.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_scheduler.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2530,
+      "title": "add JobModel: persistent scheduler job store (#2360, phase 1)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.3333333333333333,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "mr-raj12",
+            "false200",
+            "diivi"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_archives.py",
+            "tests/unit/test_borg.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_lock.py",
+            "tests/unit/test_job_model.py",
+            "tests/integration/test_init.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_init.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "SAY-5"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "diivi",
+            "real-yfprojects",
+            "mr-raj12"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.3333333333333333,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/conftest.py",
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_borg.py",
+            "tests/integration/test_init.py",
+            "tests/integration/test_repo.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_base_tab.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_borg_job.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2526,
+      "title": "refactor(archive)  tab split  (phase 4 pt 3) : delete + maintenance helpers",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 22.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "diivi",
+            "bigtedde",
+            "SaurabhCodesAI"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_import_export.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_misc.py",
+            "tests/unit/test_archives.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "diivi",
+            "real-yfprojects",
+            "real-yfprojects",
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_application.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 10.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/conftest.py",
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_borg.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_lock.py",
+            "tests/unit/test_schedule.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_application.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2525,
+      "title": "refactor(archive): peel diff and rename into views/archive/ helpers (Phase 4 pt 2)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 17.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "bigtedde",
+            "m3nu",
+            "SaurabhCodesAI",
+            "diivi"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_archives.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "bigtedde",
+            "diivi"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
           "predicted_reviewers": [],
           "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 4.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/test_archives.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_archive_diff.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2524,
+      "title": "Fix crash in scheduler when profile no longer exists",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 0,
+          "predicted_reviewers": [
+            "aniketgit-hub101",
+            "cincodenada",
+            "SAMAD101",
+            "jetchirag"
+          ],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "aniketgit-hub101"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "aniketgit-hub101",
+            "jetchirag",
+            "SAMAD101",
+            "cincodenada"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 3.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_scheduler.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2523,
+      "title": "refactor(source): convert source files table to QTableView + QAbstractTableModel",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.6666666666666666,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "VandalByte"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/integration/test_archives.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "bigtedde",
+            "diivi"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.6666666666666666,
+            "num_suggested": 2.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_source_files_table_model.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.3333333333333333,
+            "num_suggested": 8.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/test_archives.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_misc.py",
+            "tests/unit/test_source.py",
+            "tests/unit/test_source_files_table_model.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_archive_tab.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2519,
+      "title": "Wire ArchiveTableModel into ArchiveTab (QTableView migration, Phase 4 pt 1)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.25,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "bigtedde",
+            "SaurabhCodesAI",
+            "real-yfprojects"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_utils.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_lock.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_job_model.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_repo.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "bigtedde",
+            "real-yfprojects",
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.125,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_archive_table_model.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.375,
+            "num_suggested": 7.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/test_archives.py",
+            "tests/integration/test_diff.py",
+            "tests/integration/test_init.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_misc.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_rename.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2517,
+      "title": "add ArchiveTableModel (QAbstractTableModel) spike",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archive_table_model.py"
+          ]
         },
         "most_recent_committer": {
           "reviewers": {
@@ -130,10 +2257,232 @@
           },
           "predicted_reviewers": [],
           "predicted_tests": [
-            "tests/test_backup.py"
+            "tests/unit/test_archive_table_model.py"
           ]
         },
         "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 3.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_misc.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_archive_table_model.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2515,
+      "title": "Refactor LogPage to use a QAbstractTableModel",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.25
+          },
+          "tests": {
+            "recall_at_5": 0.3333333333333333,
+            "num_suggested": 3.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 4,
+          "predicted_reviewers": [
+            "bigtedde",
+            "false200",
+            "shivansh02",
+            "m3nu",
+            "SAMAD101"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_event_log_table_model.py",
+            "tests/unit/test_event_log_table_model.py",
+            "tests/unit/test_event_log_table_model.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "false200"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "bigtedde",
+            "m3nu",
+            "false200",
+            "SAMAD101",
+            "shivansh02"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.3333333333333333,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_event_log_table_model.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.3333333333333333,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_event_log_table_model.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_log_page.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2514,
+      "title": "refactor(misc): move settings filtering into store/ helper",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 7.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 30,
+          "predicted_reviewers": [
+            "m3nu",
+            "bigtedde",
+            "real-yfprojects",
+            "m3nu",
+            "real-yfprojects"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_settings_store.py",
+            "tests/unit/test_settings_store.py",
+            "tests/unit/test_settings_store.py",
+            "tests/unit/test_settings_store.py",
+            "tests/unit/test_misc.py",
+            "tests/unit/test_job_model.py",
+            "tests/unit/test_import_export.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "mr-raj12"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "bigtedde",
+            "real-yfprojects",
+            "phihos",
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
           "reviewers": {
             "hit_at_3": 0.0,
             "hit_at_5": 0.0,
@@ -147,7 +2496,7 @@
           "predicted_reviewers": [],
           "predicted_tests": []
         },
-        "llm_only": {
+        "grep_imports": {
           "reviewers": {
             "hit_at_3": 0.0,
             "hit_at_5": 0.0,
@@ -158,18 +2507,32 @@
             "num_suggested": 1.0,
             "has_test_changes": 1.0
           },
-          "predicted_reviewers": [
-            "maintainer"
-          ],
+          "predicted_reviewers": [],
           "predicted_tests": [
-            "tests/test_backup.py"
+            "tests/unit/test_settings_store.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_settings.py"
           ]
         }
       }
     },
     {
-      "number": 2,
-      "title": "Docs tweak only",
+      "number": 2479,
+      "title": "fix: add missing errorText label in ChangeBorgPassphraseWindow (#2372)",
       "has_test_changes": false,
       "methods": {
         "graph": {
@@ -180,16 +2543,118 @@
           },
           "tests": {
             "recall_at_5": 0.0,
-            "num_suggested": 30.0,
+            "num_suggested": 0.0,
             "has_test_changes": 0.0
+          },
+          "blast_size": 2,
+          "predicted_reviewers": [
+            "defnvary"
+          ],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "defnvary"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "defnvary"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_repo_change_passphrase.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2476,
+      "title": "fix: restrict folder dialog to file:// URLs (#1631)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.25
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
           },
           "blast_size": 200,
           "predicted_reviewers": [
-            "Manu",
-            "real-yfprojects",
+            "bigtedde",
             "jetchirag",
-            "yfprojects",
-            "Ted Lawson"
+            "SAMAD101",
+            "m3nu",
+            "keysmashes"
           ],
           "predicted_tests": [
             "tests/unit/test_utils.py",
@@ -213,14 +2678,130 @@
           "tests": {
             "recall_at_5": 0.0,
             "num_suggested": 0.0,
-            "has_test_changes": 0.0
+            "has_test_changes": 1.0
           },
           "predicted_reviewers": [
-            "Ted Lawson"
+            "keysmashes"
           ],
           "predicted_tests": []
         },
         "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "jetchirag",
+            "bigtedde",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_utils.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 8.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/conftest.py",
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_diff.py",
+            "tests/integration/test_init.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_utils.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_utils.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2466,
+      "title": "Fix WiFi detection when wired connection is primary",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "real-yfprojects",
+            "m3nu",
+            "mr-raj12",
+            "rzeigler",
+            "cincodenada"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_kwallet.py",
+            "tests/network_manager/test_network_manager.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_treemodel.py",
+            "tests/unit/test_archives.py"
+          ]
+        },
+        "most_recent_committer": {
           "reviewers": {
             "hit_at_3": 0.0,
             "hit_at_5": 0.0,
@@ -229,14 +2810,155 @@
           "tests": {
             "recall_at_5": 0.0,
             "num_suggested": 0.0,
-            "has_test_changes": 0.0
+            "has_test_changes": 1.0
           },
           "predicted_reviewers": [
-            "Manu",
-            "yfprojects",
+            "mr-raj12"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "mr-raj12",
+            "m3nu",
+            "SAMAD101",
             "real-yfprojects",
-            "Robert Blenis",
-            "jetchirag"
+            "i1sm3ky"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/network_manager/test_network_manager.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/network_manager/test_network_manager.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_network_manager.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2452,
+      "title": "refactor: decouple archive extraction logic from ArchiveTab",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 16.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "bigtedde",
+            "diivi",
+            "real-yfprojects",
+            "false200"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "defnvary"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "diivi",
+            "bigtedde"
           ],
           "predicted_tests": []
         },
@@ -248,13 +2970,258 @@
           },
           "tests": {
             "recall_at_5": 0.0,
-            "num_suggested": 1.0,
-            "has_test_changes": 0.0
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 4.0,
+            "has_test_changes": 1.0
           },
           "predicted_reviewers": [],
           "predicted_tests": [
-            "tests/test_utils.py"
+            "tests/integration/test_archives.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py"
           ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_archive_extract.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2451,
+      "title": "Refactor: Extract archive mounting logic from ArchiveTab (phase 4)",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 16.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "bigtedde",
+            "diivi",
+            "real-yfprojects",
+            "false200"
+          ],
+          "predicted_tests": [
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "defnvary"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "diivi",
+            "bigtedde"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 6.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/test_archives.py",
+            "tests/integration/test_borg.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_extract.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_archive_mount.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2448,
+      "title": "Feature #2439 Add total size and file count display to source tab ",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 7.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 39,
+          "predicted_reviewers": [
+            "m3nu",
+            "false200",
+            "keysmashes",
+            "VandalByte",
+            "shivansh02"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source.py",
+            "tests/unit/test_source.py",
+            "tests/unit/test_source.py",
+            "tests/unit/test_source.py",
+            "tests/unit/test_source_files_table_model.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "false200"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "shivansh02",
+            "false200",
+            "real-yfprojects",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
         },
         "grep_imports": {
           "reviewers": {
@@ -283,7 +3250,1743 @@
           },
           "predicted_reviewers": [],
           "predicted_tests": [
-            "tests/test_utils.py"
+            "tests/test_source_tab.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2444,
+      "title": "Suppress \"Current WiFi is not allowed\" notification for scheduled backups",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 2,
+          "predicted_reviewers": [
+            "m3nu",
+            "mr-raj12",
+            "m3nu",
+            "diivi",
+            "jetchirag"
+          ],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "mr-raj12"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "diivi",
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 2.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_create.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 4.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_create.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_create.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2435,
+      "title": "Fix #1080: prevent crash when removing source during size recalculation",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 7.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 39,
+          "predicted_reviewers": [
+            "m3nu",
+            "false200",
+            "defnvary",
+            "VandalByte",
+            "shivansh02"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_source.py",
+            "tests/unit/test_source.py",
+            "tests/unit/test_source.py",
+            "tests/unit/test_source.py",
+            "tests/unit/test_source_files_table_model.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "defnvary"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "false200",
+            "shivansh02"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_source_tab.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2428,
+      "title": "reorganize dialogs",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "bigtedde"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_log.py",
+            "tests/unit/test_import_export.py",
+            "tests/unit/test_import_export.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/test_extract.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "ebuzerdrmz44"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "bigtedde",
+            "diivi"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.16666666666666666,
+            "num_suggested": 2.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_extract.py",
+            "tests/unit/test_main_window.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.3333333333333333,
+            "num_suggested": 11.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_borg.py",
+            "tests/integration/test_diff.py",
+            "tests/integration/test_init.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_extract.py",
+            "tests/unit/test_import_export.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test___main__.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2423,
+      "title": "Refine BaseTab helpers for profile binding",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "mr-raj12",
+            "m3nu",
+            "real-yfprojects"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_repo.py",
+            "tests/integration/test_borg.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_borg.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_archives.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "mr-raj12"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "real-yfprojects",
+            "m3nu",
+            "real-yfprojects",
+            "diivi",
+            "bigtedde"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 2.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_base_tab.py",
+            "tests/unit/test_networks_page.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 29.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_borg.py",
+            "tests/integration/test_diff.py",
+            "tests/integration/test_repo.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_base_tab.py",
+            "tests/unit/test_borg.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_borg_job.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2422,
+      "title": "Refactor views with BaseTab and introduce RepoTabViewModel",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "real-yfprojects",
+            "shivansh02",
+            "real-yfprojects"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_create.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_borg.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_schedule.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/integration/test_borg.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "Ankitsinghsisodya"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "bigtedde",
+            "diivi"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 3.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_base_tab.py",
+            "tests/unit/test_main_window.py",
+            "tests/unit/test_networks_page.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 27.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_borg.py",
+            "tests/integration/test_diff.py",
+            "tests/integration/test_repo.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_base_tab.py",
+            "tests/unit/test_borg.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_models.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2402,
+      "title": "Add mypy type checking infrastructure and core module annotations (#2362)",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "rzeigler"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_create.py",
+            "tests/unit/test_archives.py",
+            "tests/network_manager/test_network_manager.py",
+            "tests/network_manager/test_darwin.py",
+            "tests/unit/test_settings_store.py",
+            "tests/network_manager/test_network_manager.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_settings_store.py",
+            "tests/unit/test_settings_store.py",
+            "tests/unit/test_settings_store.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "false200"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "diivi",
+            "false200",
+            "bigtedde"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 3.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/network_manager/test_darwin.py",
+            "tests/network_manager/test_network_manager.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/conftest.py",
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_borg.py",
+            "tests/integration/test_repo.py",
+            "tests/network_manager/test_network_manager.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_base_tab.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_abc.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2395,
+      "title": "Migrate translations from Transifex to AI-based workflow",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "false200"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_borg.py",
+            "tests/unit/test_borg.py",
+            "tests/integration/test_init.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_repo.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_init.py",
+            "tests/unit/test_main_window.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "aniketgit-hub101"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects",
+            "diivi",
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 2.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_application.py",
+            "tests/unit/test_create.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 15.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/__init__.py",
+            "tests/conftest.py",
+            "tests/integration/conftest.py",
+            "tests/integration/test_archives.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_borg.py",
+            "tests/unit/test_create.py",
+            "tests/unit/test_diff.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_application.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2391,
+      "title": "Fix timezone handling for Borg 2.x archive timestamps (#2390)",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.16666666666666666
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 2,
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "diivi",
+            "real-yfprojects",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "VandalByte"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.1111111111111111
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "diivi",
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_create.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_create.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_create.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2373,
+      "title": "Fix spelling errors in comments, docstrings, and UI widget names",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "m3nu",
+            "real-yfprojects",
+            "diivi"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_archive_table_model.py",
+            "tests/unit/test_source_files_table_model.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_treemodel.py",
+            "tests/unit/test_treemodel.py",
+            "tests/unit/test_extract.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_archive_table_model.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.3333333333333333
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "real-yfprojects",
+            "real-yfprojects",
+            "m3nu",
+            "diivi",
+            "rblenis"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_treemodel.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 8.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/test_archives.py",
+            "tests/integration/test_borg.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py",
+            "tests/unit/test_extract.py",
+            "tests/unit/test_import_export.py",
+            "tests/unit/test_treemodel.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_info_archive.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2370,
+      "title": "Fix non-ASCII (Korean) repo backup failure",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 7,
+          "predicted_reviewers": [
+            "m3nu",
+            "VandalByte",
+            "SAMAD101",
+            "m3nu",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "VandalByte",
+            "real-yfprojects",
+            "SAMAD101"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/network_manager/test_darwin.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 1.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_keyring_darwin.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_darwin.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2319,
+      "title": "Skip darwin tests on non-darwin platforms",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 0,
+          "predicted_reviewers": [
+            "SAMAD101",
+            "m3nu",
+            "real-yfprojects",
+            "jramnani",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "SAMAD101"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.25
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "SAMAD101",
+            "jramnani",
+            "real-yfprojects",
+            "m3nu",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        }
+      }
+    },
+    {
+      "number": 2317,
+      "title": "fix: Delay updating schedule until after fields have been initialized",
+      "has_test_changes": true,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 30.0,
+            "has_test_changes": 1.0
+          },
+          "blast_size": 105,
+          "predicted_reviewers": [
+            "m3nu",
+            "bigtedde",
+            "shivansh02",
+            "SAMAD101",
+            "shivansh02"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_networks_page.py",
+            "tests/unit/test_borg.py",
+            "tests/unit/test_repo.py",
+            "tests/unit/test_utils.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_profile.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_lock.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "real-yfprojects",
+            "bigtedde",
+            "bastiencyr",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 2.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_scheduler.py",
+            "tests/unit/test_main_window.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.5,
+            "num_suggested": 6.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/conftest.py",
+            "tests/integration/test_init.py",
+            "tests/unit/conftest.py",
+            "tests/unit/test_jobs_table_model.py",
+            "tests/unit/test_schedule.py",
+            "tests/unit/test_scheduler.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 1.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_scheduler.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2268,
+      "title": "Fix the blank entry in the Custom exclusion",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.3333333333333333
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 16.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 200,
+          "predicted_reviewers": [
+            "real-yfprojects",
+            "real-yfprojects",
+            "m3nu",
+            "diivi",
+            "rblenis"
+          ],
+          "predicted_tests": [
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_archives.py",
+            "tests/integration/test_archives.py",
+            "tests/unit/test_archives.py"
+          ]
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "m3nu"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 1.0,
+            "mrr": 0.25
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "real-yfprojects",
+            "real-yfprojects",
+            "diivi",
+            "m3nu",
+            "rblenis"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": []
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 4.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/integration/test_archives.py",
+            "tests/integration/test_diff.py",
+            "tests/unit/test_archives.py",
+            "tests/unit/test_diff.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "maintainer"
+          ],
+          "predicted_tests": [
+            "tests/test_archive_tab.py"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2252,
+      "title": "Add file dialog to exclude patterns",
+      "has_test_changes": false,
+      "methods": {
+        "graph": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "blast_size": 2,
+          "predicted_reviewers": [
+            "m3nu",
+            "m3nu",
+            "ahmedhosssam",
+            "diivi",
+            "goebbe"
+          ],
+          "predicted_tests": []
+        },
+        "most_recent_committer": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "ahmedhosssam"
+          ],
+          "predicted_tests": []
+        },
+        "flat_commit_count": {
+          "reviewers": {
+            "hit_at_3": 1.0,
+            "hit_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 0.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [
+            "m3nu",
+            "diivi",
+            "m3nu",
+            "real-yfprojects",
+            "real-yfprojects"
+          ],
+          "predicted_tests": []
+        },
+        "same_name_test": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_create.py"
+          ]
+        },
+        "grep_imports": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/unit/test_create.py"
+          ]
+        },
+        "llm_only": {
+          "reviewers": {
+            "hit_at_3": 0.0,
+            "hit_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "tests": {
+            "recall_at_5": 0.0,
+            "num_suggested": 1.0,
+            "has_test_changes": 0.0
+          },
+          "predicted_reviewers": [],
+          "predicted_tests": [
+            "tests/test_create.py"
           ]
         }
       }

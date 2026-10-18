@@ -199,8 +199,8 @@ def test_q2a_and_q2b_tests():
 
     path = q2b_test_proof_path(client, "tests.test_backup", "vorta.views.backup")
     assert path == ["tests.test_backup", "vorta.main", "vorta.views.backup"]
-    assert "MATCH p = shortestPath" in mock_driver.last_query
-    assert "size(r) >= 0" in mock_driver.last_query
+    assert "shortestPath" in mock_driver.last_query
+    assert "RETURN [n IN nodes(shortestPath(" in mock_driver.last_query
 
 
 def test_reviewer_scoring_and_q3():

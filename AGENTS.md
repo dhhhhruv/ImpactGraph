@@ -39,14 +39,19 @@ CALLS edges are ingested with MERGE to prevent duplicates. Every relationship al
 query is referenced in the result/filter to avoid FalkorDB miscounting.
 
 ## Algorithms
-- explain_path / Q2b currently use Cypher `shortestPath((a)-[r:CALLS*..6]->(b))`.
-  The relationship alias is referenced to accommodate FalkorDB's Cypher limitation.
-  Browser comparison with `CALL algo.SPpaths(...)` could not be run in this environment:
-  FalkorDB Browser at localhost:3000 was unavailable (Docker daemon not running).
+- explain_path / Q2b use Cypher `shortestPath((a)-[:CALLS*..6]->(b))`, unnamed relationship.
+  Verified live against FalkorDB Browser (localhost:3000, 2026-10-17): the relationship
+  variable must NOT be named inside shortestPath() — naming it (e.g. `[r:CALLS*]`) causes
+  the query to silently return no rows in this FalkorDB version. Also, shortestPath must
+  appear directly in a RETURN or WITH clause, not bound via `MATCH p = shortestPath(...)`
+  (that raises "FalkorDB currently only supports shortestPaths in WITH or RETURN clauses").
+  `CALL algo.SPpaths({sourceNode: a, targetNode: b})` was also verified live and agrees
+  with shortestPath's result on a 2-hop test case (is_network_metered -> call_ipconfig_getpacket).
 - PageRank storage tries `CALL algo.pageRank('Function', 'CALLS')`; on an algorithm error,
   ingest/load_graph.py falls back to NetworkX and stores scores on Function.pagerank.
-  Browser verification of the algorithm call is likewise pending. get_most_central reads
-  the stored scores and returns only qname, file, and score.
+  Verified live against FalkorDB Browser (localhost:3000, 2026-10-17): the call succeeds
+  and returns ranked (node.name, score) pairs. get_most_central reads the stored scores
+  and returns only qname, file, and score.
 
 ## Failsafes
 1. GitHub limits: use a token. Download PR data ONCE, save as JSON, commit it. Benchmark never calls GitHub again.

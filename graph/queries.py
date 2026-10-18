@@ -21,14 +21,14 @@ Q_BLAST_TEMPLATE = """
 MATCH p = (c:Function)-[r:CALLS*1..{hops}]->(ch:Function)
 WHERE ch.qname IN $changed
 RETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,
-       [n IN nodes(p) | n.qname] AS path, size(r) AS rel_count
+       [n IN nodes(p) | n.qname] AS path, length(p) AS rel_count
 ORDER BY hops LIMIT 200
 """
 
 # Q2a - Tests reaching changed functions (hops validated as integer)
 Q_TESTS_TEMPLATE = """
 MATCH p = (t:Test)-[r:CALLS*1..{hops}]->(ch:Function)
-WHERE ch.qname IN $changed AND size(r) >= 1
+WHERE ch.qname IN $changed
 RETURN t.qname AS test, t.file AS file, min(length(p)) AS hops
 ORDER BY hops LIMIT 30
 """
@@ -36,16 +36,14 @@ ORDER BY hops LIMIT 30
 # Q2b - proof path (Cypher shortestPath; algo.SPpaths not used — see AGENTS.md)
 Q_TEST_PATH = """
 MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})
-MATCH p = shortestPath((t)-[r:CALLS*..6]->(ch))
-WHERE p IS NOT NULL AND size(r) >= 0
-RETURN [n IN nodes(p) | n.qname] AS path
+RETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path
 """
 
 # Q3 - Reviewer evidence (no future leakage: c.ts < $before)
 Q_REVIEWERS = """
 MATCH (a:Author)-[au:AUTHORED]->(c:Commit)-[t:TOUCHED]->(f:File)
 WHERE f.path IN $files AND c.ts < $before
-RETURN a.name AS author, count(DISTINCT c) AS commits,
+RETURN a.name AS author, a.email AS email, count(DISTINCT c) AS commits,
        count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts,
        count(t) AS touch_rels, count(DISTINCT au) AS authored_rels
 ORDER BY files_covered DESC, commits DESC LIMIT 10
@@ -67,9 +65,7 @@ RETURN count(DISTINCT c) AS recent_commits, count(t) AS touch_rels
 # explain_path — Cypher shortestPath (chosen over CALL algo.SPpaths)
 Q_EXPLAIN_PATH = """
 MATCH (a:Function {qname: $from_qname}), (b:Function {qname: $to_qname})
-MATCH p = shortestPath((a)-[r:CALLS*..6]->(b))
-WHERE p IS NOT NULL AND size(r) >= 0
-RETURN [n IN nodes(p) | n.qname] AS path
+RETURN [n IN nodes(shortestPath((a)-[:CALLS*..6]->(b))) | n.qname] AS path
 """
 
 Q_FN_EXISTS = """

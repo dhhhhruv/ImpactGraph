@@ -2,16 +2,31 @@
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
 from graph.client import GraphClient
 
+_AUTHOR_MAP_FILE = Path(__file__).resolve().parent / "author_map.json"
+
+
+def _load_author_map() -> Dict[str, str]:
+    """Load email -> GitHub login map (missing/unresolved emails are skipped)."""
+    if not _AUTHOR_MAP_FILE.is_file():
+        return {}
+    raw = json.loads(_AUTHOR_MAP_FILE.read_text(encoding="utf-8"))
+    return {
+        email: info["github_login"]
+        for email, info in raw.items()
+        if info.get("github_login")
+    }
+
 Q_MOST_RECENT = """
 MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)
 WHERE f.path IN $files AND c.ts < $before
-RETURN a.name AS author, max(c.ts) AS last_ts
+RETURN a.name AS author, a.email AS email, max(c.ts) AS last_ts
 ORDER BY last_ts DESC
 LIMIT 20
 """
@@ -19,7 +34,7 @@ LIMIT 20
 Q_FLAT_COMMITS = """
 MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)
 WHERE f.path IN $files AND c.ts < $before
-RETURN a.name AS author, count(DISTINCT c) AS commits
+RETURN a.name AS author, a.email AS email, count(DISTINCT c) AS commits
 ORDER BY commits DESC
 LIMIT 20
 """
@@ -44,7 +59,12 @@ def baseline_most_recent_committer(
         return []
     params = {"files": files, "before": int(before_ts)}
     rows, _ = client.ro_query(Q_MOST_RECENT, params)
-    ranked = [str(r["author"]) for r in rows if r.get("author")]
+    author_map = _load_author_map()
+    ranked = [
+        author_map.get(r.get("email", ""), r.get("author"))
+        for r in rows
+        if r.get("author")
+    ]
     filtered = _exclude_author(ranked, author)
     return filtered[:1]
 
@@ -60,7 +80,12 @@ def baseline_flat_commit_count(
         return []
     params = {"files": files, "before": int(before_ts)}
     rows, _ = client.ro_query(Q_FLAT_COMMITS, params)
-    ranked = [str(r["author"]) for r in rows if r.get("author")]
+    author_map = _load_author_map()
+    ranked = [
+        author_map.get(r.get("email", ""), r.get("author"))
+        for r in rows
+        if r.get("author")
+    ]
     return _exclude_author(ranked, author)
 
 
