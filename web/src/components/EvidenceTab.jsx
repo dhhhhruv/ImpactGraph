@@ -17,6 +17,9 @@ export default function EvidenceTab({ evidence }) {
       <h3 style={{ marginBottom: 16, color: 'var(--text-secondary)' }}>
         Cypher Queries & Evidence — {evidence.length} {evidence.length === 1 ? 'query' : 'queries'} run
       </h3>
+      <p style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>
+        Rows below are raw query results (one row per path). The summary panel counts each production caller once, keeping its shortest path, so row counts can be higher than the caller count.
+      </p>
       {evidence.map((ev, i) => {
         const cypher = (ev.cypher || '').trim()
         const params = ev.params || {}
