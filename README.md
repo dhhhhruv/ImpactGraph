@@ -9,16 +9,18 @@
 ## How it works
 
 ```
-PR diff → AST parser → FalkorDB graph → seven MCP tools → risk score + blast radius + tests + reviewers
+PR diff → AST parser → FalkorDB graph → seven graph tools (ToolBox, also served over MCP) → risk score + blast radius + tests + reviewers
                                                         ↓
-                                               Evidence-Bound Summary (fixed template, no model)
+                                               Evidence-Bound Summary (fixed template over tool results)
                                                         ↓
                                                GitHub PR comment + React UI
 ```
 
 - **Graph** finds facts: affected functions, reachable tests, reviewer candidates, risk score, call paths.
-- **Summary** is built from the query results by a fixed template. No language model is called at runtime; `agent/prompts.py` has an optional hook for one, not wired in.
-- Nothing is invented: every name, test, file, and person shown comes from graph query results — only values returned by graph tools are used.
+- **Agent** (when LLM_API_KEY is set): a Gemini model chooses which graph tools to run and in what order (function calling, step cap 8; the request's hop depth overrides the model's). Models come from LLM_MODEL and LLM_MODEL_FALLBACK. With no key, an API error or an incomplete run, the app falls back to the fixed pipeline and the Agent Trace tab says so. The free tier allows about 20 requests per model per day and one analysis uses about 7, so the demo cache and the fixed pipeline matter.
+- **Summary** sentence is always built from the tool results by a fixed template. The model only adds optional notes: function and test names in them are checked against tool results, but other wording is the model's and is not verified.
+- **PR action (dry run)**: the PR Action tab shows the comment, risk label, reviewer requests and pytest command built from the decision (POST /action/preview). It posts nothing and makes no model or GitHub call.
+- Every name, test, file and person in the facts comes from graph query results. The graph tools, not the model, produce the numbers, and the risk score comes from a formula.
 
 **Target repo:** [`borgbase/vorta`](https://github.com/borgbase/vorta) (open-source backup client).
 
@@ -54,13 +56,17 @@ impactgraph/
 │   ├── queries.py          # Q0–Q5: diff→fns, blast, tests, proof path, reviewers, centrality, churn
 │   └── risk.py             # calculate_risk() — pure formula, no LLM
 ├── mcp_server/
-│   └── server.py           # Seven MCP tools wrapping Q0–Q5 and PageRank for agent use
+│   └── server.py           # Stateless MCP server, 12 tools (each call takes repo); run: python -c "from mcp_server.server import mcp; mcp.run()"
 ├── agent/
+│   ├── agent.py            # run_agent(): Gemini function calling over the tools, falls back to the fixed pipeline
+│   ├── tools.py            # ToolBox: 7 graph tools used in-process by the agent
+│   ├── mcp_server.py       # Stateful MCP server over ToolBox, 8 tools (set_diff first); run: FALKOR_HOST=localhost ./.venv/bin/python -m agent.mcp_server
+│   ├── github_actions.py   # Comment, label, reviewers, pytest command (dry run by default)
 │   ├── loop.py             # run_impact_agent() — orchestrates all queries + risk
 │   ├── comment.py          # format_pr_comment() + validate_decision() hallucination filter
 │   └── prompts.py          # Template-based summary generation
 ├── api/
-│   └── main.py             # FastAPI: /health /repos /analyze /subgraph /ask /benchmark /demo/{id}
+│   └── main.py             # FastAPI: /health /repos /analyze /subgraph /ask /benchmark /demo/{id} /action/preview
 ├── benchmark/
 │   ├── collect_prs.py      # Download PR data once, save as JSON
 │   ├── run.py              # Benchmark runner (graph queries only, no LLM)
@@ -135,6 +141,9 @@ cp .env.example .env
 #   GITHUB_TOKEN=ghp_...
 #   FALKOR_HOST=localhost
 #   FALKOR_PORT=6379
+#   LLM_API_KEY=...            # optional; without it the fixed pipeline runs
+#   LLM_MODEL=gemini-3.6-flash
+#   LLM_MODEL_FALLBACK=gemini-3.5-flash
 ```
 
 ### 2 — Start FalkorDB
@@ -257,7 +266,7 @@ curl -X POST http://localhost:8000/analyze \
 The featured analysis was regenerated on 2026-10-18 from the live FalkorDB graph (`impact_borgbase_vorta`) and cached in `demo_cache/featured.json`. Test lists are capped at 30 rows per query, so counts at 30 are lower bounds.
 
 **Left panel (40%):**
-- Evidence-Bound Summary (built from the query results by a fixed template; no language model is called)
+- Evidence-Bound Summary (a fixed template over the tool results; the model's notes, if any, are shown separately and only names are checked)
 - Risk card — score, label, 4-factor breakdown bars
 - Blast radius — clickable list; clicking a row dims all non-adjacent graph nodes
 - Tests to run — with `pytest` command and one-click copy; "**Finding: No test reaches this change**" when empty
@@ -324,7 +333,7 @@ Reviewer history is cut at each PR's base commit time. Test and blast-radius que
 
 ## Disclosure
 
-AI coding assistants (Google Antigravity, Cursor) were used in this project to accelerate development. All graph schema, query logic, risk formulas, and benchmark methodology were designed and reviewed by the team. The summary card is built by a fixed template; no language model is called at runtime.
+AI coding assistants (Google Antigravity, Cursor) were used in this project to accelerate development. All graph schema, query logic, risk formulas, and benchmark methodology were designed and reviewed by the team. The summary sentence is built by a fixed template. A Gemini model chooses which graph tools to run and may add notes; every fact comes from tool results.
 
 ---
 
