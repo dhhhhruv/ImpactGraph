@@ -3,6 +3,7 @@
 import json
 import os
 import re
+import time
 import urllib.error
 import urllib.request
 from typing import Any, Dict, List, Optional
@@ -34,6 +35,22 @@ def _call_model(contents: List[Dict[str, Any]], key: str, model: str) -> Dict[st
         return json.load(r)
 
 
+def _call_with_retry(contents, key, model):
+    fallback_model = os.environ.get("LLM_MODEL_FALLBACK", "").strip() or "gemini-3.7-flash"
+    last = None
+    for m, waits in ((model, (0, 2, 5)), (fallback_model, (0,))):
+        for w in waits:
+            if w:
+                time.sleep(w)
+            try:
+                return _call_model(contents, key, m)
+            except urllib.error.HTTPError as e:
+                last = e
+                if e.code not in (429, 500, 503):
+                    raise
+    raise last
+
+
 def _grounded(text: str, evidence: str) -> bool:
     names = re.findall(r"\b(?:src|tests)\.[A-Za-z0-9_.]+", text)
     return all(n in evidence for n in names)
@@ -60,7 +77,7 @@ def run_agent(client, diff_hunks, head_sha="HEAD", before_ts=None, pr_author=Non
     evidence_text = ""
     try:
         for _ in range(MAX_STEPS):
-            resp = _call_model(contents, key, model)
+            resp = _call_with_retry(contents, key, model)
             content = resp["candidates"][0]["content"]
             contents.append(content)
             calls = [p["functionCall"] for p in content.get("parts", []) if "functionCall" in p]
@@ -74,7 +91,13 @@ def run_agent(client, diff_hunks, head_sha="HEAD", before_ts=None, pr_author=Non
                 parts.append({"functionResponse": {"name": c["name"], "response": {"result": result}}})
             contents.append({"role": "user", "parts": parts})
     except (urllib.error.URLError, KeyError, IndexError, ValueError, TimeoutError) as e:
-        return fallback(f"model call failed: {type(e).__name__}")
+        detail = type(e).__name__
+        if isinstance(e, urllib.error.HTTPError):
+            try:
+                detail += f" {e.code}: " + e.read().decode()[:300].replace(key, "XXX")
+            except Exception:
+                detail += f" {e.code}"
+        return fallback(f"model call failed: {detail}")
 
     if tb.blast is None or tb.tests is None or tb.risk is None:
         return fallback("model did not complete blast, tests and risk")

@@ -14,6 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from agent.comment import format_pr_comment, validate_decision
+from agent.agent import run_agent
 from agent.loop import compute_agent_risk, run_impact_agent
 from agent.prompts import generate_template_summary
 from graph.client import GraphClient
@@ -89,7 +90,7 @@ def analyze_change(req: AnalyzeRequest) -> Dict[str, Any]:
     client = get_graph_client(req.repo)
     # Bust cache when hop depth changes so depth 1 vs 4 can be compared.
     head = f"{req.head_sha or 'HEAD'}:h{int(req.max_hops)}"
-    decision = run_impact_agent(
+    decision = run_agent(
         client=client,
         diff_hunks=req.diff_hunks,
         head_sha=head,
