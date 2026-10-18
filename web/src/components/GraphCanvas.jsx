@@ -29,6 +29,9 @@ const CY_STYLE = [
     style: {
       'background-color': '#f87171',
       'border-color': '#f87171',
+      'shape': 'star',
+      'width': 40,
+      'height': 40,
       'border-width': 2,
       'color': '#e8eaf0',
       'font-weight': 700,
@@ -39,6 +42,7 @@ const CY_STYLE = [
     style: {
       'background-color': '#fb923c',
       'border-color': '#fb923c',
+      'shape': 'round-rectangle',
       'color': '#e8eaf0',
     },
   },
@@ -99,6 +103,19 @@ const CY_STYLE = [
       'border-width': 3,
       'line-color': '#4f8ef7',
       'target-arrow-color': '#4f8ef7',
+    },
+  },
+  {
+    selector: 'node:selected',
+    style: {
+      'font-size': 14,
+      'color': '#0a0b0f',
+      'font-weight': 700,
+      'text-background-color': '#f1f5f9',
+      'text-background-opacity': 1,
+      'text-background-shape': 'roundrectangle',
+      'text-background-padding': 4,
+      'z-index': 999,
     },
   },
 ]
