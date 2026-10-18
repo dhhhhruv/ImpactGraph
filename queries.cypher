@@ -17,7 +17,7 @@ RETURN f.qname AS qname
 // when size() is called on a variable-length relationship pattern variable. length(p) gives the
 // same value for this pattern (no repeated edges) and is used instead.
 MATCH p = (c:Function)-[r:CALLS*1..4]->(ch:Function)
-WHERE ch.qname IN $changed AND NOT c:Test  // tests are reported separately (Q2a), not counted as blast radius
+WHERE ch.qname IN $changed AND NOT c:Test AND NOT c.file STARTS WITH 'tests/'  // tests and test helpers are reported separately (Q2a), not counted as blast radius
 RETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,
        [n IN nodes(p) | n.qname] AS path, length(p) AS rel_count
 ORDER BY hops LIMIT 200

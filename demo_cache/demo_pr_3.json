@@ -1,290 +1,336 @@
 {
   "demo_id": 3,
-  "target_function": "src.vorta.borg.borg_job.BorgJob.run",
+  "target_function": "src.vorta.utils.get_directory_size",
   "decision": {
-    "head_sha": "vorta_demo_pr_3",
+    "head_sha": "vorta_demo_pr_3_v3:h4",
     "files_changed": [
-      "src/vorta/borg/borg_job.py"
+      "src/vorta/utils.py"
     ],
     "changed_functions": [
-      "src.vorta.borg.borg_job.BorgJob.__init__"
+      "src.vorta.utils.get_directory_size"
     ],
-    "blast_radius": [],
-    "affected_tests": [],
-    "test_proof_paths": {},
+    "blast_radius": [
+      {
+        "affected": "src.vorta.utils.get_path_datasize",
+        "via": "src.vorta.utils.get_directory_size",
+        "hops": 1,
+        "path": [
+          "src.vorta.utils.get_path_datasize",
+          "src.vorta.utils.get_directory_size"
+        ],
+        "rel_count": 1
+      },
+      {
+        "affected": "src.vorta.utils.FilePathInfoAsync.run",
+        "via": "src.vorta.utils.get_directory_size",
+        "hops": 2,
+        "path": [
+          "src.vorta.utils.FilePathInfoAsync.run",
+          "src.vorta.utils.get_path_datasize",
+          "src.vorta.utils.get_directory_size"
+        ],
+        "rel_count": 2
+      }
+    ],
+    "affected_tests": [
+      {
+        "test": "tests.unit.test_utils.test_get_path_datasize_prefixed_patterns",
+        "file": "tests/unit/test_utils.py",
+        "hops": 2
+      },
+      {
+        "test": "tests.unit.test_utils.test_get_path_datasize",
+        "file": "tests/unit/test_utils.py",
+        "hops": 2
+      },
+      {
+        "test": "tests.unit.test_utils.test_file_path_info_ignores_comments",
+        "file": "tests/unit/test_utils.py",
+        "hops": 2
+      }
+    ],
+    "test_proof_paths": {
+      "tests.unit.test_utils.test_get_path_datasize_prefixed_patterns": [
+        "tests.unit.test_utils.test_get_path_datasize_prefixed_patterns",
+        "src.vorta.utils.get_path_datasize",
+        "src.vorta.utils.get_directory_size"
+      ],
+      "tests.unit.test_utils.test_get_path_datasize": [
+        "tests.unit.test_utils.test_get_path_datasize",
+        "src.vorta.utils.get_path_datasize",
+        "src.vorta.utils.get_directory_size"
+      ],
+      "tests.unit.test_utils.test_file_path_info_ignores_comments": [
+        "tests.unit.test_utils.test_file_path_info_ignores_comments",
+        "src.vorta.utils.get_path_datasize",
+        "src.vorta.utils.get_directory_size"
+      ]
+    },
     "reviewers": [
       {
         "author": "Manu",
-        "commits": 7,
+        "email": "3916435+m3nu@users.noreply.github.com",
+        "commits": 9,
         "files_covered": 1,
-        "last_ts": 1786736536,
-        "score": 0.957
+        "last_ts": 1681766059,
+        "touch_rels": 9,
+        "authored_rels": 9,
+        "score": 0.8015
       },
       {
-        "author": "Ebuzer Celil Durmaz",
-        "commits": 2,
+        "author": "Digital Archon",
+        "email": "jason@digitalarchon.com.au",
+        "commits": 1,
         "files_covered": 1,
-        "last_ts": 1790408396,
-        "score": 0.7707
+        "last_ts": 1791710028,
+        "touch_rels": 1,
+        "authored_rels": 1,
+        "score": 0.7282
       },
       {
-        "author": "TW",
-        "commits": 2,
+        "author": "Osama Alwaly",
+        "email": "160242270+OsamaGharibElwaly@users.noreply.github.com",
+        "commits": 1,
         "files_covered": 1,
-        "last_ts": 1788777878,
-        "score": 0.7577
+        "last_ts": 1777388929,
+        "touch_rels": 1,
+        "authored_rels": 1,
+        "score": 0.6362
       },
       {
         "author": "yfprojects",
+        "email": "62463991+real-yfprojects@users.noreply.github.com",
         "commits": 4,
         "files_covered": 1,
-        "last_ts": 1671987144,
-        "score": 0.6724
-      },
-      {
-        "author": "goebbe",
-        "commits": 2,
-        "files_covered": 1,
-        "last_ts": 1745839386,
-        "score": 0.6111
-      },
-      {
-        "author": "Divyansh Singh",
-        "commits": 2,
-        "files_covered": 1,
-        "last_ts": 1687636666,
-        "score": 0.5876
+        "last_ts": 1661629891,
+        "touch_rels": 4,
+        "authored_rels": 4,
+        "score": 0.6339
       },
       {
         "author": "real-yfprojects",
-        "commits": 2,
+        "email": "real-yfprojects@users.noreply.github.com",
+        "commits": 3,
         "files_covered": 1,
         "last_ts": 1682929691,
-        "score": 0.5873
+        "touch_rels": 3,
+        "authored_rels": 3,
+        "score": 0.6015
       },
       {
-        "author": "greigdp",
+        "author": "ash",
+        "email": "ash@sorrel.sh",
         "commits": 1,
         "files_covered": 1,
-        "last_ts": 1734034412,
-        "score": 0.5579
+        "last_ts": 1767342905,
+        "touch_rels": 1,
+        "authored_rels": 1,
+        "score": 0.5991
+      },
+      {
+        "author": "jetchirag",
+        "email": "thechiragaggarwal@gmail.com",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1690529950,
+        "touch_rels": 2,
+        "authored_rels": 2,
+        "score": 0.5688
+      },
+      {
+        "author": "Robert Blenis",
+        "email": "rblenis@gmail.com",
+        "commits": 2,
+        "files_covered": 1,
+        "last_ts": 1618239272,
+        "touch_rels": 2,
+        "authored_rels": 2,
+        "score": 0.5668
       },
       {
         "author": "i1sm3ky",
+        "email": "114871165+i1sm3ky@users.noreply.github.com",
         "commits": 1,
         "files_covered": 1,
         "last_ts": 1681726621,
-        "score": 0.5443
+        "touch_rels": 1,
+        "authored_rels": 1,
+        "score": 0.5348
       },
       {
-        "author": "endumiuz",
+        "author": "Manu",
+        "email": "manu@snapdragon.cc",
         "commits": 1,
         "files_covered": 1,
-        "last_ts": 1671972903,
-        "score": 0.5438
+        "last_ts": 1660569835,
+        "touch_rels": 1,
+        "authored_rels": 1,
+        "score": 0.5339
       }
     ],
     "centrality": [
       {
-        "fn": "src.vorta.borg.borg_job.BorgJob.__init__",
-        "pagerank": 0.000327264482621104
+        "fn": "src.vorta.utils.get_directory_size",
+        "pagerank": 0.00111775193363428
       }
     ],
-    "recent_churn": 6,
+    "recent_churn": 1,
     "risk": {
-      "score": 0.2681,
+      "score": 0.0173,
       "label": "low",
       "factors": {
-        "blast_component": 0.0,
-        "pagerank_component": 0.0001,
-        "uncovered_component": 0.25,
-        "churn_component": 0.018
+        "blast_component": 0.014,
+        "pagerank_component": 0.0003,
+        "uncovered_component": 0.0,
+        "churn_component": 0.003
       },
       "raw_inputs": {
-        "blast_radius": 0,
-        "max_pagerank_pct": 0.000327264482621104,
-        "covered_ratio": 0.0,
-        "churn_norm": 0.12
+        "blast_radius": 2,
+        "max_pagerank_pct": 0.00111775193363428,
+        "covered_ratio": 1.0,
+        "churn_norm": 0.02
       },
-      "notes": [
-        "No test reaches this change"
-      ]
+      "notes": []
     },
+    "max_hops": 4,
+    "outcomes": {
+      "map_diff": "answered_with_path",
+      "blast": "answered_with_path",
+      "tests": "answered_with_path",
+      "reviewers": "answered_with_path",
+      "centrality": "answered_with_path",
+      "churn": "answered_with_path",
+      "risk": "answered_with_path"
+    },
+    "outcome": "answered_with_path",
     "evidence": [
       {
-        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
+        "cypher": "MATCH (f:File {path: $path})\nRETURN f.path AS path LIMIT 1",
         "params": {
-          "path": "src/vorta/scheduler/execution.py",
-          "hunk_start": 5,
-          "hunk_end": 25
+          "path": "src/vorta/utils.py"
         },
-        "row_count": 0,
-        "duration_ms": 92.33
+        "row_count": 1,
+        "duration_ms": 1.54,
+        "read_only": true
       },
       {
-        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
         "params": {
-          "files": [
-            "src/vorta/scheduler/execution.py"
-          ],
-          "before": 1792161533
+          "path": "src/vorta/utils.py",
+          "hunk_start": 104,
+          "hunk_end": 151
+        },
+        "row_count": 1,
+        "duration_ms": 0.13,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH p = (c:Function)-[r:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed AND NOT c:Test AND NOT c.file STARTS WITH 'tests/'\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path, length(p) AS rel_count\nORDER BY hops LIMIT 200",
+        "params": {
+          "changed": [
+            "src.vorta.utils.get_directory_size"
+          ]
         },
         "row_count": 2,
-        "duration_ms": 3.15
+        "duration_ms": 2.27,
+        "read_only": true
       },
       {
-        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "cypher": "MATCH p = (t:Test)-[r:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30",
         "params": {
-          "files": [
-            "src/vorta/scheduler/execution.py"
-          ],
-          "since": 1784385533,
-          "before": 1792161533
-        },
-        "row_count": 1,
-        "duration_ms": 1.02
-      },
-      {
-        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
-        "params": {
-          "path": "src/vorta/views/main_window.py",
-          "hunk_start": 100,
-          "hunk_end": 140
+          "changed": [
+            "src.vorta.utils.get_directory_size"
+          ]
         },
         "row_count": 3,
-        "duration_ms": 0.78
+        "duration_ms": 0.65,
+        "read_only": true
       },
       {
-        "cypher": "MATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200",
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
         "params": {
-          "changed": [
-            "src.vorta.views.main_window.MainWindow.__init__",
-            "src.vorta.views.main_window.MainWindow.get_current_profile",
-            "src.vorta.views.main_window.MainWindow.on_close_window"
-          ]
+          "test": "tests.unit.test_utils.test_get_path_datasize_prefixed_patterns",
+          "changed_fn": "src.vorta.utils.get_directory_size"
         },
-        "row_count": 0,
-        "duration_ms": 0.84
+        "row_count": 1,
+        "duration_ms": 0.31,
+        "read_only": true
       },
       {
-        "cypher": "MATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30",
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
         "params": {
-          "changed": [
-            "src.vorta.views.main_window.MainWindow.__init__",
-            "src.vorta.views.main_window.MainWindow.get_current_profile",
-            "src.vorta.views.main_window.MainWindow.on_close_window"
-          ]
+          "test": "tests.unit.test_utils.test_get_path_datasize",
+          "changed_fn": "src.vorta.utils.get_directory_size"
         },
-        "row_count": 0,
-        "duration_ms": 0.85
+        "row_count": 1,
+        "duration_ms": 0.23,
+        "read_only": true
       },
       {
-        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
+        "cypher": "MATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path",
+        "params": {
+          "test": "tests.unit.test_utils.test_file_path_info_ignores_comments",
+          "changed_fn": "src.vorta.utils.get_directory_size"
+        },
+        "row_count": 1,
+        "duration_ms": 0.2,
+        "read_only": true
+      },
+      {
+        "cypher": "MATCH (a:Author)-[au:AUTHORED]->(c:Commit)-[t:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, a.email AS email, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts,\n       count(t) AS touch_rels, count(DISTINCT au) AS authored_rels\nORDER BY files_covered DESC, commits DESC LIMIT 10",
         "params": {
           "files": [
-            "src/vorta/views/main_window.py"
+            "src/vorta/utils.py"
           ],
-          "before": 1792161533
+          "before": 1792296422
         },
         "row_count": 10,
-        "duration_ms": 3.4
+        "duration_ms": 1.37,
+        "read_only": true
       },
       {
         "cypher": "MATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC",
         "params": {
           "changed": [
-            "src.vorta.views.main_window.MainWindow.__init__",
-            "src.vorta.views.main_window.MainWindow.get_current_profile",
-            "src.vorta.views.main_window.MainWindow.on_close_window"
+            "src.vorta.utils.get_directory_size"
           ]
         },
-        "row_count": 3,
-        "duration_ms": 0.69
+        "row_count": 1,
+        "duration_ms": 0.13,
+        "read_only": true
       },
       {
-        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
+        "cypher": "MATCH (c:Commit)-[t:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits, count(t) AS touch_rels",
         "params": {
           "files": [
-            "src/vorta/views/main_window.py"
+            "src/vorta/utils.py"
           ],
-          "since": 1784385533,
-          "before": 1792161533
+          "since": 1784520422,
+          "before": 1792296422
         },
         "row_count": 1,
-        "duration_ms": 0.92
-      },
-      {
-        "cypher": "MATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname",
-        "params": {
-          "path": "src/vorta/borg/borg_job.py",
-          "hunk_start": 80,
-          "hunk_end": 110
-        },
-        "row_count": 1,
-        "duration_ms": 1.06
-      },
-      {
-        "cypher": "MATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200",
-        "params": {
-          "changed": [
-            "src.vorta.borg.borg_job.BorgJob.__init__"
-          ]
-        },
-        "row_count": 0,
-        "duration_ms": 0.86
-      },
-      {
-        "cypher": "MATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30",
-        "params": {
-          "changed": [
-            "src.vorta.borg.borg_job.BorgJob.__init__"
-          ]
-        },
-        "row_count": 0,
-        "duration_ms": 0.56
-      },
-      {
-        "cypher": "MATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10",
-        "params": {
-          "files": [
-            "src/vorta/borg/borg_job.py"
-          ],
-          "before": 1792161533
-        },
-        "row_count": 10,
-        "duration_ms": 2.96
-      },
-      {
-        "cypher": "MATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC",
-        "params": {
-          "changed": [
-            "src.vorta.borg.borg_job.BorgJob.__init__"
-          ]
-        },
-        "row_count": 1,
-        "duration_ms": 0.3
-      },
-      {
-        "cypher": "MATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits",
-        "params": {
-          "files": [
-            "src/vorta/borg/borg_job.py"
-          ],
-          "since": 1784385533,
-          "before": 1792161533
-        },
-        "row_count": 1,
-        "duration_ms": 0.36
+        "duration_ms": 0.25,
+        "read_only": true
       }
     ],
-    "summary": "Change modifies 1 function(s) with a blast radius of 0 caller(s). Assessed as LOW risk (score: 0.2681) with 0 reaching test(s).",
+    "summary": "Change modifies 1 function(s) with a blast radius of 2 caller(s). Assessed as LOW risk (score: 0.0173) with 3 reaching test(s).",
     "section_notes": {
-      "blast": "No callers identified; change is isolated to defined scope.",
-      "tests": "No test reaches this change (finding: potential regression risk).",
+      "blast": "2 direct and indirect caller(s) identified in call graph.",
+      "tests": "3 existing test(s) reach this change.",
       "reviewers": "Top reviewers ranked by historical commit frequency and recency on changed files.",
-      "risk": "Score 0.2681 (LOW) driven by blast ratio, PageRank centrality, and test coverage."
+      "risk": "Score 0.0173 (LOW) driven by blast ratio, PageRank centrality, and test coverage."
     },
-    "notable_paths": []
+    "notable_paths": [
+      [
+        "src.vorta.utils.get_path_datasize",
+        "src.vorta.utils.get_directory_size"
+      ],
+      [
+        "src.vorta.utils.FilePathInfoAsync.run",
+        "src.vorta.utils.get_path_datasize",
+        "src.vorta.utils.get_directory_size"
+      ]
+    ]
   },
-  "pr_comment": "<!-- impactgraph -->\n\nChange modifies 1 function(s) with a blast radius of 0 caller(s). Assessed as LOW risk (score: 0.2681) with 0 reaching test(s).\n\n## Risk: Low (0.2681)\n\n| Factor | Contribution |\n| --- | ---: |\n| Blast radius | 0.0 |\n| PageRank | 0.0001 |\n| Uncovered tests | 0.25 |\n| Churn | 0.018 |\n\n> Score 0.2681 (LOW) driven by blast ratio, PageRank centrality, and test coverage.\n\n## Affected Callers (Blast radius)\n\n_No callers identified._\n\n> No callers identified; change is isolated to defined scope.\n\n## Tests to Run\n\n**Finding:** No test reaches this change\n\n> No test reaches this change (finding: potential regression risk).\n\n## Suggested Reviewers\n\n1. **Manu** \u2014 files covered: 1, commits: 7, score: 0.957\n2. **Ebuzer Celil Durmaz** \u2014 files covered: 1, commits: 2, score: 0.7707\n3. **TW** \u2014 files covered: 1, commits: 2, score: 0.7577\n4. **yfprojects** \u2014 files covered: 1, commits: 4, score: 0.6724\n5. **goebbe** \u2014 files covered: 1, commits: 2, score: 0.6111\n6. **Divyansh Singh** \u2014 files covered: 1, commits: 2, score: 0.5876\n7. **real-yfprojects** \u2014 files covered: 1, commits: 2, score: 0.5873\n8. **greigdp** \u2014 files covered: 1, commits: 1, score: 0.5579\n9. **i1sm3ky** \u2014 files covered: 1, commits: 1, score: 0.5443\n10. **endumiuz** \u2014 files covered: 1, commits: 1, score: 0.5438\n\n> Top reviewers ranked by historical commit frequency and recency on changed files.\n\n## Graph Evidence\n\n<details>\n<summary>Cypher queries and runtimes</summary>\n\n**92.33 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**3.15 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**1.02 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n**0.78 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**0.84 ms**\n\n```cypher\nMATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200\n```\n\n**0.85 ms**\n\n```cypher\nMATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30\n```\n\n**3.4 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**0.69 ms**\n\n```cypher\nMATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC\n```\n\n**0.92 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n**1.06 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**0.86 ms**\n\n```cypher\nMATCH p = (c:Function)-[:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path\nORDER BY hops LIMIT 200\n```\n\n**0.56 ms**\n\n```cypher\nMATCH p = (t:Test)-[:CALLS*1..6]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30\n```\n\n**2.96 ms**\n\n```cypher\nMATCH (a:Author)-[:AUTHORED]->(c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**0.3 ms**\n\n```cypher\nMATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC\n```\n\n**0.36 ms**\n\n```cypher\nMATCH (c:Commit)-[:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits\n```\n\n</details>\n"
+  "pr_comment": "<!-- impactgraph -->\n\nChange modifies 1 function(s) with a blast radius of 2 caller(s). Assessed as LOW risk (score: 0.0173) with 3 reaching test(s).\n\n## Outcomes\n\n- **map_diff**: `answered_with_path`\n- **blast**: `answered_with_path`\n- **tests**: `answered_with_path`\n- **reviewers**: `answered_with_path`\n- **centrality**: `answered_with_path`\n- **churn**: `answered_with_path`\n- **risk**: `answered_with_path`\n\n## Risk: Low (0.0173)\n\n| Factor | Contribution |\n| --- | ---: |\n| Blast radius | 0.014 |\n| PageRank | 0.0003 |\n| Uncovered tests | 0.0 |\n| Churn | 0.003 |\n\n> Score 0.0173 (LOW) driven by blast ratio, PageRank centrality, and test coverage.\n\n## Affected Callers (Blast radius)\n\n- `src.vorta.utils.get_path_datasize` (1 hop(s)): `src.vorta.utils.get_path_datasize \u2192 src.vorta.utils.get_directory_size`\n- `src.vorta.utils.FilePathInfoAsync.run` (2 hop(s)): `src.vorta.utils.FilePathInfoAsync.run \u2192 src.vorta.utils.get_path_datasize \u2192 src.vorta.utils.get_directory_size`\n\n> 2 direct and indirect caller(s) identified in call graph.\n\n## Tests to Run\n\n- `tests.unit.test_utils.test_get_path_datasize_prefixed_patterns` (`tests/unit/test_utils.py`, 2 hop(s))\n- `tests.unit.test_utils.test_get_path_datasize` (`tests/unit/test_utils.py`, 2 hop(s))\n- `tests.unit.test_utils.test_file_path_info_ignores_comments` (`tests/unit/test_utils.py`, 2 hop(s))\n\n```bash\npytest tests/unit/test_utils.py\n```\n\n> 3 existing test(s) reach this change.\n\n## Suggested Reviewers\n\n1. **Manu** \u2014 files covered: 1, commits: 9, score: 0.8015\n2. **Digital Archon** \u2014 files covered: 1, commits: 1, score: 0.7282\n3. **Osama Alwaly** \u2014 files covered: 1, commits: 1, score: 0.6362\n4. **yfprojects** \u2014 files covered: 1, commits: 4, score: 0.6339\n5. **real-yfprojects** \u2014 files covered: 1, commits: 3, score: 0.6015\n6. **ash** \u2014 files covered: 1, commits: 1, score: 0.5991\n7. **jetchirag** \u2014 files covered: 1, commits: 2, score: 0.5688\n8. **Robert Blenis** \u2014 files covered: 1, commits: 2, score: 0.5668\n9. **i1sm3ky** \u2014 files covered: 1, commits: 1, score: 0.5348\n10. **Manu** \u2014 files covered: 1, commits: 1, score: 0.5339\n\n> Top reviewers ranked by historical commit frequency and recency on changed files.\n\n## Graph Evidence\n\n<details>\n<summary>Cypher queries and runtimes</summary>\n\n**1.54 ms**\n\n```cypher\nMATCH (f:File {path: $path})\nRETURN f.path AS path LIMIT 1\n```\n\n**0.13 ms**\n\n```cypher\nMATCH (f:Function {file: $path})\nWHERE f.start <= $hunk_end AND f.end >= $hunk_start\nRETURN f.qname AS qname\n```\n\n**2.27 ms**\n\n```cypher\nMATCH p = (c:Function)-[r:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed AND NOT c:Test AND NOT c.file STARTS WITH 'tests/'\nRETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,\n       [n IN nodes(p) | n.qname] AS path, length(p) AS rel_count\nORDER BY hops LIMIT 200\n```\n\n**0.65 ms**\n\n```cypher\nMATCH p = (t:Test)-[r:CALLS*1..4]->(ch:Function)\nWHERE ch.qname IN $changed\nRETURN t.qname AS test, t.file AS file, min(length(p)) AS hops\nORDER BY hops LIMIT 30\n```\n\n**0.31 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path\n```\n\n**0.23 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path\n```\n\n**0.2 ms**\n\n```cypher\nMATCH (t:Test {qname: $test}), (ch:Function {qname: $changed_fn})\nRETURN [n IN nodes(shortestPath((t)-[:CALLS*..6]->(ch))) | n.qname] AS path\n```\n\n**1.37 ms**\n\n```cypher\nMATCH (a:Author)-[au:AUTHORED]->(c:Commit)-[t:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts < $before\nRETURN a.name AS author, a.email AS email, count(DISTINCT c) AS commits,\n       count(DISTINCT f) AS files_covered, max(c.ts) AS last_ts,\n       count(t) AS touch_rels, count(DISTINCT au) AS authored_rels\nORDER BY files_covered DESC, commits DESC LIMIT 10\n```\n\n**0.13 ms**\n\n```cypher\nMATCH (f:Function) WHERE f.qname IN $changed\nRETURN f.qname AS fn, f.pagerank AS pagerank ORDER BY pagerank DESC\n```\n\n**0.25 ms**\n\n```cypher\nMATCH (c:Commit)-[t:TOUCHED]->(f:File)\nWHERE f.path IN $files AND c.ts > $since AND c.ts < $before\nRETURN count(DISTINCT c) AS recent_commits, count(t) AS touch_rels\n```\n\n</details>\n"
 }

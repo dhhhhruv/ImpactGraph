@@ -19,7 +19,7 @@ RETURN f.qname AS qname
 # Q1 - Blast radius template (hops validated as integer)
 Q_BLAST_TEMPLATE = """
 MATCH p = (c:Function)-[r:CALLS*1..{hops}]->(ch:Function)
-WHERE ch.qname IN $changed AND NOT c:Test
+WHERE ch.qname IN $changed AND NOT c:Test AND NOT c.file STARTS WITH 'tests/'
 RETURN c.qname AS affected, ch.qname AS via, length(p) AS hops,
        [n IN nodes(p) | n.qname] AS path, length(p) AS rel_count
 ORDER BY hops LIMIT 200

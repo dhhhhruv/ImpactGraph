@@ -310,3 +310,13 @@ def test_q1_excludes_tests_and_dedupes():
     assert [r["affected"] for r in rows] == ["vorta.a", "vorta.b"]
     assert rows[0]["hops"] == 1
     assert "NOT c:Test" in mock_driver.last_query
+
+
+def test_q1_excludes_test_helpers_by_path():
+    """Helpers under tests/ may lack the Test label, so Q1 must also filter by file path."""
+    mock_driver = MockGraphDriver({
+        "CALLS": MockResult(["affected", "via", "hops", "path"], [])
+    })
+    client = GraphClient(driver=mock_driver)
+    q1_blast_radius(client, ["vorta.fn"], max_hops=2)
+    assert "NOT c.file STARTS WITH 'tests/'" in mock_driver.last_query
