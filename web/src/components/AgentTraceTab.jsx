@@ -32,6 +32,17 @@ export default function AgentTraceTab({ decision, liveTrace = [] }) {
   const steps = React.useMemo(() => {
     if (liveTrace && liveTrace.length > 0) return liveTrace
 
+    if (decision?.agent_trace && decision.agent_trace.length > 0) {
+      return decision.agent_trace.map((t, idx) => ({
+        step: idx + 1,
+        tool: t.tool,
+        outcome: t.outcome,
+        summary: t.args && Object.keys(t.args).length
+          ? `Chosen by the model with ${JSON.stringify(t.args)}`
+          : 'Chosen by the model',
+      }))
+    }
+
     if (decision?.trace && decision.trace.length > 0) {
       return decision.trace.map((t, idx) => ({
         step: t.step || idx + 1,
@@ -94,7 +105,7 @@ export default function AgentTraceTab({ decision, liveTrace = [] }) {
           </p>
         </div>
         <div style={{ background: 'rgba(79, 142, 247, 0.1)', border: '1px solid rgba(79, 142, 247, 0.25)', borderRadius: 20, padding: '4px 12px', fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--accent-blue)' }}>
-          Total Steps: {steps.length}
+          {decision?.agent_mode === 'model' ? `Model: ${decision.agent_model} · ` : decision?.agent_mode === 'fixed_pipeline' ? 'Fixed pipeline (fallback) · ' : ''}Total Steps: {steps.length}
         </div>
       </div>
 
@@ -155,7 +166,7 @@ export default function AgentTraceTab({ decision, liveTrace = [] }) {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-muted)', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
                   <Clock size={12} />
-                  <span>{st.ms} ms</span>
+                  {st.ms !== undefined && <span>{st.ms} ms</span>}
                   {(st.outcome || decision?.outcomes?.[OUTCOME_KEYS[st.tool]]) && (
                     <span className="file-pill">
                       {st.outcome || decision.outcomes[OUTCOME_KEYS[st.tool]]}

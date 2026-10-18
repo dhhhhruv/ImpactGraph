@@ -48,6 +48,8 @@ def _call_with_retry(contents, key, model):
                 last = e
                 if e.code not in (429, 500, 503):
                     raise
+                if e.code == 429:
+                    break  # quota: waiting will not help, try the next model
     raise last
 
 

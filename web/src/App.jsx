@@ -109,12 +109,20 @@ export default function App() {
 
   // SSE Live streaming analysis
   const handleAnalyzeStreaming = useCallback(() => {
-    if (dryRun) {
-      alert(`[Dry-run] Simulated analysis for ${repo} PR #${selectedPrNumber}. No external actions will be posted to GitHub.`)
+    setDemoMode(false)
+    const USE_STREAM = false // the stream endpoint runs the fixed pipeline, not the model
+    if (!USE_STREAM) {
+      const pn = Number(selectedPrNumber) || 1
+      setLiveTrace([])
+      setActiveTab('trace')
+      analyzeMutation.mutate({
+        repo,
+        diffHunks: PR_DIFF_MAP[pn] || PR_DIFF_MAP[1],
+        headSha: `pr-${selectedPrNumber}-${Date.now()}`,
+        maxHops: hopDepth,
+      })
       return
     }
-
-    setDemoMode(false)
     setIsStreaming(true)
     setLiveTrace([])
     setActiveTab('trace')
