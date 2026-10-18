@@ -14,10 +14,11 @@ Deadline: 2026-10-18 23:59 IST (Target Submission: 18:00 IST)
 | **Graph Queries (Q0–Q5)** | **DONE** | Implemented in `graph/client.py` and `graph/queries.py`; analysis reads enforce `ro_query`. Covered by the full pytest suite. |
 | **PageRank** | **DONE** | Verified live in FalkorDB Browser: `CALL algo.pageRank('Function', 'CALLS')` returns ranked scores. NetworkX fallback is covered by pytest. |
 | **Risk Scoring (`graph/risk.py`)** | **DONE** | Formula includes the uncovered-test risk contribution and is covered by the full pytest suite. |
-| **FastMCP Server (`mcp_server/server.py`)** | **DONE** | Seven MCP tools, including `get_most_central`; inputs are checked against graph names and tool reads use `ro_query`. |
+| **MCP servers** | **DONE** | Two servers over the same graph tools: stateless `mcp_server/server.py` (12 tools, each call takes `repo`) and stateful `agent/mcp_server.py` (8 tools, `set_diff` first). The agent calls ToolBox in-process, not through MCP. |
 | **Agent Loop (`agent/loop.py`)** | **DONE** | Configurable hop depth, graph-name validation, per-tool outcomes, proof paths, and a finding/risk contribution when no test reaches a change. |
 | **PR Comment & Guardrails** | **DONE** | `validate_decision()` constrains generated text to graph evidence; PR comments include outcomes and distinguish missing graph evidence from safety. |
 | **GitHub Actions & Webhook** | **DONE** | Implemented `agent/github_actions.py` and `/webhook/github` endpoint with background execution. |
+| **Live agent & PR action preview** | **DONE** | `agent/agent.py`: Gemini function calling chooses tools, with fallback to the fixed pipeline. Free tier is about 20 requests per model per day (about 7 per analysis). `POST /action/preview` and the PR Action tab show the comment, label, reviewers and pytest command as a dry run; nothing is posted. |
 | **Backend API (`api/main.py`)** | **DONE** | `/ask` answers are evidence-validated and endpoints return outcome labels. Hop depth is propagated through analysis and featured-cache views. |
 | **Frontend UI (`web/`)** | **DONE** | Interactive hop depth 1/4, outcome labels (including Ask), Graph ON/OFF, and highlighted proof paths. Production build passes (1,642 modules). |
 | **Benchmark Harness** | **DONE** | Real run: 40 PRs from `borgbase/vorta`, 6 methods (`benchmark/results.md`). Graph: Hit@3 0.80, Hit@5 0.88, MRR 0.73, test recall@5 0.51. Strongest unified method; essentially equal to flat_commit_count on reviewers (Hit@3 0.83, Hit@5 0.88, MRR 0.72) and narrowly behind grep_imports on test recall@5 (0.57). Fixed author-identity mismatch via `benchmark/map_authors.py` (90/95 emails resolved to GitHub logins). |
@@ -29,7 +30,7 @@ Deadline: 2026-10-18 23:59 IST (Target Submission: 18:00 IST)
 
 ```bash
 ./.venv/bin/pytest -q
-============================== 92 passed in 0.67s ==============================
+============================== 109 passed ==============================
 ```
 
 Frontend production build: `npm run build` — passed (1,642 modules).

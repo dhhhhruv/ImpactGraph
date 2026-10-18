@@ -36,7 +36,7 @@ def _call_model(contents: List[Dict[str, Any]], key: str, model: str) -> Dict[st
 
 
 def _call_with_retry(contents, key, model):
-    fallback_model = os.environ.get("LLM_MODEL_FALLBACK", "").strip() or "gemini-3.7-flash"
+    fallback_model = os.environ.get("LLM_MODEL_FALLBACK", "").strip() or "gemini-3.5-flash"
     last = None
     for m, waits in ((model, (0, 2, 5)), (fallback_model, (0,))):
         for w in waits:
@@ -89,7 +89,7 @@ def run_agent(client, diff_hunks, head_sha="HEAD", before_ts=None, pr_author=Non
     key = _api_key()
     if not key:
         return fallback("no LLM_API_KEY set")
-    model = os.environ.get("LLM_MODEL", "").strip() or "gemini-3.8-flash"
+    model = os.environ.get("LLM_MODEL", "").strip() or "gemini-3.6-flash"
     tb = ToolBox(client, diff_hunks, before_ts=before_ts, pr_author=pr_author)
     contents: List[Dict[str, Any]] = [{"role": "user", "parts": [{"text":
         "Analyze this pull request using the tools. Decide the order yourself, "

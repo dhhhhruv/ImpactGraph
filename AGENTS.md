@@ -9,7 +9,7 @@ Track: Track 01 - Agents That Act on Connected Data.
 Target repo: borgbase/vorta (backup: two other Python repos, decided on Day 1). Demo on OUR FORK.
 
 ## The split (design intent: graph about 60%, LLM about 40%)
-Current status: no language model is called at runtime. The summary is a fixed template over query results, and /ask uses fixed Cypher queries. The LLM role below is the design target, not what runs today.
+Current status: when LLM_API_KEY is set, a Gemini model chooses and sequences the graph tools (agent/agent.py) and may add notes; with no key, an API error or an incomplete run, the fixed pipeline runs instead. The summary sentence is always a fixed template over tool results, and /ask uses fixed Cypher queries. Grounding checks function and test names only, not every claim. The 60/40 split is the design intent, not measured.
 - GRAPH finds facts: affected functions, tests, reviewers, risk score, paths.
 - LLM decides and explains: picks what to check next, digs deeper when something looks odd,
   chooses between close reviewer candidates, writes the "why this matters" text,
