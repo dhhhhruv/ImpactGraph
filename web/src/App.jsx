@@ -484,7 +484,16 @@ export default function App() {
                     {currentDecision.summary}
                   </p>
                   <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 6 }}>
-                    Built from the query results by a fixed template. No language model is called.
+                    {currentDecision.agent_mode === 'model'
+                      ? `The model (${currentDecision.agent_model}) chose which graph tools to run and in what order. This summary is built from the tool results by a fixed template.`
+                      : currentDecision.agent_mode === 'fixed_pipeline'
+                      ? `Fixed pipeline (fallback), no model run: ${String(currentDecision.agent_note || 'model unavailable').slice(0, 160)}. Summary built from the query results by a fixed template.`
+                      : 'Built from the query results by a fixed template. No language model is called.'}
+                    {currentDecision.agent_notes && (
+                      <span style={{ display: 'block', marginTop: 6, color: 'var(--text-secondary)' }}>
+                        Model notes (every function and test name checked against tool results): {currentDecision.agent_notes}
+                      </span>
+                    )}
                   </p>
                   {(currentDecision.outcome || currentDecision.outcomes) && (
                     <div style={{ marginTop: 8, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
