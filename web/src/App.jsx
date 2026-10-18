@@ -493,7 +493,7 @@ export default function App() {
                       : 'Built from the query results by a fixed template. No language model is called.'}
                     {currentDecision.agent_notes && (
                       <span style={{ display: 'block', marginTop: 6, color: 'var(--text-secondary)' }}>
-                        Model notes (every function and test name checked against tool results): {currentDecision.agent_notes}
+                        Model notes (function and test names are checked against tool results; the rest is the model's wording): {currentDecision.agent_notes}
                       </span>
                     )}
                   </p>
