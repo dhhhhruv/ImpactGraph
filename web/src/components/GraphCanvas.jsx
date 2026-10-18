@@ -10,6 +10,7 @@ const CY_STYLE = [
       'font-size': 10,
       'font-family': 'JetBrains Mono, monospace',
       'color': '#8b92a8',
+      'text-opacity': 0,
       'background-color': '#252a38',
       'border-width': 1.5,
       'border-color': '#2e3448',
@@ -18,6 +19,10 @@ const CY_STYLE = [
       'text-margin-y': 4,
       'min-zoomed-font-size': 8,
     },
+  },
+  {
+    selector: 'node[type="changed"], node:selected, node.highlighted',
+    style: { 'text-opacity': 1 },
   },
   {
     selector: 'node[type="changed"]',
@@ -137,7 +142,7 @@ export default function GraphCanvas({ elements, selectedNodeId, onNodeClick }) {
           animate: true,
           animationDuration: 500,
           randomize: true,
-          nodeRepulsion: () => 4500,
+          nodeRepulsion: () => 9000,
         },
         minZoom: 0.2,
         maxZoom: 4,

@@ -41,7 +41,6 @@ export default function App() {
   const [selectedPrNumber, setSelectedPrNumber] = useState('2560')
   const [graphOn, setGraphOn] = useState(true)
   const [demoMode, setDemoMode] = useState(true)
-  const [dryRun, setDryRun] = useState(false)
   const [hopDepth, setHopDepth] = useState(4)
 
   // Selection state
@@ -213,7 +212,7 @@ export default function App() {
         maxHops: hopDepth,
       })
     }
-  }, [repo, selectedPrNumber, dryRun, analyzeMutation, hopDepth])
+  }, [repo, selectedPrNumber, analyzeMutation, hopDepth])
 
   const handleNodeClick = useCallback((id) => {
     setSelectedNodeId(id)
@@ -369,20 +368,6 @@ export default function App() {
               </>
             )}
           </button>
-
-          {/* Dry Run Switch */}
-          <label className="toggle-wrap" htmlFor="dry-run-toggle" title="Dry run — evaluate decisions without modifying GitHub">
-            <div
-              id="dry-run-toggle"
-              className={`toggle ${dryRun ? 'on' : ''}`}
-              onClick={() => setDryRun((v) => !v)}
-              role="switch"
-              aria-checked={dryRun}
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && setDryRun((v) => !v)}
-            />
-            <span>Dry-run</span>
-          </label>
 
           {/* Graph Toggle */}
           <label className="toggle-wrap" htmlFor="graph-toggle" title="Toggle FalkorDB Graph vs Flat Baseline">
