@@ -15,7 +15,7 @@ export default function EvidenceTab({ evidence }) {
   return (
     <div className="tab-content">
       <h3 style={{ marginBottom: 16, color: 'var(--text-secondary)' }}>
-        Cypher Queries & Evidence — {evidence.length} query{evidence.length !== 1 ? 'ies' : ''} run
+        Cypher Queries & Evidence — {evidence.length} {evidence.length === 1 ? 'query' : 'queries'} run
       </h3>
       {evidence.map((ev, i) => {
         const cypher = (ev.cypher || '').trim()
