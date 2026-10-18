@@ -257,7 +257,7 @@ curl -X POST http://localhost:8000/analyze \
 The featured analysis was regenerated on 2026-10-18 from the live FalkorDB graph (`impact_borgbase_vorta`) and cached in `demo_cache/featured.json`. Test lists are capped at 30 rows per query, so counts at 30 are lower bounds.
 
 **Left panel (40%):**
-- AI-written summary (clearly labelled)
+- Evidence-Bound Summary (built from the query results by a fixed template; no language model is called)
 - Risk card — score, label, 4-factor breakdown bars
 - Blast radius — clickable list; clicking a row dims all non-adjacent graph nodes
 - Tests to run — with `pytest` command and one-click copy; "**Finding: No test reaches this change**" when empty
@@ -265,7 +265,7 @@ The featured analysis was regenerated on 2026-10-18 from the live FalkorDB graph
 - Ask the graph — free-form questions answered by live Cypher
 
 **Right panel (60%):**
-- **Graph tab** — Cytoscape.js canvas (fcose layout); changed=red, callers=orange, tests=green, reviewers=purple; click any node to highlight its neighborhood (everything else dims to 20%); node size follows PageRank; capped at 150 nodes
+- **Graph tab** — Cytoscape.js canvas (fcose layout); changed=red, callers=orange, tests=green; click any node to highlight its neighborhood (everything else dims to 20%); node size follows PageRank; capped at 150 nodes
 - **Graph OFF** — flat baseline view beside the graph answer
 - **Evidence tab** — every Cypher query with params, row count, duration, and a Copy button
 - **Benchmark tab** — metric bars (ImpactGraph vs baselines vs title/@mention heuristic), per-PR table, method & limitations
