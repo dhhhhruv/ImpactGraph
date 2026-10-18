@@ -67,3 +67,13 @@ export async function fetchDemo(id, maxHops = 4) {
   if (!r.ok) throw new Error(`Demo ${id} not found`)
   return r.json()
 }
+
+export async function previewAction(decision) {
+  const r = await fetch(`${BASE}/action/preview`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ decision }),
+  })
+  if (!r.ok) throw new Error(`Action preview failed: ${r.status}`)
+  return r.json()
+}

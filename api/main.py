@@ -102,6 +102,38 @@ def analyze_change(req: AnalyzeRequest) -> Dict[str, Any]:
     return {"decision": decision, "pr_comment": comment}
 
 
+class ActionPreviewRequest(BaseModel):
+    """A decision from /analyze, to preview the PR action for."""
+
+    decision: Dict[str, Any]
+
+
+@app.post("/action/preview")
+def preview_action(req: ActionPreviewRequest) -> Dict[str, Any]:
+    """Dry run only: show the PR comment, label, reviewers and pytest command
+    that would be posted for a decision. No model call, no GitHub client."""
+    from agent.github_actions import (
+        apply_risk_label,
+        generate_pytest_command,
+        request_reviewers,
+    )
+
+    d = req.decision
+    try:
+        comment = format_pr_comment(d)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Bad decision: {e}")
+    label = (d.get("risk") or {}).get("label", "low")
+    return {
+        "dry_run": True,
+        "posted": False,
+        "pr_comment": comment,
+        "label": apply_risk_label(None, label, dry_run=True),
+        "reviewers": request_reviewers(None, None, d.get("reviewers", []), dry_run=True),
+        "pytest_command": generate_pytest_command(d.get("affected_tests", [])),
+    }
+
+
 @app.get("/analyze/stream")
 async def analyze_change_stream(
     repo: str = "borgbase/vorta",

@@ -10,6 +10,7 @@ import GraphCanvas from './components/GraphCanvas'
 import EvidenceTab from './components/EvidenceTab'
 import BenchmarkTab from './components/BenchmarkTab'
 import AgentTraceTab from './components/AgentTraceTab'
+import ActionTab from './components/ActionTab'
 import { 
   Sparkles, 
   Activity, 
@@ -21,7 +22,8 @@ import {
   Terminal, 
   CheckCircle2, 
   BarChart3,
-  Search
+  Search,
+  Rocket
 } from 'lucide-react'
 
 const PR_DIFF_MAP = {
@@ -550,6 +552,7 @@ export default function App() {
               { id: 'graph', label: '⬡ Graph Canvas', icon: Activity },
               { id: 'trace', label: '⚡ Agent Trace', icon: Terminal },
               { id: 'evidence', label: '🔍 Evidence (Cypher)', icon: Search },
+              { id: 'action', label: '🚀 PR Action (dry run)', icon: Rocket },
               { id: 'benchmark', label: '📊 Benchmark', icon: BarChart3 },
             ].map((t) => {
               const TabIcon = t.icon
@@ -667,6 +670,10 @@ export default function App() {
           )}
 
           {/* TAB 4: BENCHMARK */}
+          {activeTab === 'action' && (
+            <ActionTab decision={currentDecision} />
+          )}
+
           {activeTab === 'benchmark' && (
             <BenchmarkTab />
           )}
