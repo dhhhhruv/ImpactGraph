@@ -152,10 +152,10 @@ docker compose ps
 mkdir -p repos && git clone https://github.com/borgbase/vorta repos/vorta
 
 # Build the graph (takes ~2–3 min on first run)
-python -m ingest.load_graph --repo borgbase/vorta --src repos/vorta --rebuild
+./.venv/bin/python -m ingest.load_graph --repo borgbase/vorta --src repos/vorta --rebuild
 ```
 
-This bulk-loads ~5,000 nodes and edges, runs PageRank, and prints a summary.
+This bulk-loads about 1,900 nodes and 4,800 edges, runs PageRank, and prints a summary.
 
 ### 4 — Start the API
 
@@ -188,10 +188,12 @@ pytest tests/ -v
 
 ```bash
 # Download PR data (one-time, saves to benchmark/prs.json)
-python -m benchmark.collect_prs --repo borgbase/vorta --count 40
+# (optional: prs.json is already included; this calls the GitHub API and overwrites it)
+# Repo comes from the TARGET_REPO env var (default borgbase/vorta); the count is fixed at 40.
+TARGET_REPO=borgbase/vorta ./.venv/bin/python -m benchmark.collect_prs
 
 # Run benchmark (graph queries only, no LLM)
-python -m benchmark.run --repo borgbase/vorta
+./.venv/bin/python -m benchmark.run --repo-path repos/vorta
 
 # Results → benchmark/results.md and benchmark/results.json
 ```
