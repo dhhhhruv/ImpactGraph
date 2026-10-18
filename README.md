@@ -293,6 +293,17 @@ Test recall is measured over the PRs that actually edited tests.
 
 The graph stores git commit display names (for example "Manu"), while GitHub ground truth uses usernames (for example "m3nu"). Before mapping, every reviewer metric was 0.0 for every method because the two never matched. `benchmark/map_authors.py` resolves each commit email to a GitHub login via the GitHub commits API (90 of 95 unique author emails resolved; the rest fall back to the raw name). The result is saved in `benchmark/author_map.json`. These emails already appear in vorta's public git history.
 
+### Call-graph accuracy
+
+A 15-function spot check against the vorta source (seed 42, evidence in [`benchmark/spotcheck.md`](benchmark/spotcheck.md)) found no caller in the graph that is absent from the code. The graph is incomplete, though. It does not model:
+
+- **Constructor calls.** All 72 `__init__` methods show zero callers, so a change to a constructor looks uncalled.
+- **Qt signal connections.** A slot wired with `.connect(self.slot)` has no caller in the graph.
+- **Calls through attribute receivers**, such as `self._state.record_finish(...)`.
+- **Which class a shared method name reaches.** Same-named methods (for example the three `deliver` methods) share their callers.
+
+When the graph finds nothing, the report says so instead of claiming the change is safe.
+
 ### Limits
 
 - 40 PRs from one repository, so small differences between methods are within noise.
