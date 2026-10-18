@@ -276,9 +276,7 @@ export default function App() {
     for (const path of Object.values(currentDecision.test_proof_paths || {})) {
       addPath(path, true)
     }
-    for (const r of currentDecision.reviewers || []) {
-      addNode(r.author, r.author, 'reviewer')
-    }
+    
 
     return { nodes, edges }
   }, [currentDecision, subgraphData, graphOn])
@@ -564,7 +562,7 @@ export default function App() {
                     <span className="legend-pill" style={{ '--dot-color': 'var(--node-changed)' }}>Changed Function</span>
                     <span className="legend-pill" style={{ '--dot-color': 'var(--node-caller)' }}>Affected Caller (Blast)</span>
                     <span className="legend-pill" style={{ '--dot-color': 'var(--node-test)' }}>Reaching Test</span>
-                    <span className="legend-pill" style={{ '--dot-color': 'var(--node-reviewer)' }}>Reviewer</span>
+                    
                   </div>
                   <div style={{ fontSize: 11, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
                     {graphElements?.nodes?.length || 0} nodes · fcose physics layout

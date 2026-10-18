@@ -205,7 +205,7 @@ export default function GraphCanvas({ elements, selectedNodeId, onNodeClick }) {
           { color: 'var(--node-changed)',  label: 'Changed' },
           { color: 'var(--node-caller)',   label: 'Affected caller' },
           { color: 'var(--node-test)',     label: 'Test' },
-          { color: 'var(--node-reviewer)', label: 'Reviewer' },
+          
           { color: 'var(--node-evidence)', label: 'Evidence path' },
         ].map(l => (
           <div key={l.label} className="legend-item">
