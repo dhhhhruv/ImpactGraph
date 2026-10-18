@@ -267,16 +267,40 @@ The featured paths are precomputed from the checked-out Vorta source by ImpactGr
 
 ## Benchmark results
 
-See [`benchmark/results.md`](benchmark/results.md) for the full table.
+40 real merged PRs from `borgbase/vorta`, chosen by the written rule in [`benchmark/SELECTION_RULE.md`](benchmark/SELECTION_RULE.md). Ground truth is who actually reviewed each PR and which tests the PR actually touched. Full table: [`benchmark/results.md`](benchmark/results.md).
+
+| Method | Reviewer Hit@3 | Hit@5 | MRR | Test recall@5 |
+| --- | ---: | ---: | ---: | ---: |
+| **ImpactGraph** | 0.80 | 0.85 | 0.74 | 0.51 |
+| flat_commit_count | 0.78 | 0.88 | 0.73 | n/a |
+| most_recent_committer | 0.23 | 0.23 | 0.23 | n/a |
+| grep_imports | n/a | n/a | n/a | 0.57 |
+| same_name_test | n/a | n/a | n/a | 0.46 |
+| llm_only | 0.00 | 0.00 | 0.00 | 0.00 |
+
+**What this shows, honestly:** the graph is not the best at every single metric. A plain commit-count ranking is essentially equal to it on reviewers in this sample (higher Hit@5, near-identical MRR), and a grep-imports heuristic beats it slightly on test recall. What the graph does is deliver both answers from one structure, reviewers and affected tests together, with a traceable path for each claim. No single baseline does both. The LLM-only baseline, which has no graph evidence, scores near zero.
 
 Baselines compared:
-- **most_recent_committer** — last author to touch each changed file
-- **flat_commit_count** — authors ranked by raw commit count
-- **same_name_test** — `tests/test_<stem>.py` naming heuristic
-- **grep_imports** — test files importing changed modules
-- **LLM-only** — title + @mention heuristic, zero graph evidence
+- **most_recent_committer**: last author to touch each changed file
+- **flat_commit_count**: authors ranked by raw commit count
+- **same_name_test**: `tests/test_<stem>.py` naming heuristic
+- **grep_imports**: test files importing changed modules
+- **LLM-only**: title + @mention heuristic, zero graph evidence
 
-All benchmark queries use history strictly before each PR's base commit timestamp — no future leakage.
+Test recall is measured over the PRs that actually edited tests.
+
+### Author identity mapping
+
+The graph stores git commit display names (for example "Manu"), while GitHub ground truth uses usernames (for example "m3nu"). Before mapping, every reviewer metric was 0.0 for every method because the two never matched. `benchmark/map_authors.py` resolves each commit email to a GitHub login via the GitHub commits API (90 of 95 unique author emails resolved; the rest fall back to the raw name). The result is saved in `benchmark/author_map.json`. These emails already appear in vorta's public git history.
+
+### Limits
+
+- 40 PRs from one repository, so small differences between methods are within noise.
+- Reviewers may be assigned for reasons other than expertise.
+- A PR that doesn't edit tests doesn't mean no test was needed.
+- Call graph links are name-based and approximate.
+
+All benchmark queries use history strictly before each PR's base commit timestamp, so there is no future leakage.
 
 ---
 

@@ -52,6 +52,10 @@ query is referenced in the result/filter to avoid FalkorDB miscounting.
   Verified live against FalkorDB Browser (localhost:3000, 2026-10-17): the call succeeds
   and returns ranked (node.name, score) pairs. get_most_central reads the stored scores
   and returns only qname, file, and score.
+- Never call `size()` on a variable-length relationship variable (e.g. `size(r)` for `[r:CALLS*..6]`).
+  FalkorDB raises "Type mismatch: expected List, String, or Null but was Path". Use `length(p)` on
+  a named path instead. This was a real bug in Q_BLAST_TEMPLATE, Q_TESTS_TEMPLATE, Q_TEST_PATH and
+  Q_EXPLAIN_PATH, found and fixed on 2026-10-18 against the live graph (impact_borgbase_vorta).
 
 ## Failsafes
 1. GitHub limits: use a token. Download PR data ONCE, save as JSON, commit it. Benchmark never calls GitHub again.
@@ -71,6 +75,13 @@ query is referenced in the result/filter to avoid FalkorDB miscounting.
 - Baselines: reviewers = last committer, flat commit count. Tests = same-name file, grep imports.
 - Add an "LLM only, no graph" baseline to prove the graph matters.
 - Use only history before each PR's base time (c.ts < $before). No future leakage.
+- Author identity: the graph's Author nodes use git display names (e.g. "Manu"), while GitHub ground
+  truth uses logins (e.g. "m3nu"). Without mapping, reviewer metrics are 0.0 for every method.
+  Reviewer queries return a.email; benchmark/map_authors.py resolves each email to a GitHub login
+  (90 of 95 resolved, saved in benchmark/author_map.json); run.py and baselines.py map email -> login
+  and fall back to the raw name when unresolved.
+- Real run: 40 vorta PRs, 6 methods. Graph is the strongest unified method, but narrowly loses to
+  flat_commit_count (Hit@5) and grep_imports (test recall@5). Report this honestly; see benchmark/results.md.
 
 ## Coding rules (paste at top of every agent prompt)
 Project: ImpactGraph (Python 3.11, FastAPI, FalkorDB, React).
