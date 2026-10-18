@@ -121,7 +121,8 @@ def test_benchmark_endpoint():
     resp = client.get("/benchmark")
     assert resp.status_code == 200
     data = resp.json()
-    assert "metrics" in data
+    assert "graph" in data["methods"]
+    assert isinstance(data["per_pr"], list)
 
 
 def test_demo_endpoint():

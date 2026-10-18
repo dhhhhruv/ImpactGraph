@@ -426,33 +426,16 @@ def ask_question(req: AskRequest) -> Dict[str, Any]:
 
 @app.get("/benchmark")
 def get_benchmark_results() -> Dict[str, Any]:
-    """Return benchmark metrics JSON if available."""
+    """Serve benchmark/results.json exactly as written by benchmark.run (no invented values)."""
     res_path = Path(__file__).resolve().parent.parent / "benchmark" / "results.json"
     if res_path.exists():
         with open(res_path, "r") as f:
-            data = json.load(f)
-            if "metrics" not in data:
-                methods = data.get("methods", {})
-                graph_m = methods.get("graph", {})
-                rec_m = methods.get("most_recent_committer", {})
-                same_m = methods.get("same_name_test", {})
-                llm_m = methods.get("llm_only", {})
-                data["metrics"] = {
-                    "reviewer_hit_at_3": graph_m.get("reviewer_hit_at_3", 0.85),
-                    "baseline_reviewer_hit_at_3": rec_m.get("reviewer_hit_at_3", 0.42),
-                    "llm_reviewer_hit_at_3": llm_m.get("reviewer_hit_at_3", 0.35),
-                    "test_recall": graph_m.get("test_recall_at_5_with_tests", 0.78),
-                    "baseline_test_recall": same_m.get("test_recall_at_5_with_tests", 0.35),
-                    "llm_test_recall": llm_m.get("test_recall_at_5_with_tests", 0.51),
-                    "avg_tests_suggested": graph_m.get("avg_tests_suggested_with_tests", 4.2),
-                    "avg_blast_radius": 8.7,
-                    "avg_query_ms": 12,
-                }
-            return data
+            return json.load(f)
     return {
         "status": "pending",
-        "message": "Benchmark run in progress. Results will populate upon completion.",
-        "metrics": {"reviewer_hit_at_3": 0.85, "test_recall": 0.78, "baseline_hit_at_3": 0.42},
+        "message": "benchmark/results.json not found. Generate it with: ./.venv/bin/python -m benchmark.run --repo-path <vorta checkout>",
+        "methods": {},
+        "per_pr": [],
     }
 
 
