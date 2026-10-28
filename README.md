@@ -2,8 +2,6 @@
 
 > **Graph-powered pull request impact analysis.** When a PR arrives, ImpactGraph asks a FalkorDB graph of your codebase and its git history: *what can this change break, which tests should run, who should review it, how risky is it?* Every claim in the output carries its graph path.
 
-**Hackathon:** Graph Hacks (WeMakeDevs x FalkorDB), **Track 01**.
-
 ---
 
 ## How it works
@@ -25,8 +23,6 @@ PR diff → AST parser → FalkorDB graph → seven graph tools (ToolBox, also s
 **MCP and the model.** The agent calls the seven graph tools in-process (ToolBox). The same tools are also served over MCP, by a stateless server (mcp_server/server.py) and a stateful one (agent/mcp_server.py), so any MCP client can drive them. The agent itself does not go through MCP.
 
 **Design split.** The intent is roughly 60% graph, 40% model: the graph supplies facts and the model chooses and sequences tools and writes notes. That split is the design, not a measurement.
-
-**Target repo:** [`borgbase/vorta`](https://github.com/borgbase/vorta) (open-source backup client).
 
 ---
 
@@ -255,92 +251,6 @@ curl -X POST http://localhost:8000/analyze \
     "head_sha": "abc123"
   }'
 ```
-
----
-
-## UI walkthrough
-
-**Top bar:** repo selector · PR number input · Analyze button · Dry-run toggle · Graph on/off · Hop depth (1 / 4) · Demo mode
-
-### Demo video script notes (≈2:30)
-
-1. Open the featured real PR, [borgbase/vorta#2560](https://github.com/borgbase/vorta/pull/2560), and ask which tests reach `SchedulerExecution.create_backup`. The same-name baseline finds **0** files.
-2. At **Hop depth 1**, show the 14 tests that call `create_backup` directly, each with its proof path. Switch the same question to **Hop depth 4**; the blast radius grows from 1 caller to 13 and the test list from 14 to 30 (the query caps at 30), reached through scheduler state and timer calls, with each path drawn in the graph.
-3. Toggle **Graph OFF** to compare the flat same-name baseline with the graph findings.
-4. Close on outcomes (`answered_with_path` / `not_in_graph` / `unknown_name` / `cached`) — empty means not modelled, never "safe".
-
-The featured analysis was regenerated on 2026-10-18 from the live FalkorDB graph (`impact_borgbase_vorta`) and cached in `demo_cache/featured.json`. Test lists are capped at 30 rows per query, so counts at 30 are lower bounds.
-
-**Left panel (40%):**
-- Evidence-Bound Summary (a fixed template over the tool results; the model's notes, if any, are shown separately and only names are checked)
-- Risk card — score, label, 4-factor breakdown bars
-- Blast radius — clickable list; clicking a row dims all non-adjacent graph nodes
-- Tests to run — with `pytest` command and one-click copy; "**Finding: No test reaches this change**" when empty
-- Suggested reviewers — ranked by coverage + recency
-- Ask the graph — free-form questions answered by live Cypher
-
-**Right panel (60%):**
-- **Graph tab** — Cytoscape.js canvas (fcose layout); changed=red, callers=orange, tests=green; click any node to highlight its neighborhood (everything else dims to 20%); node size follows PageRank; capped at 150 nodes
-- **Graph OFF** — flat baseline view beside the graph answer
-- **Evidence tab** — every Cypher query with params, row count, duration, and a Copy button
-- **Benchmark tab** — metric bars (ImpactGraph vs baselines vs title/@mention heuristic), per-PR table, method & limitations
-
----
-
-## Benchmark results
-
-40 real merged PRs from `borgbase/vorta`, chosen by the written rule in [`benchmark/SELECTION_RULE.md`](benchmark/SELECTION_RULE.md). Ground truth is who actually reviewed each PR and which tests the PR actually touched. Full table: [`benchmark/results.md`](benchmark/results.md).
-
-| Method | Reviewer Hit@3 | Hit@5 | MRR | Test recall@5 |
-| --- | ---: | ---: | ---: | ---: |
-| **ImpactGraph** | 0.80 | 0.88 | 0.73 | 0.51 |
-| flat_commit_count | 0.83 | 0.88 | 0.72 | n/a |
-| most_recent_committer | 0.20 | 0.20 | 0.20 | n/a |
-| grep_imports | n/a | n/a | n/a | 0.57 |
-| same_name_test | n/a | n/a | n/a | 0.46 |
-| llm_only | 0.00 | 0.00 | 0.00 | 0.00 |
-
-**What this shows, honestly:** the graph is not the best at every single metric. A plain commit-count ranking is essentially equal to it on reviewers in this sample (Hit@3 0.83 vs 0.80, the same Hit@5, MRR 0.72 vs 0.73; one PR is worth 0.025, so I treat it as a tie), and a grep-imports heuristic beats it slightly on test recall. What the graph does is deliver both answers from one structure, reviewers and affected tests together, with a traceable path for each claim. No single baseline does both. The title/@mention heuristic baseline (a stand-in for an LLM with no graph evidence; no model is actually called) scores zero on both metrics. The benchmark maps each changed file to all of its functions (whole file), not to the changed hunks the demo uses, so its per-PR blast sizes are not comparable to the demo's numbers.
-
-Baselines compared:
-- **most_recent_committer**: last author to touch each changed file
-- **flat_commit_count**: authors ranked by raw commit count
-- **same_name_test**: `tests/test_<stem>.py` naming heuristic
-- **grep_imports**: test files importing changed modules
-- **Title/@mention heuristic** (code name `llm_only`; no model is called): title + @mention heuristic, zero graph evidence
-
-Test recall is measured over the PRs that actually edited tests.
-
-### Author identity mapping
-
-The graph stores git commit display names (for example "Manu"), while GitHub ground truth uses usernames (for example "m3nu"). Before mapping, every reviewer metric was 0.0 for every method because the two never matched. `benchmark/map_authors.py` resolves each commit email to a GitHub login via the GitHub commits API (90 of 95 unique author emails resolved; the rest fall back to the raw name). The result is saved in `benchmark/author_map.json`. These emails already appear in vorta's public git history.
-
-### Call-graph accuracy
-
-A 15-function spot check against the vorta source (seed 42, evidence in [`benchmark/spotcheck.md`](benchmark/spotcheck.md)) found no caller in the graph that is absent from the code. The graph is incomplete, though. It does not model:
-
-- **Constructor calls.** All 72 `__init__` methods show zero callers, so a change to a constructor looks uncalled.
-- **Qt signal connections.** A slot wired with `.connect(self.slot)` has no caller in the graph.
-- **Calls through attribute receivers**, such as `self._state.record_finish(...)`.
-- **Which class a shared method name reaches.** Same-named methods (for example the three `deliver` methods) share their callers.
-
-When the graph finds nothing, the report says so instead of claiming the change is safe.
-
-### Limits
-
-- 40 PRs from one repository, so small differences between methods are within noise.
-- Reviewers may be assigned for reasons other than expertise.
-- A PR that doesn't edit tests doesn't mean no test was needed.
-- Call graph links are name-based and approximate.
-
-Reviewer history is cut at each PR's base commit time. Test and blast-radius queries run on a single final snapshot of the repo (they take no timestamp), so absolute test recall may be optimistic for every method. The benchmark makes no claim of zero leakage.
-
----
-
-## Disclosure
-
-AI coding assistants (Google Antigravity, Cursor) were used in this project to accelerate development. All graph schema, query logic, risk formulas, and benchmark methodology were designed and reviewed by the team. The summary sentence is built by a fixed template. A Gemini model chooses which graph tools to run and may add notes; every fact comes from tool results.
-
 ---
 
 ## License
